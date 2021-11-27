@@ -1,38 +1,71 @@
 import React from "react";
-import SectionSwapCard from "./SectionSwapCard";
+import StudySwapCard from "./StudySwapCard";
 import icons from "../../../icons/Icons";
 import SwapRow from "./SwapRow";
 
 
-const SectionSwap = (props) => {
+const StudySwap = (props) => {
     return (
-        <div className="sec-swap">
+        <div className="stud-swap">
             <div className="swap-cards">
-                <SectionSwapCard provider_photo = {icons.user_photo} provider_name = "Mohammad Zulfikar Ali Mahbub"
+                <StudySwapCard provider_photo = {icons.user_photo} provider_name = "Mohammad Zulfikar Ali Mahbub"
                                  receiver_photo = {icons.user_photo} receiver_name = "G M Sohanur Rahman"
-                                 swap_course = "CSE425" swap_section = "1"
+                                 swap_course = "CSE425" swap_day = "MON" swap_time = "8:00 AM"
                 />
-                <SectionSwapCard provider_photo = {icons.user_photo} provider_name = "G M Sohanur Rahman"
+                <StudySwapCard provider_photo = {icons.user_photo} provider_name = "G M Sohanur Rahman"
                                  receiver_photo = {icons.user_photo} receiver_name = "Prioti Saha Tony"
-                                 swap_course = "CSE421" swap_section = "7"
+                                 swap_course = "CSE421" swap_day = "WED" swap_time = "9:30 AM"
                 />
-                <SectionSwapCard provider_photo = {icons.user_photo} provider_name = "Prioti Saha Tony"
+                <StudySwapCard provider_photo = {icons.user_photo} provider_name = "Prioti Saha Tony"
                                  receiver_photo = {icons.user_photo} receiver_name = "Md. Imtiyaz Bhuiyan"
-                                 swap_course = "CSE341" swap_section = "9"
+                                 swap_course = "CSE341" swap_day = "THU" swap_time = "2:00 PM"
                 />
-                <SectionSwapCard provider_photo = {icons.user_photo} provider_name = "Md. Imtiyaz Bhuiyan"
+                <StudySwapCard provider_photo = {icons.user_photo} provider_name = "Md. Imtiyaz Bhuiyan"
                                  receiver_photo = {icons.user_photo} receiver_name = "Mohammad Zulfikar Ali Mahbub"
-                                 swap_course = "CSE110" swap_section = "3"
+                                 swap_course = "CSE110" swap_day = "SAT" swap_time = "11:00 AM"
                 />
             </div>
             <div className={"swap-right-sidebar"}>
+                <div className="slot-container">
+                    <div className="table-slot-container">
+                        <div className="table-slot-scroll">
+                            <table className={"table-slot"}>
+                            <thead>
+                                <tr>
+                                    <td colSpan={"2"}>Available Slots</td>
+                                </tr>
+                            </thead>
+                            <SwapRow swap_rows = {["SAT | 11:00 AM", "MON | 8:00 AM", "WED | 12:30 PM", "SAT | 11:00 AM", "MON | 8:00 AM", "WED | 12:30 PM", "SAT | 11:00 AM", "MON | 8:00 AM", "WED | 12:30 PM", "SAT | 11:00 AM", "MON | 8:00 AM", "WED | 12:30 PM"]} swap_row_type = "sec-offer"
+                            />
+                            </table>
+                        </div>
+                    </div>
+                    <div className="slot-cbo-container">
+                        <select className={"cbo-slot-day"}>
+                            <option disabled selected>Day</option>
+                            <option>CSE110</option>
+                            <option>CSE111</option>
+                            <option>CSE220</option>
+                            <option>CSE221</option>
+                        </select>
+                        <select className={"cbo-slot-time"}>
+                            <option disabled selected>Time</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <button>Add</button>
+                </div>
                 <div className="offer-container">
                     <div className="table-op-container">
                         <div className="table-op-scroll">
                             <table className={"table-op"}>
                             <thead>
                                 <tr>
-                                    <td colSpan={"2"}>Offer</td>
+                                    <td colSpan={"2"}>Teach</td>
                                 </tr>
                             </thead>
                             <SwapRow swap_rows = {["CSE110 (2)", "CSE391 (3)", "ENG102 (2)", "PHY112 (1)", "PSY103 (1)", "CSE110 (2)", "CSE391 (3)", "ENG102 (2)", "PHY112 (1)", "PSY103 (1)"]} swap_row_type = "sec-offer"
@@ -62,7 +95,7 @@ const SectionSwap = (props) => {
                         <table className={"table-op"}>
                             <thead>
                                 <tr>
-                                    <td colSpan={"2"}>Prefer</td>
+                                    <td colSpan={"2"}>Learn</td>
                                 </tr>
                             </thead>
                             <SwapRow swap_rows = {["CSE110 (3)", "CSE391 (1)", "ENG102 (12)"]} swap_row_type = "sec-prefer"
@@ -91,4 +124,4 @@ const SectionSwap = (props) => {
     )
 }
 
-export default SectionSwap;
+export default StudySwap;

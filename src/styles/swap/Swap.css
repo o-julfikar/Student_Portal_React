@@ -16,8 +16,16 @@
     /*animation: fadeIn 1s;*/
 }
 
-.swap-left-sidebar > button {
+.swap-nav-link button {
     background: #C4C4C4;
+}
+
+.swap-nav-link-active button {
+    background: #707070;
+}
+
+.swap-nav-link button,
+.swap-nav-link-active button {
     width: calc(100% - 20px);
     min-height: 50px;
     margin: 20px 10px 0;
@@ -28,15 +36,15 @@
     transition: 0.3s;
 }
 
-.swap-left-sidebar > button:last-of-type {
-    margin-bottom: 20px;
+.swap-left-sidebar nav button:last-of-type {
+    /*margin-bottom: 20px;*/
 }
 
-.swap-left-sidebar > button:hover {
+.swap-left-sidebar nav button:hover {
     background: #777777;
 }
 
-.swap-left-sidebar > button:active {
+.swap-left-sidebar nav button:active {
     background: #707070;
 }
 
@@ -82,6 +90,12 @@
     background: #0A66C2;
 }
 
+.sec-swap,
+.stud-swap {
+    display: flex;
+    width: 100%;
+}
+
 .swap-cards {
     margin: 20px auto;
 }
@@ -104,12 +118,12 @@
     background: #EFEFEF;
 }
 
-.swap-right-sidebar :not(:first-child) {
+.swap-right-sidebar > :not(:first-child) {
     margin-top: 30px;
 }
 
-.prefer-container :not(:first-child),
-.offer-container :not(:first-child) {
+.prefer-container > :not(:first-child),
+.offer-container > :not(:first-child) {
     margin-top: 10px;
 }
 
@@ -118,29 +132,28 @@
     width: 100%;
 }
 
-.table-op-container {
+.table-op-container,
+.table-slot-container {
     width: 100%;
     height: 200px;
     border-radius: 10px;
     background: #dddddd;
     overflow: hidden;
-    /*padding: 2px 0;*/
 }
 
-.table-op-scroll {
+.table-op-scroll,
+.table-slot-scroll {
     overflow: auto;
-    /*height: 100%;*/
     height: 200px;
 }
 
-.table-op-scroll::-webkit-scrollbar {
-    /*background: #0A66C2;*/
+.table-op-scroll::-webkit-scrollbar,
+.table-slot-scroll::-webkit-scrollbar {
     width: 0.5em;
     scroll-behavior: smooth !important;
 }
 
 .table-op-scroll::-webkit-scrollbar-track {
-    /*background: #0A66C2;*/
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -149,7 +162,17 @@
     border-radius: 20px !important;
 }
 
-.table-op {
+.table-slot-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #BD2021FF !important;
+}
+
+.table-slot-scroll::-webkit-scrollbar-thumb {
+    background: #ff4949 !important;
+    border-radius: 20px !important;
+}
+
+.table-op,
+.table-slot {
     border-collapse: collapse;
     border-radius: 10px;
     height: 150px;
@@ -157,30 +180,46 @@
     width: 100%;
 }
 
-.table-op thead {
+.table-op thead,
+.table-slot thead {
     position: sticky;
     top: 0;
 }
 
-.table-op thead tr td {
+.table-op thead tr td,
+.table-slot thead tr td {
     padding: 10px;
-    background: #C4C4C4;
     border-radius: 10px 0 0 0;
     text-align: center;
 }
 
-.table-op tbody tr td:first-child {
+.table-op thead tr td {
+    background: #C4C4C4;
+}
+
+.table-slot thead tr td {
+    background: #BD1717;
+    color: #FFFFFF;
+}
+
+.table-op tbody tr td:first-child,
+.table-slot tbody tr td:first-child {
     padding: 0 0;
     text-indent: 10px;
 }
 
-.table-op tbody tr td {
+.table-op tbody tr td,
+.table-slot tbody tr td {
     padding: 5px 0;
     height: 30px;
 }
 
 .table-op tbody tr:hover {
     background: #55B1D8;
+}
+
+.table-slot tbody tr:hover {
+    background: #bd202110;
 }
 
 .table-op tbody tr td:last-child {
@@ -207,7 +246,9 @@
 .offer-container select:active,
 .offer-container select:focus,
 .prefer-container select:active,
-.prefer-container select:focus {
+.prefer-container select:focus,
+.slot-container select:active,
+.slot-container select:focus {
     border-radius: 10px 10px 0 0;
 }
 
@@ -224,14 +265,41 @@
     transition: 0.3s;
 }
 
-.offer-container > button:hover,
-.prefer-container > button:hover {
-    background: #2874AB;
+.slot-container select {
+    text-indent: 10px;
+    min-height: 50px;
+    /*border: none;*/
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.offer-container > button:active,
-.prefer-container > button:active {
-    background: #0A66C2;
+.slot-container button {
+    background: #BD1717;
+    color: #FFFFFF;
+    width: calc(100%);
+    min-height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slot-container > button:hover {
+    background: #9f0505;
+}
+
+.slot-container > button:active {
+    background: #c90809;
+}
+
+.slot-cbo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    justify-items: center;
 }
 
 @keyframes fadeIn {

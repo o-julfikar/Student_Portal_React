@@ -34,9 +34,16 @@
     transform: translateX(-50%);
     width: 400px;
     height: 40px;
+}
+
+.mid-nav nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.mid-nav nav a {
+    line-height: 0;
 }
 
 .mid-nav svg {

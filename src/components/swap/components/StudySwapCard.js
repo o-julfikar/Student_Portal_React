@@ -1,18 +1,18 @@
-import "../../../styles/swap/StudySwapCard.css"
+import "../../../styles/swap/SectionSwapCard.css"
 import React from "react";
 import {RightArrowIco} from "../../../icons/IconsSelect";
 
-const SectionSwapCard = (props) => {
+const StudySwadCard = (props) => {
     return (
-        <div className="sec-swap-card">
+        <div className="stud-swap-card">
             <div className="provider-container">
                 <img src={props.provider_photo} alt="Provider"/>
                 <p>{props.provider_name}</p>
             </div>
-            <div className="section-container">
+            <div className="course-container">
                 <h2>{props.swap_course}</h2>
                 <RightArrowIco />
-                <p>Section {props.swap_section}</p>
+                <p>{props.swap_time} | {props.swap_day}</p>
             </div>
             <div className="receiver-container">
                 <img src={props.receiver_photo} alt="Receiver"/>
@@ -22,4 +22,4 @@ const SectionSwapCard = (props) => {
     );
 }
 
-export default SectionSwapCard;
+export default StudySwadCard;
