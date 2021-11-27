@@ -1,0 +1,36 @@
+.forum {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeIn 0.3s, fromLeft 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        left: 100px;
+    }
+    to {
+        left: 0;
+    }
+}

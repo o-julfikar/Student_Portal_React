@@ -1,0 +1,77 @@
+.review {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    animation: fadeIn 0.3s, fromRight 0.3s;
+}
+
+.review-sidebar {
+    position: fixed;
+    border-right: 1px solid #707070;
+    min-width: 200px;
+    height: 100%;
+    /*animation: fadeIn 1s;*/
+}
+
+.review-cards {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review-sidebar button {
+    background: #C4C4C4;
+    width: calc(100% - 20px);
+    min-height: 50px;
+    margin: 20px 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review-sidebar button:hover {
+    background: #777777;
+}
+
+.review-sidebar button:active {
+    background: #707070;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        left: 100px;
+    }
+    to {
+        left: 0;
+    }
+}

@@ -1,0 +1,116 @@
+.review-card {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: flex;
+    width: 610px;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.rc-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    justify-content: space-between;
+}
+
+.rc-left > img {
+    height: 128px;
+    width: 128px;
+}
+
+.rc-stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.rc-stars img {
+    width: 30px;
+    height: 30px;
+}
+
+.rc-left button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #0F5D88;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.rc-left button:hover,
+.rc-sneak button:hover {
+    background: #2874AB;
+}
+
+.rc-left button:active,
+.rc-sneak button:active {
+    background: #0A66C2;
+}
+
+.rc-right {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    margin-left: 10px;
+    width: calc(100% - 20px);
+}
+
+.rc-right h2 {
+    margin: 0 0 5px 0;
+    color: #222222;
+}
+
+.rc-right h3 {
+    margin: 0 0 5px 0;
+    color: #222222;
+}
+
+.rc-sneak {
+    border-left: 1px solid #707070;
+    min-height: calc(100% - 60px);
+    position: relative;
+}
+
+.rc-sneak-card {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.sc-data {
+    margin-left: 10px;
+}
+
+.sc-course {
+    margin: 0;
+     font-size: 18px;
+}
+
+.sc-content {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.rc-sneak button {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 100px;
+    height: 35px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background: #0F5D88;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}

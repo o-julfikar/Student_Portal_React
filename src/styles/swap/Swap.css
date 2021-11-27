@@ -1,0 +1,271 @@
+.swap {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    animation: fadeIn 0.3s, fromRight 0.3s;
+}
+
+.swap-left-sidebar {
+    position: fixed;
+    border-right: 1px solid #707070;
+    min-width: 200px;
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    background: #EFEFEF;
+    /*animation: fadeIn 1s;*/
+}
+
+.swap-left-sidebar > button {
+    background: #C4C4C4;
+    width: calc(100% - 20px);
+    min-height: 50px;
+    margin: 20px 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.swap-left-sidebar > button:last-of-type {
+    margin-bottom: 20px;
+}
+
+.swap-left-sidebar > button:hover {
+    background: #777777;
+}
+
+.swap-left-sidebar > button:active {
+    background: #707070;
+}
+
+.swap-controls {
+    margin: auto 10px 20px;
+}
+
+.swap-controls select {
+    /*padding-left: 10px;*/
+    width: calc(100%);
+    text-indent: 10px;
+    min-height: 50px;
+    /*border: none;*/
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.swap-controls select:active,
+.swap-controls select:focus {
+    border-radius: 10px 10px 0 0;
+}
+
+.swap-controls button {
+    background: #0F5D88;
+    color: #FFFFFF;
+    width: calc(100%);
+    min-height: 50px;
+    border: none;
+    margin: 5px 0 0;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.swap-controls > button:hover {
+    background: #2874AB;
+}
+
+.swap-controls > button:active {
+    background: #0A66C2;
+}
+
+.swap-cards {
+    margin: 20px auto;
+}
+
+.swap-cards > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.swap-right-sidebar {
+    position: fixed;
+    right: 0;
+    border-left: 1px solid #707070;
+    min-width: 200px;
+    height: calc(100% - 110px);
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    background: #EFEFEF;
+}
+
+.swap-right-sidebar :not(:first-child) {
+    margin-top: 30px;
+}
+
+.prefer-container :not(:first-child),
+.offer-container :not(:first-child) {
+    margin-top: 10px;
+}
+
+.prefer-container > *,
+.offer-container > * {
+    width: 100%;
+}
+
+.table-op-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    background: #dddddd;
+    overflow: hidden;
+    /*padding: 2px 0;*/
+}
+
+.table-op-scroll {
+    overflow: auto;
+    /*height: 100%;*/
+    height: 200px;
+}
+
+.table-op-scroll::-webkit-scrollbar {
+    /*background: #0A66C2;*/
+    width: 0.5em;
+    scroll-behavior: smooth !important;
+}
+
+.table-op-scroll::-webkit-scrollbar-track {
+    /*background: #0A66C2;*/
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.table-op-scroll::-webkit-scrollbar-thumb {
+    background: darkgray !important;
+    border-radius: 20px !important;
+}
+
+.table-op {
+    border-collapse: collapse;
+    border-radius: 10px;
+    height: 150px;
+    max-height: 150px;
+    width: 100%;
+}
+
+.table-op thead {
+    position: sticky;
+    top: 0;
+}
+
+.table-op thead tr td {
+    padding: 10px;
+    background: #C4C4C4;
+    border-radius: 10px 0 0 0;
+    text-align: center;
+}
+
+.table-op tbody tr td:first-child {
+    padding: 0 0;
+    text-indent: 10px;
+}
+
+.table-op tbody tr td {
+    padding: 5px 0;
+    height: 30px;
+}
+
+.table-op tbody tr:hover {
+    background: #55B1D8;
+}
+
+.table-op tbody tr td:last-child {
+    text-align: center;
+    min-width: 15px;
+    /*height: 20px;*/
+}
+
+.table-op tbody tr td:empty {
+    border: none;
+}
+
+.offer-container select,
+.prefer-container select {
+    text-indent: 10px;
+    min-height: 50px;
+    /*border: none;*/
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.offer-container select:active,
+.offer-container select:focus,
+.prefer-container select:active,
+.prefer-container select:focus {
+    border-radius: 10px 10px 0 0;
+}
+
+.offer-container button,
+.prefer-container button {
+    background: #0F5D88;
+    color: #FFFFFF;
+    width: calc(100%);
+    min-height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.offer-container > button:hover,
+.prefer-container > button:hover {
+    background: #2874AB;
+}
+
+.offer-container > button:active,
+.prefer-container > button:active {
+    background: #0A66C2;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        left: 100px;
+    }
+    to {
+        left: 0;
+    }
+}

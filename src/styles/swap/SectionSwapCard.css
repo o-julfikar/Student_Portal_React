@@ -1,0 +1,64 @@
+.sec-swap-card {
+    /*background: #FFFFFF;*/
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    width: 610px;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sec-swap-card > div:not(.section-container) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 150px;
+}
+
+.provider-container {
+
+}
+
+.receiver-container {
+    /*position: absolute;*/
+    /*float: right;*/
+    /*right: 20px;*/
+}
+
+.provider-container img,
+.receiver-container img {
+    width: 128px;
+    height: 128px;
+}
+
+.provider-container p,
+.receiver-container p {
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+.section-container {
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+}
+
+.section-container h2,
+.section-container p {
+    margin: 0;
+}
+
+.section-container svg {
+    color: #555555;
+    width: 100px ;
+}

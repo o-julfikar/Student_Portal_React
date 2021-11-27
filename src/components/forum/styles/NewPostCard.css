@@ -1,0 +1,49 @@
+.new-post-card {
+    background: #e4e4e4;
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    width: 610px;
+    height: 100px;
+    min-height: 100px;
+    padding: 20px;
+    position: relative;
+}
+
+.new-post-card textarea {
+    width: calc(100% - 100px);
+    height: 100%;
+    background: inherit;
+    resize: none;
+    border: none;
+    font-size: 18px;
+    display: inline;
+}
+
+.new-post-card textarea:focus {
+    outline: none;
+}
+
+.new-post-card button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    background: #0F5D88;
+    font-family: serif;
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.new-post-card button:hover {
+    background: #2874AB;
+}
+
+.new-post-card button:active {
+    background: #0A66C2;
+}

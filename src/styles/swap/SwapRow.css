@@ -1,0 +1,11 @@
+tr td svg {
+    cursor: pointer;
+}
+
+tr td svg:hover {
+    fill: #E75858;
+}
+
+tr td svg:active {
+    fill: #dd4444;
+}

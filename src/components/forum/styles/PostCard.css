@@ -1,0 +1,67 @@
+.post-card {
+    background: #FFFFFF;
+    width: 650px;
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.pc-header {
+    background: #EFEFEF;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.pc-head-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.pc-header img {
+    width: 40px;
+    height: 40px;
+}
+
+.pc-header-info {
+    margin-left: 10px;
+}
+
+.pc-header-info p,
+.pc-header-info h2 {
+    margin: 0px 0px;
+    font-family: serif;
+}
+
+.pc-head-username {
+    color: #222222;
+}
+
+.pc-head-semester,
+.pc-head-post-date {
+    color: #707070;
+}
+
+.pc-header-more-button {
+    display: inline;
+    transition: 0.3s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.pc-header-more-button:hover {
+    transform: rotate(90deg);
+    background: #FFFFFF;
+}
+
+.pc-content {
+
+}
+
+.pc-content p {
+    padding: 0 20px;
+    color: #333333;
+}

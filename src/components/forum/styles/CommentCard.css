@@ -1,0 +1,84 @@
+.comment-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.comment-data {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-data > img {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.comment-data > img:hover .cd-info > .cdi-header > .cd-user-name {
+    color: #0A66C2;
+    background: #222222;
+}
+
+.cd-info {
+    margin-left: 10px;
+}
+
+.cd-info p {
+    margin: 0;
+}
+
+.cd-user-name {
+    color: #222222;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cd-user-name:hover {
+    color: #0A66C2;
+}
+
+.cd-content {
+    color: #222222;
+    font-size: 14px;
+    margin-top: 5px !important;
+}
+
+.cdi-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+}
+
+.cd-date {
+    color: #555555;
+    margin-left: 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.cd-date:hover {
+
+}
+
+.comment-interaction-box {
+
+}
+
+.comment-interaction-box img {
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.comment-interaction-box img:hover {
+    background: #dadada;
+}
