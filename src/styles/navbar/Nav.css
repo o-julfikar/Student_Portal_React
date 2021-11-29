@@ -91,12 +91,22 @@
     margin-right: 10px;
     padding: 2px;
     border-radius: 20px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.user-header:hover {
+.user-header:hover,
+.active .user-header {
     background: #55B1D8;
-    cursor: pointer;
+}
+
+.user-header:active {
+    background: #2891b6;
+}
+
+.right-nav ul li a {
+    text-decoration: none;
+    color: #222222;
 }
 
 .user-header p {

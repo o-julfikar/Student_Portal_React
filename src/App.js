@@ -1,6 +1,5 @@
 import './App.css';
 import "./index.css"
-// import {Route} from "react-router-dom";
 import {Routes, Route, Navigate} from "react-router";
 import Nav from "./components/navbar/Nav";
 import Forum from "./components/forum/Forum";
@@ -9,6 +8,7 @@ import Review from "./components/review/Review";
 import Swap from "./components/swap/Swap";
 import StudySwap from "./components/swap/components/StudySwap";
 import SectionSwap from "./components/swap/components/SectionSwap";
+import Profile from "./components/profile/Profile";
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
                 <Route exact path={"study"} element = {<StudySwap />}/>
             </Route>
             <Route exact path = "/notifications" element = {<Notifications/>} />
+            <Route path = "/profile" element = {<Profile />}/>
         </Routes>
     </div>
   );

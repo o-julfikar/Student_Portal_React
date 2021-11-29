@@ -1,8 +1,7 @@
 import "../../styles/swap/Swap.css"
 import React from "react";
-import {NavLink, Outlet, Route, Routes} from "react-router-dom";
-import SectionSwap from "./components/SectionSwap";
-import StudySwap from "./components/StudySwap";
+import {NavLink} from "react-router-dom";
+import {Outlet} from "react-router";
 
 
 const Swap = () => {
@@ -10,8 +9,8 @@ const Swap = () => {
         <div className={"swap"}>
             <div className={"swap-left-sidebar"}>
                 <nav>
-                    <NavLink exact to={"section"} className={({isActive}) => "swap-nav-link" + (isActive? "-active":"")}><button>Section Swap</button></NavLink>
-                    <NavLink exact to={"study"} className={({isActive}) => "swap-nav-link" + (isActive? "-active":"")}><button>Study Swap</button></NavLink>
+                    <NavLink exact to={"section"} className={({isActive}) => "swap-nav-link-button swap-nav-link" + (isActive? "-active":"")}><button>Section Swap</button></NavLink>
+                    <NavLink exact to={"study"} className={({isActive}) => "swap-nav-link-button swap-nav-link" + (isActive? "-active":"")}><button>Study Swap</button></NavLink>
                 </nav>
                 <div className="swap-controls">
                     <select className={"cbo-section"}>

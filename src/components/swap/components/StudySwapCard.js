@@ -1,4 +1,4 @@
-import "../../../styles/swap/SectionSwapCard.css"
+import "../../../styles/swap/StudySwapCard.css"
 import React from "react";
 import {RightArrowIco} from "../../../icons/IconsSelect";
 

@@ -1,0 +1,131 @@
+.notifications {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    animation: fadeIn 0.3s, fromRight 0.3s;
+}
+
+.noti-left-sidebar {
+    position: fixed;
+    border-right: 1px solid #707070;
+    min-width: 200px;
+    height: 100%;
+    /*animation: fadeIn 1s;*/
+}
+
+.noti-groups {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.noti-cards {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.noti-groups > h3 {
+    margin: 0 0 10px;
+}
+
+.noti-groups > h3:not(:first-child) {
+    margin-top: 25px;
+}
+
+.noti-right-sidebar {
+    position: fixed;
+    right: 0;
+    border-left: 1px solid #707070;
+    min-width: 200px;
+    height: calc(100% - 110px);
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background: #EFEFEF;
+}
+
+.noti-right-sidebar > :not(:first-child) {
+    margin-top: 30px;
+}
+
+.noti-right-sidebar label p {
+    margin: 0 0 5px 0;
+}
+
+.noti-right-sidebar label input,
+.noti-right-sidebar label select {
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #707070;
+    padding: 0 10px;
+}
+
+.noti-right-sidebar label input {
+    width: calc(100% - 20px);
+}
+
+.noti-right-sidebar label select {
+    width: calc(100%);
+}
+
+.noti-right-sidebar button {
+    min-height: 44px;
+    background: #0F5D88;
+    color: #FFFFFF;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.noti-right-sidebar button:hover {
+    background: #0566AF;
+}
+
+.noti-right-sidebar button:active {
+    background: #2874AB;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        left: 100px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+

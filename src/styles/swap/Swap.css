@@ -17,18 +17,17 @@
 }
 
 .swap-nav-link button {
-    background: #C4C4C4;
+    /*background: #C4C4C4;*/
 }
 
 .swap-nav-link-active button {
-    background: #707070;
+    background: #C4C4C4;
 }
 
 .swap-nav-link button,
 .swap-nav-link-active button {
     width: calc(100% - 20px);
-    min-height: 50px;
-    margin: 20px 10px 0;
+    min-height: 40px;
     border: none;
     border-radius: 10px;
     font-size: 18px;
@@ -36,15 +35,24 @@
     transition: 0.3s;
 }
 
+.swap-nav-link button:first-child,
+.swap-nav-link-active button:first-child {
+    margin: 20px 10px 0;
+}
+
+.swap-nav-link-button:not(:first-child) button {
+    margin: 5px 10px 0;
+}
+
 .swap-left-sidebar nav button:last-of-type {
     /*margin-bottom: 20px;*/
 }
 
-.swap-left-sidebar nav button:hover {
-    background: #777777;
+.swap-nav-link button:hover {
+    background: #e0e0e0;
 }
 
-.swap-left-sidebar nav button:active {
+.swap-nav-link button:active {
     background: #707070;
 }
 
@@ -56,7 +64,7 @@
     /*padding-left: 10px;*/
     width: calc(100%);
     text-indent: 10px;
-    min-height: 50px;
+    min-height: 40px;
     /*border: none;*/
     border-radius: 10px;
     font-size: 18px;
@@ -73,7 +81,7 @@
     background: #0F5D88;
     color: #FFFFFF;
     width: calc(100%);
-    min-height: 50px;
+    min-height: 40px;
     border: none;
     margin: 5px 0 0;
     border-radius: 10px;
@@ -123,7 +131,8 @@
 }
 
 .prefer-container > :not(:first-child),
-.offer-container > :not(:first-child) {
+.offer-container > :not(:first-child),
+.slot-container > :not(:first-child) {
     margin-top: 10px;
 }
 
@@ -135,16 +144,25 @@
 .table-op-container,
 .table-slot-container {
     width: 100%;
-    height: 200px;
     border-radius: 10px;
     background: #dddddd;
     overflow: hidden;
 }
 
+.sec-swap .table-op-container {
+    height: 250px;
+    min-height: 200px;
+}
+
+.table-slot-container,
+.stud-swap .table-op-container{
+    height: 200px;
+}
+
 .table-op-scroll,
 .table-slot-scroll {
     overflow: auto;
-    height: 200px;
+    height: 100%;
 }
 
 .table-op-scroll::-webkit-scrollbar,
@@ -215,7 +233,7 @@
 }
 
 .table-op tbody tr:hover {
-    background: #55B1D8;
+    background: rgba(85, 189, 189, 0.4);
 }
 
 .table-slot tbody tr:hover {
@@ -235,7 +253,7 @@
 .offer-container select,
 .prefer-container select {
     text-indent: 10px;
-    min-height: 50px;
+    min-height: 40px;
     /*border: none;*/
     border-radius: 10px;
     font-size: 18px;
@@ -246,7 +264,10 @@
 .offer-container select:active,
 .offer-container select:focus,
 .prefer-container select:active,
-.prefer-container select:focus,
+.prefer-container select:focus {
+    border-radius: 10px 10px 0 0;
+}
+
 .slot-container select:active,
 .slot-container select:focus {
     border-radius: 10px 10px 0 0;
@@ -257,7 +278,7 @@
     background: #0F5D88;
     color: #FFFFFF;
     width: calc(100%);
-    min-height: 50px;
+    min-height: 40px;
     border: none;
     border-radius: 10px;
     font-size: 18px;
@@ -267,19 +288,25 @@
 
 .slot-container select {
     text-indent: 10px;
-    min-height: 50px;
-    /*border: none;*/
+    min-height: 40px;
+    border: 1px solid #BD1717;
+    color: #BD1717;
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
+    width: calc(50% - 5px);
+}
+
+.slot-container select:not(:first-child) {
+    margin-left: 10px;
 }
 
 .slot-container button {
     background: #BD1717;
     color: #FFFFFF;
     width: calc(100%);
-    min-height: 50px;
+    min-height: 40px;
     border: none;
     border-radius: 10px;
     font-size: 18px;

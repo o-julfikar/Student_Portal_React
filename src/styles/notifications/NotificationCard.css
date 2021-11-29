@@ -1,0 +1,71 @@
+.noti-card {
+    background: rgba(239, 239, 239, 0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.noti-card:hover {
+    background: rgba(5, 102, 175, 0.3);
+}
+
+.read:hover {
+    background: rgba(200, 200, 200, 0.3);
+}
+
+.noti-card:active {
+    background: rgba(5, 102, 175, 0.2);
+}
+
+.read:active {
+    background: rgba(239, 239, 239, 0.2);
+}
+
+.noti-card > svg {
+    height: 10px;
+    width: 10px;
+}
+.noti-card > img {
+    height: 40px;
+    width: 40px;
+}
+
+.noti-card > :not(:last-child) {
+    margin-right: 10px;
+}
+
+.noti-card > :last-child {
+    margin-left: auto;
+}
+
+.noti-data {
+    align-self: flex-start;
+}
+
+.noti-data > * {
+    margin: 0;
+}
+
+.noti-data > :not(:first-child) {
+    margin-top: 2px;
+}
+
+.noti-card .noti-date {
+    font-size: 12px;
+    color: #0566AF;
+}
+
+.noti-card .noti-msg {
+    font-size: 18px;
+}
+
+.read .noti-date {
+    font-size: 12px;
+    color: #707070;
+}
+
+.read .noti-msg {
+    color: #555555;
+}

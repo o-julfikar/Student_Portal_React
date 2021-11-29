@@ -123,11 +123,20 @@ const CrossIco = () => {
     )
 }
 
+const NotiReadSwitchIco = (props) => {
+    return (
+        <svg viewBox="0 0 10 10">
+            <circle cx="5" cy="5" r="5" fill={props.color}/>
+        </svg>
+    )
+}
+
 export {
     ForumIco,
     ReviewIco,
     SwapIco,
     NotificationIco,
     RightArrowIco,
-    CrossIco
+    CrossIco,
+    NotiReadSwitchIco
 };

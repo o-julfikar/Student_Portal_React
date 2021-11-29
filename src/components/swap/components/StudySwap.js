@@ -43,18 +43,25 @@ const StudySwap = (props) => {
                     <div className="slot-cbo-container">
                         <select className={"cbo-slot-day"}>
                             <option disabled selected>Day</option>
-                            <option>CSE110</option>
-                            <option>CSE111</option>
-                            <option>CSE220</option>
-                            <option>CSE221</option>
+                            <option>SAT</option>
+                            <option>SUN</option>
+                            <option>MON</option>
+                            <option>TUE</option>
+                            <option>WED</option>
+                            <option>THU</option>
+                            <option>FRI</option>
                         </select>
                         <select className={"cbo-slot-time"}>
                             <option disabled selected>Time</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>8:00 AM</option>
+                            <option>9:30 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:30 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:30 PM</option>
+                            <option>5:00 PM</option>
+                            <option>6:30 PM</option>
+                            <option>8:00 PM</option>
                         </select>
                     </div>
                     <button>Add</button>
