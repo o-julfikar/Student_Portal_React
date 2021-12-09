@@ -5,7 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    animation: fadeIn 0.3s, fromLeft 0.3s;
+    animation: fadeIn 0.3s, fromLeft 0.1s;
 }
 
 .post-cards {

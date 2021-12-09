@@ -41,14 +41,14 @@ const SectionSwap = (props) => {
                         </div>
                     </div>
                     <select className={"cbo-op-course"}>
-                        <option disabled selected>Course</option>
+                        <option disabled defaultValue>Course</option>
                         <option>CSE110</option>
                         <option>CSE111</option>
                         <option>CSE220</option>
                         <option>CSE221</option>
                     </select>
                     <select className={"cbo-op-section"}>
-                        <option disabled selected>Section</option>
+                        <option disabled defaultValue>Section</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -69,15 +69,15 @@ const SectionSwap = (props) => {
                             />
                         </table>
                     </div>
-                    <select className={"cbo-op-course"}>
-                        <option disabled selected>Course</option>
+                    <select className={"cbo-op-course"} defaultValue={"Course"}>
+                        <option disabled>Course</option>
                         <option>CSE110</option>
                         <option>CSE111</option>
                         <option>CSE220</option>
                         <option>CSE221</option>
                     </select>
-                    <select className={"cbo-op-section"}>
-                        <option disabled selected>Section</option>
+                    <select className={"cbo-op-section"} defaultValue={"Section"}>
+                        <option disabled>Section</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>

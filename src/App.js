@@ -9,23 +9,30 @@ import Swap from "./components/swap/Swap";
 import StudySwap from "./components/swap/components/StudySwap";
 import SectionSwap from "./components/swap/components/SectionSwap";
 import Profile from "./components/profile/Profile";
-import AccountPopup from "./components/AccountPopup";
+import {useState} from "react";
 
 
 function App() {
+    let section = [0, 0];
+
+    const customNav = (newNavIndex) => {
+        section[0] = section[1];
+        section[1] = newNavIndex;
+    }
+
     return (
-        <div className="App">
+        <div className={"App"}>
             <Nav/>
             <Routes>
-                <Route exact path="/" element={<Forum/>}/>
-                <Route exact path="/review" element={<Review/>}/>
-                <Route exact path="/swap" element={<Swap/>}>
+                <Route exact path="/" element={<Forum setSection = {customNav} section = {section}/>}/>
+                <Route exact path="/review" element={<Review customNav = {customNav} section = {section}/>}/>
+                <Route exact path="/swap" element={<Swap customNav = {customNav} section = {section}/>}>
                     <Route exact path={""} element={<Navigate replace to={"section"}/>}/>
                     <Route exact path={"section"} element={<SectionSwap/>}/>
                     <Route exact path={"study"} element={<StudySwap/>}/>
                 </Route>
-                <Route exact path="/notifications" element={<Notifications/>}/>
-                <Route path="/profile" element={<Profile/>}/>
+                <Route exact path="/notifications" element={<Notifications setSection = {customNav} section = {section}/>}/>
+                <Route path="/profile" element={<Profile setSection = {customNav} section = {section}/>}/>
             </Routes>
         </div>
     );

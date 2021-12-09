@@ -1,4 +1,5 @@
 .profile {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,13 +7,19 @@
     padding: 20px 20px 0;
 }
 
+.transition-helper-0 .profile,
+.transition-helper-1 .profile,
+.transition-helper-2 .profile,
+.transition-helper-3 .profile {
+    animation: fadeIn 0.3s, fromRight 0.1s;
+}
+
+
 .prof-header {
     width: 100%;
-    /*background: #2891b6;*/
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background: #2891b6;*/
 }
 
 .ph-top {
@@ -107,7 +114,7 @@
 
 .ph-name p {
     font-size: 18px;
-    margin: 5px 0 0;
+    margin: 0;
 }
 
 .ph-top-footer {
@@ -115,22 +122,25 @@
 }
 
 .ph-top-footer .ph-label {
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 .ph-bottom {
     width: 680px;
     max-height: 70px;
-    background: #FFFFFF;
-    border-radius: 0 0 5px 20px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    background: rgb(163, 232, 255);
+    border-radius: 0 0 5px 5px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     overflow: auto;
     padding: 10px;
-    font-family: monospace;
-    border: 1px solid #707070;
+    border: 1px solid #dadada;
+}
+
+.ph-bottom table tr td {
+    font-family: monospace, sans-serif;
 }
 
 .ph-bottom::-webkit-scrollbar {
@@ -144,7 +154,7 @@
 }
 
 .ph-bottom::-webkit-scrollbar-thumb {
-    background: darkgray;
+    background: rgb(22, 64, 80);
     border-radius: 20px;
 }
 
@@ -176,4 +186,40 @@
 
 .profile .post-card:not(:first-child) {
     margin-top: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        left: 100px;
+    }
+    to {
+        left: 0;
+    }
 }

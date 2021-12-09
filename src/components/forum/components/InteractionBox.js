@@ -7,7 +7,7 @@ import "../styles/InteractionBox.css"
 const InteractionBox = (props) => {
     let commentCards = []
     for (let i = 0; i < props.cd_data.length; i++) {
-        commentCards.push(<CommentCard data = {props.cd_data[i]} />)
+        commentCards.push(<CommentCard key = {i} data = {props.cd_data[i]} />)
     }
     return (
         <div className={"interaction-box"}>

@@ -1,7 +1,7 @@
 .post-card {
     background: #FFFFFF;
     width: 650px;
-    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     margin: 20px 0;
 }
@@ -33,11 +33,17 @@
 .pc-header-info p,
 .pc-header-info h2 {
     margin: 0px 0px;
-    font-family: serif;
 }
 
 .pc-head-username {
     color: #222222;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pc-head-username:hover {
+    color: #0A66C2;
 }
 
 .pc-head-semester,

@@ -2,7 +2,16 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    animation: fadeIn 0.3s, fromRight 0.3s;
+}
+
+.transition-helper-0 .review {
+    animation: fadeIn 0.3s, fromRight 0.1s;
+}
+
+.transition-helper-2 .review,
+.transition-helper-3 .review,
+.transition-helper-4 .review {
+    animation: fadeIn 0.3s, fromLeft 0.1s;
 }
 
 .review-sidebar {

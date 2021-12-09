@@ -7,16 +7,21 @@ import AccountPopup from "../../AccountPopup";
 
 const RightNav = () => {
     const [open, setOpen] = useState(false);
+
+    function close() {
+        setTimeout(() => setOpen(false), 200);
+    }
+
     return (
         <div className={"right-nav"}>
             <ul>
-                <li className={"header-more-button"}>
+                <li className={"header-more-button" + (open? " open" : "")}>
                     <img src={more_button} alt={"More Button"} onClick={() => setOpen(!open)}/>
-                    { open && <AccountPopup/> }
+                    { open && <AccountPopup close = {close}/> }
                 </li>
                 <li>
                     <NavLink to={"profile"}>
-                        <nav className={"user-header"}>
+                        <nav className={"user-header" + (open? " open" : "")}>
                             <img src={user_photo} alt={"User profile"}/>
                             <p>Mohammad Zulfikar Ali Mahbub</p>
                         </nav>

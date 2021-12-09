@@ -5,9 +5,9 @@ import RCSneakCard from "./RCSneakCard";
 
 const ReviewCard = (props) => {
     let stars = [], sneakCards = [];
-    for (let i = 0; i < Math.ceil(props.review_point); i++) stars.push(<img src={icons.star_yellow} alt={"Bright Star"}/>)
-    for (let i = stars.length - 1; i < 4; i++) stars.push(<img src={icons.star_gray} alt={"Dull Star"}/>)
-    for (let sneakCard of props.sneakCards) sneakCards.push(<RCSneakCard sneak_data = {sneakCard}/>);
+    for (let i = 0; i < Math.ceil(props.review_point); i++) stars.push(<img key = {i} src={icons.star_yellow} alt={"Bright Star"}/>)
+    for (let i = stars.length - 1; i < 4; i++) stars.push(<img key = {i + 1} src={icons.star_gray} alt={"Dull Star"}/>)
+    for (let i = 0; i < props.sneakCards.length; i++) sneakCards.push(<RCSneakCard key = {i} sneak_data = {props.sneakCards[i]}/>);
     return (
         <div className={"review-card"}>
             <div className="rc-left">

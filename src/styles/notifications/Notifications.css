@@ -2,7 +2,16 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    animation: fadeIn 0.3s, fromRight 0.3s;
+}
+
+.transition-helper-0 .notifications,
+.transition-helper-1 .notifications,
+.transition-helper-2 .notifications {
+    animation: fadeIn 0.3s, fromRight 0.1s;
+}
+
+.transition-helper-4 .notifications {
+    animation: fadeIn 0.3s, fromLeft 0.1s;
 }
 
 .noti-left-sidebar {

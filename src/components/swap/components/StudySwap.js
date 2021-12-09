@@ -42,7 +42,7 @@ const StudySwap = (props) => {
                     </div>
                     <div className="slot-cbo-container">
                         <select className={"cbo-slot-day"}>
-                            <option disabled selected>Day</option>
+                            <option disabled defaultValue>Day</option>
                             <option>SAT</option>
                             <option>SUN</option>
                             <option>MON</option>
@@ -52,7 +52,7 @@ const StudySwap = (props) => {
                             <option>FRI</option>
                         </select>
                         <select className={"cbo-slot-time"}>
-                            <option disabled selected>Time</option>
+                            <option disabled defaultValue>Time</option>
                             <option>8:00 AM</option>
                             <option>9:30 AM</option>
                             <option>11:00 AM</option>
@@ -81,14 +81,14 @@ const StudySwap = (props) => {
                         </div>
                     </div>
                     <select className={"cbo-op-course"}>
-                        <option disabled selected>Course</option>
+                        <option disabled defaultValue>Course</option>
                         <option>CSE110</option>
                         <option>CSE111</option>
                         <option>CSE220</option>
                         <option>CSE221</option>
                     </select>
                     <select className={"cbo-op-section"}>
-                        <option disabled selected>Section</option>
+                        <option disabled defaultValue>Section</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -110,14 +110,14 @@ const StudySwap = (props) => {
                         </table>
                     </div>
                     <select className={"cbo-op-course"}>
-                        <option disabled selected>Course</option>
+                        <option disabled defaultValue>Course</option>
                         <option>CSE110</option>
                         <option>CSE111</option>
                         <option>CSE220</option>
                         <option>CSE221</option>
                     </select>
                     <select className={"cbo-op-section"}>
-                        <option disabled selected>Section</option>
+                        <option disabled defaultValue>Section</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>

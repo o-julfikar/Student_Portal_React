@@ -32,6 +32,7 @@
 .cd-user-name {
     color: #222222;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }

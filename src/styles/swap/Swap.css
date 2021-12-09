@@ -2,7 +2,16 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    animation: fadeIn 0.3s, fromRight 0.3s;
+}
+
+.transition-helper-0 .swap,
+.transition-helper-1 .swap {
+    animation: fadeIn 0.3s, fromRight 0.1s;
+}
+
+.transition-helper-3 .swap,
+.transition-helper-4 .swap {
+    animation: fadeIn 0.3s, fromLeft 0.1s;
 }
 
 .swap-left-sidebar {

@@ -1,15 +1,21 @@
 .account-popup {
     position: fixed;
-    right: 0;
-    top: 70px;
+    right: 10px;
+    top: 5px;
     padding: 10px;
-    border-radius: 0 0 0 20px;
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.2);
     background: #EFEFEF;
-    z-index: -90;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: -1;
+}
+
+.account-popup input {
+    opacity: 0;
+    height: 0;
+    width: 0;
 }
 
 .account-popup:focus {
@@ -19,14 +25,35 @@
 .account-popup > img {
     width: 128px;
     height: 128px;
+    margin-bottom: 10px;
+    /*animation: lol 2s infinite;*/
+}
+
+@keyframes lol {
+    50% {
+        transform: scale(0.5, .3);
+        filter: drop-shadow(0 0 20px black);
+    }
+}
+
+.account-popup a:hover {
+    border-radius: 10px;
+    background: rgba(203, 203, 203, 0.5);
+}
+
+
+.account-popup a:active {
+    border-radius: 10px;
+    background: rgba(203, 203, 203, 0.2);
 }
 
 .account-popup a {
     text-decoration: none;
+    color: #222222;
+    padding: 0 10px;
 }
 
 .account-popup .ap-user-name {
-    margin-top: 10px;
 }
 
 .account-popup .ap-edit-profile {
@@ -48,4 +75,5 @@
 
 .ap-footer .ap-sign-out {
     color: #BD1717;
+    padding: 0 !important;
 }
