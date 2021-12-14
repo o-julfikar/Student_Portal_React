@@ -20,11 +20,15 @@ function getMethod() {
     }
 }
 
+
+// const base_url = "https://08aa-223-29-215-10.ngrok.io/";
+// base_url = "http://localhost:8000/"
 let urls = {
-        identify: "http://127.0.0.1:8000/user/identify/",
-        login: "http://127.0.0.1:8000/user/login/",
-        auth: "http://127.0.0.1:8000/user/auth/",
-        register: "http://127.0.0.1:8000/user/register/",
+    identify: "http://localhost:8000/user/identify/",
+    login: "http://localhost:8000/user/login/",
+    logout: "http://localhost:8000/user/logout/",
+    auth: "http://localhost:8000/user/auth/",
+    register: "http://localhost:8000/user/register/",
 }
 
 let methods = {
@@ -34,6 +38,6 @@ let methods = {
 
 export {
     urls,
-    methods
+    methods,
 }
 

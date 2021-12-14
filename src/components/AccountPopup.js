@@ -2,8 +2,11 @@ import "../styles/AccountPopup.css"
 import React from "react";
 import icons from "../icons/Icons"
 import {Link} from "react-router-dom";
+import {Logout} from "./accounts/Accounts";
+import {useNavigate} from "react-router";
 
 const AccountPopup = (props) => {
+    const navigation = useNavigate();
     return (
         <div className="account-popup" onBlur={() => props.close()}>
             <img src={icons.user_photo} alt="User"/>
@@ -12,7 +15,7 @@ const AccountPopup = (props) => {
             <input autoFocus/>
             <div className="ap-footer">
                 <Link to = {"admin"}><p className={"ap-admin-panel"}>Admin Panel</p></Link>
-                <Link to = {"login"}><p className="ap-sign-out">Sign Out</p></Link>
+                <p className="ap-sign-out" onClick={() => Logout(navigation)}>Sign Out</p>
             </div>
         </div>
     )

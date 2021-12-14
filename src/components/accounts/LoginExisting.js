@@ -20,7 +20,7 @@ const LoginExisting = (props) => {
             .then(data => {
                 if (data) {
                     cookies.setCookie('spsid', data, 30);
-                    navigate("../../")
+                    navigate("/")
                 }
             })
             .catch(error => {

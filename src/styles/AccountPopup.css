@@ -36,21 +36,25 @@
     }
 }
 
-.account-popup a:hover {
+.account-popup a:hover,
+.account-popup .ap-sign-out:hover {
     border-radius: 10px;
     background: rgba(203, 203, 203, 0.5);
 }
 
 
-.account-popup a:active {
+.account-popup a:active,
+.account-popup .ap-sign-out:active {
     border-radius: 10px;
     background: rgba(203, 203, 203, 0.2);
 }
 
-.account-popup a {
+.account-popup a,
+.account-popup .ap-sign-out {
     text-decoration: none;
     color: #222222;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .account-popup .ap-user-name {
