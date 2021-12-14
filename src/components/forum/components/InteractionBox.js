@@ -2,7 +2,7 @@ import React from "react";
 import comment_outline from "../../../icons/comment-outline.svg"
 import reaction from "../../../icons/reaction.svg"
 import CommentCard from "./CommentCard";
-import "../styles/InteractionBox.css"
+import "../../../styles/forum/InteractionBox.css"
 
 const InteractionBox = (props) => {
     let commentCards = []

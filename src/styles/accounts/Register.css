@@ -1,0 +1,154 @@
+.register {
+    display: flex;
+    flex-direction: column;
+}
+
+.register > :not(:first-child),
+.register .mid .mid-right > :not(:first-child),
+.register .mid .mid-left > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.register .top > :not(:first-child),
+.register .mid .mid-right .mid-right-top > :not(:first-child),
+.register .mid .mid-right .mid-right-mid > :not(:first-child),
+.register .mid .mid-right .mid-right-bottom > :not(:first-child),
+.register .bottom > :not(:first-child) {
+    margin-left: 10px;
+}
+
+.register .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+.register .top :last-child {
+    width: calc(100% - 10px);
+}
+
+.register .mid {
+    display: flex;
+    flex-direction: row;
+}
+
+.register .mid .mid-left {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.register .mid .mid-left .reg-photo {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.register .mid .mid-left .reg-photo img {
+    display: block;
+}
+
+.register .mid .mid-left .reg-photo p {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background: #FFAAAA;
+    color: #BD1717;
+    padding: 0 0 5px;
+    margin: 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.register .mid .mid-left .reg-photo p:hover {
+    box-shadow: 0 0 20px 5px rgba(190, 20, 20, .5);
+    background: #F5BBBB;
+}
+
+.register .mid .mid-left .reg-photo p:active {
+    box-shadow: 0 0 100px 10px rgba(190, 20, 20, .6);
+    background: #F0CCCC;
+}
+
+.register .mid .mid-right {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.register .mid .mid-right .mid-right-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.register .mid .mid-right .mid-right-top label {
+    position: relative;
+}
+
+.register .mid .mid-right .mid-right-top input[type="email"] {
+    min-width: 150px;
+}
+
+.register .mid .mid-right .mid-right-top input[type="date"] {
+    min-width: 150px;
+}
+
+.register .mid .mid-right .mid-right-top input[type="tel"] {
+    width: 150px;
+}
+
+
+.register .mid .mid-right .mid-right-top label p {
+    position: absolute;
+    top: 11px;
+    right: 5px;
+    margin: 0;
+    color: #707070;
+}
+
+.register .mid .mid-right .mid-right-top label input {
+    width: calc(100% - 130px);
+    padding-right: 120px;
+}
+
+.register .mid .mid-right .mid-right-mid,
+.register .mid .mid-right .mid-right-bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.register .mid .mid-right .mid-right-top input[type="date"]::before {
+   color: #707070;
+   content: attr(placeholder) ":";
+}
+
+.register .mid .mid-right .mid-right-top input[type="date"]:focus::before {
+   /*content: "";*/
+}
+
+.register .mid .mid-right .mid-right-mid > *,
+.register .mid .mid-right .mid-right-bottom > * {
+    width: 100%;
+}
+
+.register .mid .mid-right .mid-right-mid #txt-department {
+    flex: 7;
+}
+
+.register .mid .mid-right .mid-right-mid #txt-semester {
+    flex: 3;
+}
+
+.register .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.register img {
+    height: 128px;
+    width: 128px;
+}

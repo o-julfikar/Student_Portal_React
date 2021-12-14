@@ -1,4 +1,4 @@
-import "../styles/PostCard.css"
+import "../../../styles/forum/PostCard.css"
 import React from "react";
 import user_picture from "../../../icons/userphoto_default.png"
 import more_button from "../../../icons/morebutton.svg";

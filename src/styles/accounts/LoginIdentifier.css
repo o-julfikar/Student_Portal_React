@@ -1,0 +1,8 @@
+.login-identifier {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-identifier :not(:first-child) {
+    margin-top: 10px;
+}

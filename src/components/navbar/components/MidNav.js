@@ -6,12 +6,11 @@ import {ForumIco, NotificationIco, ReviewIco, SwapIco} from "../../../icons/Icon
 const MidNav = () => {
     return (
         <div className={"mid-nav"}>
-            {/*<svg href={forum_svg}/>*/}
             <nav>
-                <NavLink exact={"true"} className={({isActive}) => "nav-link" + (isActive? "active" : "")} to={"/"} >
+                <NavLink to={"forum"} className={({isActive}) => "nav-link" + (isActive? "active" : "")} >
                     <ForumIco/>
                 </NavLink>
-                <NavLink exact={"true"} to={"/review"} className={({isActive}) => "nav-link" + (isActive? "active" : "")}>
+                <NavLink to={"/review"} className={({isActive}) => "nav-link" + (isActive? "active" : "")}>
                     <ReviewIco/>
                 </NavLink>
                 <NavLink to={"/swap"} className={({isActive}) => "nav-link" + (isActive? "active" : "")}>

@@ -1,6 +1,6 @@
 import React from "react";
 import NewPostCard from "./components/NewPostCard";
-import "./styles/Forum.css"
+import "../../styles/forum/Forum.css"
 import PostCard from "./components/PostCard";
 import user_picture from "../../icons/userphoto_default.png";
 

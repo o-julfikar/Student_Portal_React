@@ -1,7 +1,7 @@
 import React from "react";
 import comment_outline from "../../../icons/comment-outline.svg"
 import reaction from "../../../icons/reaction.svg"
-import "../styles/CommentCard.css"
+import "../../../styles/forum/CommentCard.css"
 
 
 const CommentCard = (props) => {

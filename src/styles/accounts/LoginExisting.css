@@ -1,0 +1,8 @@
+.login-existing {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-existing :not(:first-child) {
+    margin-top: 10px;
+}

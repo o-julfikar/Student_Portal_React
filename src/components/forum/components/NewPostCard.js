@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/NewPostCard.css"
+import "../../../styles/forum/NewPostCard.css"
 
 
 const NewPostCard = () => {

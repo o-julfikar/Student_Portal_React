@@ -7,7 +7,7 @@ const AccountPopup = (props) => {
     return (
         <div className="account-popup" onBlur={() => props.close()}>
             <img src={icons.user_photo} alt="User"/>
-            <Link to = {"profile"}><p className="ap-user-name" autofocus={true}>Mohammad Zulfikar Ali Mahbub</p></Link>
+            <Link to = {"profile"}><p className="ap-user-name" autoFocus={true}>Mohammad Zulfikar Ali Mahbub</p></Link>
             <Link to = {"edit-profile"}><p className={"ap-edit-profile"}>Edit your profile</p></Link>
             <input autoFocus/>
             <div className="ap-footer">
