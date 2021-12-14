@@ -1,6 +1,6 @@
 import './App.css';
 import "./index.css"
-import {Navigate, Route, Routes, useLocation} from "react-router";
+import {Navigate, Route, Routes} from "react-router";
 import Nav from "./components/navbar/Nav";
 import Forum from "./components/forum/Forum";
 import Notifications from "./components/notifications/Notifications";
@@ -13,9 +13,6 @@ import Login from "./components/accounts/Login";
 import LoginExisting from "./components/accounts/LoginExisting";
 import LoginIdentifier from "./components/accounts/LoginIdentifier";
 import Register from "./components/accounts/Register";
-import {SPCookies as cookies} from "./components/SPCookies"
-import {methods, urls} from "./components/SPApi";
-import RequireAuth from "./components/RequireAuth";
 import {ProtectedRoute} from "./components/ProtectedRoute";
 
 
