@@ -7,8 +7,15 @@ function RequireAuth({children}) {
 
     fetch(urls.auth, methods.get())
         .then(r => r.json())
-        .then(data => setAuth(data))
-        .catch(error => console.log(error));
+        .then(data => {
+            console.log(auth)
+            setAuth(data)
+            console.log(auth)
+        })
+        .catch(error => {
+            console.log(error);
+            setAuth(false);
+        });
 
     return auth == null?
         null : (auth?

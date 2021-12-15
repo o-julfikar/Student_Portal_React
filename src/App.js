@@ -14,7 +14,6 @@ import LoginExisting from "./components/accounts/LoginExisting";
 import LoginIdentifier from "./components/accounts/LoginIdentifier";
 import Register from "./components/accounts/Register";
 import RequireAuth from "./components/accounts/RequireAuth";
-import {ProtectedRoute} from "./components/ProtectedRoute";
 
 
 function App() {
@@ -30,57 +29,49 @@ function App() {
             <Nav/>
             <div className="container">
                 <Routes>
-                    {/*<Route exact path={""} element={<Navigate to={"forum"}/>}/>*/}
-                    {/*<Route exact path="/forum" element={*/}
+                    {/*<Route exact path={""} element={*/}
                     {/*    <RequireAuth>*/}
-                    {/*        <Forum setSection={customNav} section={section}/>*/}
-                    {/*    </RequireAuth>*/}
+                    {/*</RequireAuth>*/}
                     {/*}/>*/}
-                    {/*<Route exact path="/review" element={*/}
-                    {/*    <RequireAuth>*/}
-                    {/*        <Review customNav={customNav} section={section}/>*/}
-                    {/*    </RequireAuth>*/}
-                    {/*}/>*/}
-                    {/*<Route exact path="/swap" element={*/}
-                    {/*    <RequireAuth>*/}
-                    {/*        <Swap customNav={customNav} section={section}/>*/}
-                    {/*    </RequireAuth>*/}
-                    {/*}>*/}
-                    {/*    <Route exact path={""} element={<Navigate replace to={"section"}/>}/>*/}
-                    {/*    <Route exact path={"section"} element={*/}
-                    {/*        <RequireAuth>*/}
-                    {/*            <SectionSwap/>*/}
-                    {/*        </RequireAuth>*/}
-                    {/*    }/>*/}
-                    {/*    <Route exact path={"study"} element={*/}
-                    {/*        <RequireAuth>*/}
-                    {/*            <StudySwap/>*/}
-                    {/*        </RequireAuth>*/}
-                    {/*    }/>*/}
-                    {/*</Route>*/}
-                    {/*<Route exact path="/notifications" element={*/}
-                    {/*    <RequireAuth>*/}
-                    {/*        <Notifications setSection = {customNav} section = {section}/>*/}
-                    {/*    </RequireAuth>*/}
-                    {/*}/>*/}
-                    {/*<Route path="/profile" element={*/}
-                    {/*    <RequireAuth>*/}
-                    {/*        <Profile setSection = {customNav} section = {section}/>*/}
-                    {/*    </RequireAuth>*/}
-                    {/*}/>*/}
-                    <Route exact path={""} element={<ProtectedRoute/>}>
-                        <Route exact path={""} element={<Navigate to={"forum"}/>}/>
-                        <Route exact path="/forum" element={<Forum setSection = {customNav} section = {section}/>}/>
-                        <Route exact path="/review" element={<Review customNav = {customNav} section = {section}/>}/>
-                        <Route exact path="/swap" element={<Swap customNav = {customNav} section = {section}/>}>
-                            <Route exact path={""} element={<Navigate replace to={"section"}/>}/>
-                            <Route exact path={"section"} element={<SectionSwap/>}/>
-                            <Route exact path={"study"} element={<StudySwap/>}/>
-                        </Route>
-                        <Route exact path="/notifications" element={<Notifications setSection = {customNav} section = {section}/>}/>
-                        <Route path="/profile" element={<Profile setSection = {customNav} section = {section}/>}/>
-                        <Route path={"*"} element={<h1>404: Page not found</h1>}/>
+
+                    <Route exact path={""} element={<Navigate to={"forum"}/>}/>
+                    <Route exact path="/forum" element={
+                        <RequireAuth>
+                            <Forum setSection={customNav} section={section}/>
+                        </RequireAuth>
+                    }/>
+                    <Route exact path="/review" element={
+                        <RequireAuth>
+                            <Review customNav={customNav} section={section}/>
+                        </RequireAuth>
+                    }/>
+                    <Route exact path="/swap" element={
+                        <RequireAuth>
+                            <Swap customNav={customNav} section={section}/>
+                        </RequireAuth>
+                    }>
+                        <Route exact path={""} element={<Navigate replace to={"section"}/>}/>
+                        <Route exact path={"section"} element={
+                            <RequireAuth>
+                                <SectionSwap/>
+                            </RequireAuth>
+                        }/>
+                        <Route exact path={"study"} element={
+                            <RequireAuth>
+                                <StudySwap/>
+                            </RequireAuth>
+                        }/>
                     </Route>
+                    <Route exact path="/notifications" element={
+                        <RequireAuth>
+                            <Notifications setSection = {customNav} section = {section}/>
+                        </RequireAuth>
+                    }/>
+                    <Route path="/profile" element={
+                        <RequireAuth>
+                            <Profile setSection = {customNav} section = {section}/>
+                        </RequireAuth>
+                    }/>
                     <Route path="/login" element={<Login/>}>
                         <Route exact path="" element={<Navigate replace to={"identifier"}/>}/>
                         <Route exact path="identifier" element={<LoginIdentifier/>}/>

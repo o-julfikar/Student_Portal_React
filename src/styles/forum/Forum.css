@@ -5,12 +5,12 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    overflow: auto;
+    /*overflow: auto;*/
     animation: fadeIn 0.3s, fromLeft 0.1s;
 }
 
 .post-cards {
-    overflow: auto;
+    /*overflow: auto;*/
     display: block;
     height: 100%;
 }

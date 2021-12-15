@@ -1,13 +1,13 @@
 import "../../styles/accounts/Register.css"
 import React from "react";
 import icons from "../../icons/Icons";
-import {useLocation} from "react-router";
-import * as url from "url";
+import {useLocation, useNavigate} from "react-router";
 import {methods, urls} from "../SPApi";
 
 
 const Register = (props) => {
     const { state } = useLocation();
+    const navigate = useNavigate();
 
     function reset() {
         document.getElementById("num-bracu-id").value = ""
@@ -30,7 +30,7 @@ const Register = (props) => {
                 password: document.getElementById("txt-password").value,
                 password_confirm: document.getElementById("txt-confirm-password").value,
             },
-            student: {
+            user_detail: {
                 fullname: document.getElementById("txt-full-name").value,
                 birthdate: document.getElementById("date-birthdate").value,
                 phone: document.getElementById("tel-phone").value,
@@ -40,17 +40,25 @@ const Register = (props) => {
             }
         }
 
-        if (register_data.student.password !== register_data.student.password_confirm) {
+        if (register_data.user.password !== register_data.user.password_confirm) {
             alert("Passwords did not match");
             return;
         }
 
-        console.log(JSON.stringify(register_data));
+        // console.log(JSON.stringify(register_data));
 
         fetch(urls.register, methods.post(register_data))
             .then(r => r.json())
             .then(data => {
                 console.log(data)
+                if (data > 0) {
+                    navigate("/login/existing", {
+                        state: {
+                            bracu_id: register_data.user.bracu_id,
+                            password: register_data.user.password
+                        }
+                    })
+                }
             }).catch(function (error) {
                 console.log(error);
         })

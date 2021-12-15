@@ -2,10 +2,8 @@ import "../../styles/accounts/LoginExisting.css"
 import React from "react";
 import {useLocation, useNavigate} from "react-router";
 import {methods, urls} from "../SPApi";
-import {SPCookies as cookies} from "../../components/SPCookies"
 
-
-const LoginExisting = (props) => {
+const LoginExisting = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
 
@@ -19,8 +17,9 @@ const LoginExisting = (props) => {
             .then(r => r.json())
             .then(data => {
                 if (data) {
-                    cookies.setCookie('spsid', data, 30);
                     navigate("/")
+                } else {
+                    alert("Invalid login")
                 }
             })
             .catch(error => {
@@ -30,8 +29,14 @@ const LoginExisting = (props) => {
 
     return (
         <div className="login-existing">
-            <input id={'bracu-id'} type={"number"} placeholder={"BRACU ID"} defaultValue={state == null || state.bracu_id == null? "" : state.bracu_id}/>
-            <input id={'user-password'} type={"password"} placeholder={"Password"}/>
+            <input id={'bracu-id'}
+                   type={"number"}
+                   placeholder={"BRACU ID"}
+                   defaultValue={state == null || state.bracu_id == null? "" : state.bracu_id}/>
+            <input id={'user-password'}
+                   type={"password"}
+                   placeholder={"Password"}
+                   defaultValue={state == null || state.password == null? "" : state.password}/>
             <button className={"submit"} type={"submit"} onClick={login}>Sign In</button>
         </div>
     )

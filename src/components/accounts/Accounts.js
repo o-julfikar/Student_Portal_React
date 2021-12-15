@@ -11,6 +11,10 @@ function Logout(navigate) {
                 navigate("/")
     });
 }
+//
+// function Register(navigate) {
+//
+// }
 
 export {
     Logout,

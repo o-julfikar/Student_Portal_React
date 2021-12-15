@@ -177,6 +177,7 @@ const Notifications = (props) => {
                     {notiComponents}
                 </div>
                 <div className={"noti-right-sidebar"}>
+
                     <label>
                         <p>From</p>
                         <input type={"text"} placeholder={"Student Name/ ID"}/>
