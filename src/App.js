@@ -1,6 +1,6 @@
 import './App.css';
 import "./index.css"
-import {Navigate, Route, Routes, useNavigate} from "react-router";
+import {Navigate, Route, Routes, useHistory, useLocation, useNavigate} from "react-router";
 import Nav from "./components/navbar/Nav";
 import Forum from "./components/forum/Forum";
 import Notifications from "./components/notifications/Notifications";
@@ -19,12 +19,15 @@ import {SPCookies as cookies} from "./components/SPCookies";
 function App() {
     const [enrolledCourses, setEnrolledCourses] = useState([]);
     const [refreshEnrolledCourses, setRefreshEnrolledCourses] = useState(true);
+    const [userInfo, setUserInfo] = useState([]);
+    const [profileId, setProfileId] = useState(0);
     const [profileInfo, setProfileInfo] = useState([]);
-    const [refreshProfileInfo, setRefreshProfileInfo] = useState(true);
+    const [refreshUserInfo, setRefreshUserInfo] = useState(true);
     const [posts, setPosts] = useState([])
+    const [userPosts, setUserPosts] = useState([])
     const [refreshPost, setRefreshPost] = useState(true)
     const navigate = useNavigate();
-    // const location = useLocation();
+    const location = useLocation();
 
     useEffect(() => {
         fetch(urls.enrolled_courses, methods.get())
@@ -47,20 +50,52 @@ function App() {
             .then(r => r.json())
             .then(data => {
                 if (data) {
-                    setProfileInfo(data)
+                    setUserInfo(data)
                 } else {
-                    setProfileInfo([])
-                    // setRefreshProfileInfo(!refreshProfileInfo)
+                    setUserInfo([])
+                    // setRefreshProfileInfo(!refreshUserInfo)
                 }
             }).catch(error => console.log(error))
         return () => {
 
         }
-    }, [refreshProfileInfo])
+    }, [refreshUserInfo])
 
     useEffect(() => {
+        fetch(urls.profile_info + `${profileId}`, methods.get())
+            .then(r => r.json())
+            .then(data => {
+                console.log(data)
+                if (data) {
+                    setProfileInfo(data)
+                } else {
+                    setProfileInfo([])
+                }
+            }).catch(error => console.log(error))
+        return () => {
 
-    }, [refreshPost])
+        }
+    }, [refreshUserInfo, profileId])
+
+    useEffect(() => {
+        fetch(urls.get_post, methods.get())
+            .then(r => r.json())
+            .then(data => {
+                if (data) {
+                    setPosts(data)
+                }
+            }).catch(error => console.log(error))
+    }, [refreshPost, location])
+
+    useEffect(() => {
+        fetch(urls.get_post + `${profileId}`, methods.get())
+            .then(r => r.json())
+            .then(data => {
+                if (data) {
+                    setUserPosts(data)
+                }
+            }).catch(error => console.log(error))
+    }, [profileId])
 
     function login() {
         let login_data = {
@@ -79,7 +114,7 @@ function App() {
             }).catch(error => {
                 console.log(error)
             }).finally(() => {
-                setRefreshProfileInfo(!refreshProfileInfo);
+                setRefreshUserInfo(!refreshUserInfo);
                 setRefreshEnrolledCourses(!refreshEnrolledCourses);
             });
     }
@@ -90,7 +125,7 @@ function App() {
                 .catch(error => {
                     console.log(error)
                 }).finally(() => {
-                    setRefreshProfileInfo(!refreshProfileInfo);
+                    setRefreshUserInfo(!refreshUserInfo);
                     setRefreshEnrolledCourses(!refreshEnrolledCourses);
                     cookies.setCookie('spsid', null, 0);
                     navigate("/")
@@ -107,6 +142,22 @@ function App() {
             }).catch(error => console.log(error))
     }
 
+    useEffect(() => {
+        document.getElementById("SP-App").scrollTo(0, 0)
+    }, [location])
+
+    // function ScrollToTop() {
+    //     // useEffect(() => {
+    //     //     const unlisten = location..bind((loc, act) => {
+    //     //         if (act !== 'POP') {
+    //     //             window.scrollTo(0, 0)
+    //     //         }
+    //     //     })
+    //     //     return () => unlisten()
+    //     // }, [])
+    //     // return null
+    // }
+
     let section = [0, 0];
 
     const customNav = (newNavIndex) => {
@@ -115,10 +166,11 @@ function App() {
     }
 
     return (
-        <div className={"App"}>
+        <div className={"App"} id={"SP-App"}>
             <Nav states = {{
-                profileInfo: profileInfo,
+                userInfo: userInfo,
             }} logout = {logout}/>
+            {/*<ScrollToTop/>*/}
             <div className="container">
                 <Routes>
                     <Route exact path={""} element={<Navigate to={"forum"}/>}/>
@@ -127,8 +179,9 @@ function App() {
                             <Forum setSection={customNav} section={section}
                                    states={{
                                        enrolledCourses: enrolledCourses,
-                                       setEnrolledCourses: setEnrolledCourses,
+                                       posts: posts,
                                        refreshEnrolledCourses: refreshEnrolledCourses,
+                                       setEnrolledCourses: setEnrolledCourses,
                                        setRefreshEnrolledCourses: setRefreshEnrolledCourses,
                                        setRefreshPost: setRefreshPost,
                                    }} functions={{
@@ -168,14 +221,18 @@ function App() {
                             <Profile states = {{
                                 setSection: customNav,
                                 section: section,
+                                userPosts: userPosts,
+                                posts: posts,
                                 enrolledCourses: enrolledCourses,
                                 setEnrolledCourses: setEnrolledCourses,
                                 refreshEnrolledCourses: refreshEnrolledCourses,
                                 setRefreshEnrolledCourses: setRefreshEnrolledCourses,
+                                userInfo: userInfo,
                                 profileInfo: profileInfo,
-                                setProfileInfo: setProfileInfo,
-                                refreshProfileInfo: refreshProfileInfo,
-                                setRefreshProfileInfo: setRefreshProfileInfo,
+                                setUserInfo: setUserInfo,
+                                setProfileId: setProfileId,
+                                refreshProfileInfo: refreshUserInfo,
+                                setRefreshProfileInfo: setRefreshUserInfo,
                             }}/>
                         </RequireAuth>
                     }/>

@@ -3,6 +3,7 @@ import React from "react";
 import user_picture from "../../../icons/userphoto_default.png"
 import more_button from "../../../icons/morebutton.svg";
 import InteractionBox from "./InteractionBox";
+import {Link} from "react-router-dom";
 
 
 const PostCard = (props) => {
@@ -10,10 +11,17 @@ const PostCard = (props) => {
         <div className={"post-card"}>
             <div className={"pc-header"}>
                 <div className={"pc-head-left"}>
-                    <img src={user_picture} alt={"Default"} />
+                    <Link to={`/profile/${props.bracu_id}`}>
+                        <img src={user_picture} alt={"Default"} />
+                    </Link>
                     <div className={"pc-header-info"}>
-                        <p className={"pc-head-username"}>{props.user_name}</p>
-                        <p className={"pc-head-semester"}>{props.course} - {props.semester}</p>
+                        <Link to={`/profile/${props.bracu_id}`}>
+                            <p className={"pc-head-username"}>{props.user_name}</p>
+                        </Link>
+                        <p className={"pc-head-semester"}>{
+                            props.course && props.semester?
+                                props.course + " - " + props.semester : props.course?
+                                props.course : props.semester? props.semester : "General Post"}</p>
                         <p className={"pc-head-post-date"}>{props.post_date}</p>
                     </div>
                 </div>

@@ -2,11 +2,19 @@ import "../../../styles/profile/ProfileMain.css"
 import icons from "../../../icons/Icons"
 import React from "react";
 import PostCard from "../../forum/components/PostCard";
-import user_picture from "../../../icons/userphoto_default.png";
+import {useLocation} from "react-router";
 
 
 const ProfileMain = (props) => {
     props.states.setSection(4);
+    let location = useLocation();
+    let profileIndex = location.pathname.indexOf("/profile/")
+    if (profileIndex >= 0) {
+        let nextSlashIndex = location.pathname.indexOf("/", profileIndex + 9)
+        if (nextSlashIndex < 0) nextSlashIndex = location.pathname.length
+        let current_user_bracu_id = location.pathname.slice(profileIndex + 9, nextSlashIndex)
+        props.states.setProfileId(current_user_bracu_id)
+    }
     return (
             <div className="profile-main">
                 <div className="prof-header">
@@ -62,55 +70,30 @@ const ProfileMain = (props) => {
                         <table>
                             <tbody>
                                 {
-                                    props.states.enrolledCourses.map((enroll, i) => (
-                                        <tr key={i}>
-                                            <td>{enroll.course} | {enroll.semester}</td>
-                                        </tr>
-                                    ))
+                                    (() => {
+                                        if (props.states.profileInfo.enrolled_courses) {
+                                            return (
+                                                props.states.profileInfo.enrolled_courses.map((enroll, i) => (
+                                                    <tr key={i}>
+                                                        <td>{enroll.course} | {enroll.semester}</td>
+                                                    </tr>
+                                                ))
+                                            )
+                                        }
+                                    })()
                                 }
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div className="post-cards">
-                    <PostCard user_name = "Mohammad Zulfikar" course = "CSE391" semester = "Fall 2021"
-                              post_date = "Thursday, November 11, 2021 at 7:34 AM"
-                              content = "&quot;সমাজের কাছে হরে যায় আমাদের ইচ্ছে গুলো, বাবা মা বুঝবে কবে আমাদেরো কিছু ইচ্ছে ছিলো,
-                                         তাদের চোখ দিয়ে স্বপ্ন দেখতে বলে, আমাদেরো চোখ আছে তা বুঝবে তারা কোন কালে?
-                                         স্বপ্ন গুলো এভাবে দুমড়ে মুচড়ে যায়, জীবনের শেষ অংশে হতাশা পাই শুধু ঠাঁই।&quot; - Abu Hasnayen Zillanee"
-                              reaction_count = "11K" comment_count = "3.6K" cd_data = {[
-                                        {
-                                            cd_userimage: user_picture,
-                                            cd_username: "Abu Hasnayen Zillanee",
-                                            cd_date: "4mins",
-                                            cd_content: "যদিও এখনো পাওনা শোধ হয়নি, তবুও শুভ জন্মদিন বন্ধু।"
-                                        }, {
-                                            cd_userimage: user_picture,
-                                            cd_username: "G M Sohanur Rahman",
-                                            cd_date: "Yesterday at 5:18 PM",
-                                            cd_content: "Why rest when you can be best? xDDDD"
-                                        }
-                                    ]}
-                    />
-                    <PostCard user_name = "Mohammad Zulfikar" course = "CSE391" semester = "Fall 2021"
-                              post_date = "Thursday, November 11, 2021 at 7:34 AM"
-                              content = "&quot;সমাজের কাছে হরে যায় আমাদের ইচ্ছে গুলো, বাবা মা বুঝবে কবে আমাদেরো কিছু ইচ্ছে ছিলো,
-                                         তাদের চোখ দিয়ে স্বপ্ন দেখতে বলে, আমাদেরো চোখ আছে তা বুঝবে তারা কোন কালে?
-                                         স্বপ্ন গুলো এভাবে দুমড়ে মুচড়ে যায়, জীবনের শেষ অংশে হতাশা পাই শুধু ঠাঁই।&quot; - Abu Hasnayen Zillanee"
-                              reaction_count = "11K" comment_count = "3.6K" cd_data = {[
-                                        {
-                                            cd_userimage: user_picture,
-                                            cd_username: "Abu Hasnayen Zillanee",
-                                            cd_date: "4mins",
-                                            cd_content: "যদিও এখনো পাওনা শোধ হয়নি, তবুও শুভ জন্মদিন বন্ধু।"
-                                        }, {
-                                            cd_userimage: user_picture,
-                                            cd_username: "G M Sohanur Rahman",
-                                            cd_date: "Yesterday at 5:18 PM",
-                                            cd_content: "Why rest when you can be best? xDDDD"
-                                        }
-                                    ]}
-                    />
+                    {props.states.userPosts.map((post) => (
+                        <PostCard key={post.post_id} bracu_id={post.author_bracu_id} user_name={post.author_name} course={post.course}
+                                  semester={post.semester} post_date={post.date_created} content={post.content}
+                                  reaction_count={post.reactions.count} comment_count={post.comments.count}
+                                  cd_data={post.comments.data}
+                        />
+                    ))}
                 </div>
             </div>
     )

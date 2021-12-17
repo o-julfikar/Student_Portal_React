@@ -19,6 +19,8 @@ const NewPostCard = (props) => {
             }
         }
         props.functions.create_post(post_data);
+        setPostValue("")
+        setCourseSemester("")
     }
 
     return (
@@ -31,7 +33,7 @@ const NewPostCard = (props) => {
                         onChange={(e) => setCourseSemester(e.target.value)}>
                     <option>Select a course</option>
                     {
-                        props.states.enrolledCourses.reverse().map((enroll, i) => (
+                        props.states.enrolledCourses.slice().reverse().map((enroll, i) => (
                             <option key={i}>
                                 {enroll.course} | {enroll.semester}
                             </option>

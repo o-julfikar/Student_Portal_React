@@ -24,8 +24,8 @@
     transition: height 0.3s;
 }
 
-.new-post-card textarea:focus,
-.new-post-card textarea:not(:empty) {
+.new-post-card textarea:not(:empty),
+.new-post-card textarea:focus {
     height: 200px;
 }
 

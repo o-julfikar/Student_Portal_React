@@ -35,6 +35,10 @@
     margin: 0px 0px;
 }
 
+.pc-header-info a {
+    text-decoration: none;
+}
+
 .pc-head-username {
     color: #222222;
     font-weight: bold;
