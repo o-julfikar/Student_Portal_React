@@ -9,7 +9,7 @@ const Forum = (props) => {
     return (
         <div className={"transition-helper-" + (props.section[0])}>
             <div className={"forum"}>
-                <NewPostCard/>
+                <NewPostCard {...props} />
                 {/*<div className="post-cards">*/}
                     <PostCard user_name = "Mohammad Zulfikar" course = "CSE391" semester = "Fall 2021"
                               post_date = "Thursday, November 11, 2021 at 7:34 AM"

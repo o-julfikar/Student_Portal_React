@@ -1,0 +1,44 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes fromLeft {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fromRight {
+    from {
+        left: 100px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes expandPostTextArea {
+    from {
+        height: calc(100% - 2px);
+    }
+    to {
+        height: 200px;
+    }
+}

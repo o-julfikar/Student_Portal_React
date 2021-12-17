@@ -112,12 +112,12 @@ const RightArrowIco = () => {
     )
 }
 
-const CrossIco = () => {
+const CrossIco = (props) => {
     return (
-        <svg version="1.1" viewBox="0 0 64 64" height={"10"} width={"10"}>
-            <path className="st0" d="M59,64c-1.3,0-2.6-0.5-3.5-1.5l-54-54c-2-2-2-5.1,0-7.1c2-2,5.1-2,7.1,0l54,54c2,2,2,5.1,0,7.1
+        <svg id={"svg-" + props.id} version="1.1" viewBox="0 0 64 64" height={"10"} width={"10"}>
+            <path id={"l1-" + props.id} className="st0" d="M59,64c-1.3,0-2.6-0.5-3.5-1.5l-54-54c-2-2-2-5.1,0-7.1c2-2,5.1-2,7.1,0l54,54c2,2,2,5.1,0,7.1
             C61.6,63.5,60.3,64,59,64z"/>
-            <path className="st0" d="M5,64c-1.3,0-2.6-0.5-3.5-1.5c-2-2-2-5.1,0-7.1l54-54c2-2,5.1-2,7.1,0c2,2,2,5.1,0,7.1l-54,54
+            <path id={"l2-" + props.id}  className="st0" d="M5,64c-1.3,0-2.6-0.5-3.5-1.5c-2-2-2-5.1,0-7.1l54-54c2-2,5.1-2,7.1,0c2,2,2,5.1,0,7.1l-54,54
             C7.6,63.5,6.3,64,5,64z"/>
         </svg>
     )

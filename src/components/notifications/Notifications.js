@@ -28,14 +28,14 @@ function checkForPlurals(value, word) {
     return value + " " + word + "s";
 }
 
-function timeDifference(timeOne, timeTwo, returnType) {
-    let timeDiff = timeTwo - timeOne;
-
-    return Math.floor(timeDiff)
-}
+// function timeDifference(timeOne, timeTwo, returnType) {
+//     let timeDiff = timeTwo - timeOne;
+//
+//     return Math.floor(timeDiff)
+// }
 
 function timeToString(timeInMillis) {
-    let year, month, week, day, hr, min, sec;
+    let year, month, week, day, hr, min;
     let timeString = "", sep = "";
     if (timeInMillis > timeDic["year"]) {
         year = timeInMillis / timeDic["year"];
@@ -70,8 +70,8 @@ function timeToString(timeInMillis) {
     if (timeInMillis > timeDic["min"]) {
         min = timeInMillis / timeDic["min"];
         timeString += sep + checkForPlurals(min, "min");
-        timeInMillis %= timeDic["min"];
-        sep = " ";
+        // timeInMillis %= timeDic["min"];
+        // sep = " ";
     }
     // if (timeInMillis > timeDic["sec"]) {
     //     sec = timeInMillis / timeDic["sec"];

@@ -5,8 +5,9 @@
     width: 220px;
     padding: 10px;
     border-radius: 20px 20px 20px 20px;
-    box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.2);
-    background: #EFEFEF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    background: rgba(239, 239, 239, 1);
+    /*backdrop-filter: blur(10px);*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,13 +73,20 @@
     margin-top: 10px;
 }
 
+.ap-footer > a:first-child {
+    margin-top: 10px;
+}
+
+.ap-footer > :not(:first-child) {
+    margin-top: 5px;
+}
+
 .ap-footer a {
     display: block;
-    margin-top: 10px;
     color: #222222;
 }
 
 .ap-footer .ap-sign-out {
     color: #BD1717;
-    padding: 0 10px !important;
+    padding: 0 10px;
 }

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Navigate, Outlet, Route} from "react-router"
+import {Navigate, Outlet} from "react-router"
 import {methods, urls} from "./SPApi";
 
 

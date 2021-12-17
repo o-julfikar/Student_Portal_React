@@ -1,31 +1,9 @@
 import "../../styles/accounts/LoginExisting.css"
 import React from "react";
-import {useLocation, useNavigate} from "react-router";
-import {methods, urls} from "../SPApi";
+import {useLocation} from "react-router";
 
-const LoginExisting = () => {
+const LoginExisting = (props) => {
     const { state } = useLocation();
-    const navigate = useNavigate();
-
-    function login() {
-        let login_data = {
-            bracu_id: document.getElementById('bracu-id').value,
-            password: document.getElementById('user-password').value,
-        }
-
-        fetch(urls.login, methods.post(login_data))
-            .then(r => r.json())
-            .then(data => {
-                if (data) {
-                    navigate("/")
-                } else {
-                    alert("Invalid login")
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            });
-    }
 
     return (
         <div className="login-existing">
@@ -37,7 +15,7 @@ const LoginExisting = () => {
                    type={"password"}
                    placeholder={"Password"}
                    defaultValue={state == null || state.password == null? "" : state.password}/>
-            <button className={"submit"} type={"submit"} onClick={login}>Sign In</button>
+            <button className={"submit"} type={"submit"} onClick={props.login}>Sign In</button>
         </div>
     )
 }

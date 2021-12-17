@@ -1,3 +1,5 @@
+@import "../Animations.css";
+
 .notifications {
     position: relative;
     display: flex;
@@ -97,42 +99,4 @@
 .noti-right-sidebar button:active {
     background: #2874AB;
 }
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes moveDown {
-    from {
-        top: -100px;
-    }
-    to {
-        top: 0px;
-    }
-}
-
-@keyframes fromLeft {
-    from {
-        left: -100px;
-    }
-    to {
-        left: 0px;
-    }
-}
-
-@keyframes fromRight {
-    from {
-        left: 100px;
-    }
-    to {
-        left: 0;
-    }
-}
-
 

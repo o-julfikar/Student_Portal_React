@@ -1,7 +1,10 @@
 import "../../styles/accounts/Login.css"
 import React from "react";
 import icons from "../../icons/Icons";
-import {Route, Routes, Outlet} from "react-router";
+import {Navigate, Route, Routes} from "react-router";
+import LoginIdentifier from "./LoginIdentifier";
+import LoginExisting from "./LoginExisting";
+import Register from "./Register";
 
 
 const Login = (props) => {
@@ -12,7 +15,12 @@ const Login = (props) => {
                 <h1>Student Portal</h1>
             </div>
             <div className="login-box">
-                <Outlet/>
+                <Routes>
+                    <Route exact path="" element={<Navigate replace to={"identifier"}/>}/>
+                    <Route exact path="identifier" element={<LoginIdentifier/>}/>
+                    <Route exact path="existing" element={<LoginExisting {...props}/>}/>
+                    <Route exact path="register" element={<Register/>}/>
+                </Routes>
             </div>
         </div>
     )

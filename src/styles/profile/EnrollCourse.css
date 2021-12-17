@@ -1,0 +1,152 @@
+@import "../Animations.css";
+
+.enroll-course > :first-child {
+    margin: 0;
+}
+
+.enroll-course > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.sidebar-table-scroll::-webkit-scrollbar {
+    width: 0.5em;
+    scroll-behavior: smooth !important;
+}
+
+.sidebar-table-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sidebar-table-scroll::-webkit-scrollbar-thumb {
+    background: darkgray !important;
+    border-radius: 20px !important;
+}
+
+.enroll-course .sidebar-table-container {
+    height: 300px;
+    width: 100%;
+    background: #DDDDDD;
+    border-radius: 10px 5px 5px 10px;
+    overflow: hidden;
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+}
+
+.enroll-course .sidebar-table-scroll {
+    overflow: auto;
+    height: 100%;
+}
+
+.enroll-course table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0 10px;
+    table-layout: fixed;
+}
+
+.enroll-course table colgroup col:nth-child(1) {
+    /*width: 20px;*/
+}
+
+.enroll-course table colgroup col:nth-child(2) {
+    width: 110px;
+}
+
+.enroll-course table colgroup col:last-child {
+    width: 20px;
+}
+
+.enroll-course table td {
+    padding: 10px 0;
+}
+
+.enroll-course table thead {
+    background: #C4C4C4;
+    margin-bottom: 10px;
+}
+
+.enroll-course table td:first-child {
+    padding-left: 10px;
+}
+
+.enroll-course table td:last-child {
+    padding-right: 10px;
+}
+
+.enroll-course table tr:hover {
+    background: rgba(196, 196, 196, 0.5);
+}
+
+.enroll-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.enroll-course .content-container {
+    /*z-index: -1;*/
+}
+
+.enroll-course .content-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.content-container > :not(:first-child),
+.enroll-container > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.enroll-container label p {
+    margin: 0;
+}
+
+.enroll-course label select,
+.enroll-course button {
+    width: 100%;
+}
+
+.enroll-course label select,
+.enroll-course label input {
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #707070;
+}
+
+.enroll-course label select {
+    transition: 0.3s;
+}
+
+.enroll-course label select:focus {
+    border-radius: 0;
+}
+
+.enroll-course label input {
+    width: calc(100% - 14px);
+}
+
+.enroll-course button {
+    background: #0F5D88;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+    padding: 10px 5px;
+}
+
+.enroll-course button:hover {
+    background: #2874AB;
+}
+
+.enroll-course button:active {
+    background: #2891b6;
+}
+
+.enroll-course .profile {
+    padding-top: 0;
+    padding-bottom: 0;
+}

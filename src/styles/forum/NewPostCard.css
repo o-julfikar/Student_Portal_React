@@ -1,36 +1,74 @@
+@import "../Animations.css";
+
 .new-post-card {
     background: #e4e4e4;
     box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     width: 610px;
-    height: 100px;
-    min-height: 100px;
+    max-height: 400px;
     padding: 20px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .new-post-card textarea {
-    width: calc(100% - 100px);
-    height: 100%;
+    width: calc(100% - 2px);
+    height: 30px;
     background: inherit;
     resize: none;
     border: none;
+    outline-color: #dadada;
     font-size: 18px;
     display: inline;
+    transition: height 0.3s;
 }
 
-.new-post-card textarea:focus {
-    outline: none;
+.new-post-card textarea:focus,
+.new-post-card textarea:not(:empty) {
+    height: 200px;
 }
 
-.new-post-card button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-right: 20px;
-    margin-top: 20px;
+.new-post-card textarea:focus + .post-options,
+.new-post-card textarea:not(:empty) + .post-options {
+    display: flex;
+}
+
+.new-post-card .post-options {
+    margin-top: 10px;
+    /*display: flex;*/
+    display: none;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.new-post-card .post-options > :not(:last-child) {
+    margin-right: 10px;
+}
+
+.new-post-card .post-options select {
+    border-radius: 10px;
+    padding: 8px 5px;
+    transition: 0.3s;
+}
+
+.new-post-card .post-options select,
+.new-post-card .post-options select option {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 16px;
+}
+
+.new-post-card .post-options select:focus {
+    border-radius: 0;
+}
+
+.new-post-card .post-options select:active {
+
+}
+
+.new-post-card .post-options button {
     width: 80px;
-    height: 40px;
+    padding: 8px 5px;
     border-radius: 10px;
     background: #0F5D88;
     font-size: 18px;
@@ -39,10 +77,10 @@
     cursor: pointer;
 }
 
-.new-post-card button:hover {
+.new-post-card .post-options button:hover {
     background: #2874AB;
 }
 
-.new-post-card button:active {
+.new-post-card .post-options button:active {
     background: #0A66C2;
 }
