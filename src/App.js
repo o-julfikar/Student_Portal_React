@@ -231,8 +231,8 @@ function App() {
                                 profileInfo: profileInfo,
                                 setUserInfo: setUserInfo,
                                 setProfileId: setProfileId,
-                                refreshProfileInfo: refreshUserInfo,
-                                setRefreshProfileInfo: setRefreshUserInfo,
+                                refreshUserInfo: refreshUserInfo,
+                                setRefreshUserInfo: setRefreshUserInfo,
                             }}/>
                         </RequireAuth>
                     }/>

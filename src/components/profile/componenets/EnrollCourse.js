@@ -1,4 +1,4 @@
-import "../../../styles/profile/EnrollCourse.css"
+import "../../../styles/profile/EnrollCourse.css";
 import React from "react";
 import {CrossIco} from "../../../icons/IconsSelect";
 import {methods, urls} from "../../SPApi";
@@ -26,7 +26,8 @@ const EnrollCourse = (props) => {
             .then(data => {
                 console.log(data)
                 if (data) {
-                    props.states.setRefreshEnrolledCourses(true)
+                    props.states.setRefreshEnrolledCourses(!props.states.refreshEnrolledCourses)
+                    props.states.setRefreshUserInfo(props.states.refreshUserInfo)
                 }
             }).catch(error => console.log(error))
     }

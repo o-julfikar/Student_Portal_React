@@ -27,14 +27,14 @@ const ProfileMain = (props) => {
                                         <p className="ph-value">6k</p>
                                     </div>
                                     <div className="ph-top-left-top-right">
-                                        <p className="ph-label">Reviews</p>
-                                        <p className="ph-value">11K</p>
+                                        <p className="ph-label">Section Swaps</p>
+                                        <p className="ph-value">6k</p>
                                     </div>
                                 </div>
                                 <div className="ph-top-left-bottom">
                                     <div className="ph-top-left-bottom-left">
-                                        <p className="ph-label">Section Swaps</p>
-                                        <p className="ph-value">6k</p>
+                                        <p className="ph-label">Reviews</p>
+                                        <p className="ph-value">11K</p>
                                     </div>
                                     <div className="ph-top-left-bottom-right">
                                         <p className="ph-label">Study Swaps</p>
