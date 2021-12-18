@@ -27,7 +27,7 @@ const EnrollCourse = (props) => {
                 console.log(data)
                 if (data) {
                     props.states.setRefreshEnrolledCourses(!props.states.refreshEnrolledCourses)
-                    props.states.setRefreshUserInfo(props.states.refreshUserInfo)
+                    props.states.setRefreshUserInfo(!props.states.refreshUserInfo)
                 }
             }).catch(error => console.log(error))
     }

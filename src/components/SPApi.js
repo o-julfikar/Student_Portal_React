@@ -22,7 +22,7 @@ function getMethod() {
 
 let base_url = "http://127.0.0.1:8000/"
 // base_url = "http://192.168.9.48:8000/"
-base_url = "https://1d16-223-29-215-10.ngrok.io/";
+// base_url = "https://1d16-223-29-215-10.ngrok.io/";
 
 let urls = {
     auth: base_url + "user/auth/",

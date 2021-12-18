@@ -1,6 +1,6 @@
 import './App.css';
 import "./index.css"
-import {Navigate, Route, Routes, useHistory, useLocation, useNavigate} from "react-router";
+import {Navigate, Route, Routes, useLocation, useNavigate} from "react-router";
 import Nav from "./components/navbar/Nav";
 import Forum from "./components/forum/Forum";
 import Notifications from "./components/notifications/Notifications";
@@ -14,6 +14,7 @@ import Profile from "./components/profile/Profile";
 import {methods, urls} from "./components/SPApi";
 import {useEffect, useState} from "react";
 import {SPCookies as cookies} from "./components/SPCookies";
+import {initialStates} from "./components/InitialStates"
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     const [profileId, setProfileId] = useState(0);
     const [profileInfo, setProfileInfo] = useState([]);
     const [refreshUserInfo, setRefreshUserInfo] = useState(true);
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([initialStates.posts])
     const [userPosts, setUserPosts] = useState([])
     const [refreshPost, setRefreshPost] = useState(true)
     const navigate = useNavigate();
