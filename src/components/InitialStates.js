@@ -3,15 +3,15 @@ const posts = {
     "author_bracu_id": 0,
     "author_name": "",
     "author_photo": "",
-    "course": "",
-    "content": "",
+    "post_course": "",
+    "post_content": "",
     "date_created": "",
-    "semester": "",
-    "reactions": {
+    "post_semester": "",
+    "post_reactions": {
         "count": 0,
         "data": {}
     },
-    "comments": {
+    "post_comments": {
         "count": 0,
         "data": []
     }

@@ -5,13 +5,6 @@ import {Link} from "react-router-dom";
 
 const AccountPopup = (props) => {
 
-    let adminPanel = []
-    if (props.states.userInfo['admin'] === "Admin") {
-        adminPanel = [<Link to = {"admin"}><p className={"ap-admin-panel"}>Admin Panel</p></Link>]
-    } else {
-        adminPanel = []
-    }
-
     return (
         // <div className="account-popup">
         <div className="account-popup" onBlur={() => props.close()}>
@@ -29,7 +22,15 @@ const AccountPopup = (props) => {
                         Enroll Course
                     </p>
                 </Link>
-                {adminPanel}
+                {
+                    (() => {
+                        if (props.states.userInfo['role'] === "Admin") {
+                            return (
+                                <Link to = {"admin"}><p className={"ap-admin-panel"}>Admin Panel</p></Link>
+                            )
+                        }
+                    })()
+                }
                 <p className="ap-sign-out" onClick={() => props.logout()}>Sign Out</p>
             </div>
         </div>

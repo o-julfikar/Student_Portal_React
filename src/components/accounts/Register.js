@@ -88,7 +88,7 @@ const Register = (props) => {
                         <input id={'tel-phone'} type="tel" placeholder={"Phone Number"}/>
                     </div>
                     <div className="mid-right-mid">
-                        <input id={"txt-department"} type="text" placeholder={"Department"}/>
+                        <input id={"txt-department"} type="text" placeholder={"Department Program"}/>
                         <input id={"txt-semester"} type="text" placeholder={"Enrolled Semester"}/>
                     </div>
                     <div className="mid-right-bottom">

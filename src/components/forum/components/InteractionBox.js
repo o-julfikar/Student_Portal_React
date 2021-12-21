@@ -5,26 +5,65 @@ import CommentCard from "./CommentCard";
 import "../../../styles/forum/InteractionBox.css"
 
 const InteractionBox = (props) => {
-    let commentCards = []
-    for (let i = 0; i < props.cd_data.length; i++) {
-        commentCards.push(<CommentCard key = {i} data = {props.cd_data[i]} />)
+
+    // console.log(props.states.comments)
+
+    function newCommentOnClick(event) {
+        let txtNewComment = document.getElementById("txt-new-comment-" + props.post_id);
+        let comment_data = {
+            post_id: props.post_id,
+            comment_content: txtNewComment.value,
+        }
+        props.functions.create_comment(comment_data);
+        txtNewComment.value = "";
     }
+
     return (
         <div className={"interaction-box"}>
             <div className={"i-buttons"}>
                 <div className={"i-reaction"}>
-                    <p>{props.reaction_count}</p>
+                    <p>
+                        {
+                            props.post_reaction_count
+                        }
+                    </p>
                     <img src={reaction} alt={"Reaction"}/>
                 </div>
                 <div className={"i-comment"}>
                     <img src={comment_outline} alt={"Comment"}/>
-                    <p>{props.comment_count}</p>
+                    <p>
+                        {
+                            (() => {
+                                if (props.states.comments) {
+                                    return (
+                                        props.states.comments.count
+                                    )
+                                } else {
+                                    return (
+                                        0
+                                    )
+                                }
+                            })()
+                        }
+                    </p>
                 </div>
             </div>
-            <div className={"comment-cards"}> {commentCards} </div>
+            <div className={"comment-cards"}>
+                {
+                    (() => {
+                        if (props.states.comments && props.states.comments.comments) {
+                            return (
+                                props.states.comments.comments.map((comment_data, i) => (
+                                    <CommentCard key={i} comment_data={comment_data}/>
+                                ))
+                            )
+                        }
+                    })()
+                }
+            </div>
             <div className={"new_comment_box"}>
-                <textarea placeholder={"Write something..."}/>
-                <button type={"button"}>Submit</button>
+                <textarea id={"txt-new-comment-" + props.post_id} placeholder={"Write something..."}/>
+                <button type={"button"} onClick={newCommentOnClick}>Submit</button>
             </div>
         </div>
     )

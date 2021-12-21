@@ -25,12 +25,14 @@
 }
 
 .new-post-card textarea:not(:empty),
-.new-post-card textarea:focus {
+.new-post-card textarea:focus,
+.new-post-card:focus-within textarea {
     height: 200px;
 }
 
 .new-post-card textarea:focus + .post-options,
-.new-post-card textarea:not(:empty) + .post-options {
+.new-post-card textarea:not(:empty) + .post-options,
+.new-post-card:focus-within .post-options {
     display: flex;
 }
 

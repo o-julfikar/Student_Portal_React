@@ -12,10 +12,13 @@ import Login from "./components/accounts/Login";
 import RequireAuth from "./components/accounts/RequireAuth";
 import Profile from "./components/profile/Profile";
 import {methods, urls} from "./components/SPApi";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {SPCookies as cookies} from "./components/SPCookies";
 import {initialStates} from "./components/InitialStates"
+import {PageSectionContext, PageSectionProvider} from "./components/contexts/PageSectionContext";
 
+
+// export const MainPageContext = React.createContext({});
 
 function App() {
     const [enrolledCourses, setEnrolledCourses] = useState([]);
@@ -27,6 +30,7 @@ function App() {
     const [posts, setPosts] = useState([initialStates.posts])
     const [userPosts, setUserPosts] = useState([])
     const [refreshPost, setRefreshPost] = useState(true)
+    // const [mainPage, setMainPage] = useState(0)
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -113,23 +117,23 @@ function App() {
                     alert("Invalid login")
                 }
             }).catch(error => {
-                console.log(error)
-            }).finally(() => {
-                setRefreshUserInfo(!refreshUserInfo);
-                setRefreshEnrolledCourses(!refreshEnrolledCourses);
-            });
+            console.log(error)
+        }).finally(() => {
+            setRefreshUserInfo(!refreshUserInfo);
+            setRefreshEnrolledCourses(!refreshEnrolledCourses);
+        });
     }
 
     function logout() {
         fetch(urls.logout, methods.get())
-                .then(r => r.json())
-                .catch(error => {
-                    console.log(error)
-                }).finally(() => {
-                    setRefreshUserInfo(!refreshUserInfo);
-                    setRefreshEnrolledCourses(!refreshEnrolledCourses);
-                    cookies.setCookie('spsid', null, 0);
-                    navigate("/")
+            .then(r => r.json())
+            .catch(error => {
+                console.log(error)
+            }).finally(() => {
+            setRefreshUserInfo(!refreshUserInfo);
+            setRefreshEnrolledCourses(!refreshEnrolledCourses);
+            cookies.setCookie('spsid', null, 0);
+            navigate("/")
         });
     }
 
@@ -143,41 +147,32 @@ function App() {
             }).catch(error => console.log(error))
     }
 
+    function create_comment(comment_data) {
+        fetch(urls.create_comment, methods.post(comment_data))
+            .then(r => r.json())
+            .then(data => {
+                if (data) {
+                    setRefreshPost(!refreshPost);
+                }
+            })
+    }
+
     useEffect(() => {
         document.getElementById("SP-App").scrollTo(0, 0)
     }, [location])
 
-    // function ScrollToTop() {
-    //     // useEffect(() => {
-    //     //     const unlisten = location..bind((loc, act) => {
-    //     //         if (act !== 'POP') {
-    //     //             window.scrollTo(0, 0)
-    //     //         }
-    //     //     })
-    //     //     return () => unlisten()
-    //     // }, [])
-    //     // return null
-    // }
-
-    let section = [0, 0];
-
-    const customNav = (newNavIndex) => {
-        section[0] = section[1];
-        section[1] = newNavIndex;
-    }
-
     return (
         <div className={"App"} id={"SP-App"}>
-            <Nav states = {{
+            <Nav states={{
                 userInfo: userInfo,
-            }} logout = {logout}/>
-            {/*<ScrollToTop/>*/}
+            }} logout={logout}/>
             <div className="container">
                 <Routes>
                     <Route exact path={""} element={<Navigate to={"forum"}/>}/>
                     <Route exact path="/forum" element={
                         <RequireAuth>
-                            <Forum setSection={customNav} section={section}
+                            <PageSectionProvider>
+                                <Forum
                                    states={{
                                        enrolledCourses: enrolledCourses,
                                        posts: posts,
@@ -185,9 +180,12 @@ function App() {
                                        setEnrolledCourses: setEnrolledCourses,
                                        setRefreshEnrolledCourses: setRefreshEnrolledCourses,
                                        setRefreshPost: setRefreshPost,
-                                   }} functions={{
+                                   }}
+                                   functions={{
                                        create_post: create_post,
+                                       create_comment: create_comment
                                    }}/>
+                                </PageSectionProvider>
                         </RequireAuth>
                     }/>
                     <Route exact path="/review" element={
@@ -214,32 +212,35 @@ function App() {
                     </Route>
                     <Route exact path="/notifications" element={
                         <RequireAuth>
-                            <Notifications setSection = {customNav} section = {section}/>
+                            <Notifications setSection={customNav} section={section}/>
                         </RequireAuth>
                     }/>
                     <Route path="/profile/*" element={
                         <RequireAuth>
-                            <Profile states = {{
-                                setSection: customNav,
-                                section: section,
-                                userPosts: userPosts,
-                                posts: posts,
-                                enrolledCourses: enrolledCourses,
-                                setEnrolledCourses: setEnrolledCourses,
-                                refreshEnrolledCourses: refreshEnrolledCourses,
-                                setRefreshEnrolledCourses: setRefreshEnrolledCourses,
-                                userInfo: userInfo,
-                                profileInfo: profileInfo,
-                                setUserInfo: setUserInfo,
-                                setProfileId: setProfileId,
-                                refreshUserInfo: refreshUserInfo,
-                                setRefreshUserInfo: setRefreshUserInfo,
-                            }}/>
+                            <Profile
+                                states={{
+                                    setSection: customNav,
+                                    section: section,
+                                    userPosts: userPosts,
+                                    posts: posts,
+                                    enrolledCourses: enrolledCourses,
+                                    setEnrolledCourses: setEnrolledCourses,
+                                    refreshEnrolledCourses: refreshEnrolledCourses,
+                                    setRefreshEnrolledCourses: setRefreshEnrolledCourses,
+                                    userInfo: userInfo,
+                                    profileInfo: profileInfo,
+                                    setUserInfo: setUserInfo,
+                                    setProfileId: setProfileId,
+                                    refreshUserInfo: refreshUserInfo,
+                                    setRefreshUserInfo: setRefreshUserInfo,
+                                }}
+                               functions={{
+                                   create_comment: create_comment
+                               }}
+                            />
                         </RequireAuth>
                     }/>
-                    <Route path="/login/*" element={<Login login = {login} states = {{
-
-                    }}/>}>
+                    <Route path="/login/*" element={<Login login={login} states={{}}/>}>
                     </Route>
                     <Route path={"*"} element={<h1>404: Page not found</h1>}/>
                 </Routes>

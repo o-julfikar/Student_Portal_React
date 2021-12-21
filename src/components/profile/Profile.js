@@ -22,9 +22,14 @@ const Profile = (props) => {
                             }
                         })()}
                         <Route path={"*"} element={
-                            <ProfileMain states={{
-                                ...props.states,
-                            }}/>}
+                            <ProfileMain
+                                states={{
+                                    ...props.states,
+                                }}
+                                functions={{
+                                    ...props.functions,
+                                }}
+                            />}
                         />
                     </Routes>
                 </div>

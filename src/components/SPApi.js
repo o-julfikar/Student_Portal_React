@@ -38,6 +38,12 @@ let urls = {
 
     create_post: base_url + "forum/post/create/",
     get_post: base_url + "forum/post/get/",
+    create_reaction: base_url + "forum/post/reaction/create/",
+    get_reaction: base_url + "forum/post/reaction/get/",
+    create_comment: base_url + "forum/post/comment/create/",
+    get_comment: base_url + "forum/post/comment/get/",
+    create_reply: base_url + "forum/post/reply/create/",
+    get_reply: base_url + "forum/post/reply/get/",
 }
 
 let methods = {
