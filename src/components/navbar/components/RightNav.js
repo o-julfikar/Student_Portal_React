@@ -23,7 +23,7 @@ const RightNav = (props) => {
                 <li>
                     <NavLink to={`profile/${props.states.userInfo.bracu_id}`}>
                         <nav className={"user-header" + (open? " open" : "")}>
-                            <img src={user_photo} alt={"User profile"}/>
+                            <img src={props.states.userInfo.photo? props.states.userInfo.photo : user_photo} alt={"User profile"}/>
                             <p>{props.states.userInfo.name}</p>
                         </nav>
                     </NavLink>

@@ -30,7 +30,7 @@
     overflow: hidden;
 }
 
-table thead {
+.enroll-course table thead {
     position: sticky;
     top: 0;
 }
@@ -95,12 +95,12 @@ table thead {
     width: 100%;
 }
 
-.content-container > :not(:first-child),
-.enroll-container > :not(:first-child) {
+.enroll-course .content-container > :not(:first-child),
+.enroll-course .enroll-container > :not(:first-child) {
     margin-top: 10px;
 }
 
-.enroll-container label p {
+.enroll-course .enroll-container label p {
     margin: 0;
 }
 

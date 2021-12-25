@@ -18,29 +18,29 @@
     width: 150px;
 }
 
-.provider-container {
+.stud-swap-card .provider-container {
 
 }
 
-.receiver-container {
+.stud-swap-card .receiver-container {
     /*position: absolute;*/
     /*float: right;*/
     /*right: 20px;*/
 }
 
-.provider-container img,
-.receiver-container img {
+.stud-swap-card .provider-container img,
+.stud-swap-card .receiver-container img {
     width: 128px;
     height: 128px;
 }
 
-.provider-container p,
-.receiver-container p {
+.stud-swap-card .provider-container p,
+.stud-swap-card .receiver-container p {
     text-align: center;
     margin: 10px 0 0;
 }
 
-.course-container {
+.stud-swap-card .course-container {
     /*position: absolute;*/
     /*left: 50%;*/
     /*top: 50%;*/
@@ -53,12 +53,12 @@
 
 }
 
-.course-container h2,
-.course-container p {
+.stud-swap-card .course-container h2,
+.stud-swap-card .course-container p {
     margin: 0;
 }
 
-.course-container svg {
+.stud-swap-card .course-container svg {
     color: #555555;
     width: 100px ;
 }

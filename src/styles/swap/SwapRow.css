@@ -1,11 +1,12 @@
-tr td svg {
+tr td svg.cross-ico {
     cursor: pointer;
+    transition: 0.1s;
 }
 
-tr td svg:hover {
-    fill: #E75858;
+tr td svg.cross-ico:hover {
+    fill: #e36e6e;
 }
 
-tr td svg:active {
+tr td svg.cross-ico:active {
     fill: #dd4444;
 }

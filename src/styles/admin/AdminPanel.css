@@ -1,0 +1,39 @@
+.admin-panel {
+    position: relative;
+}
+
+.admin-panel .left-sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    padding: 20px 20px;
+    width: 209px;
+    height: calc(100% - 110px);
+    border-right: 1px solid #777777;
+    overflow: auto;
+    animation: fadeIn 0.3s;
+    background: #EFEFEF;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-panel .left-sidebar a {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    color: black;
+}
+
+.admin-panel .left-sidebar a.active {
+    background: #C4C4C4;
+}
+
+.admin-panel .left-sidebar a:hover {
+    background: #dadada;
+}
+
+.admin-panel .admin-container {
+    padding: 20px 20px 20px 270px;
+    display: flex;
+}

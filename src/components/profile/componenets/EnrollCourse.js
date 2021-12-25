@@ -44,7 +44,7 @@ const EnrollCourse = (props) => {
 
         console.log(deleteCourseData)
 
-        fetch(urls.delete_course, methods.post(deleteCourseData))
+        fetch(urls.unenroll_course, methods.post(deleteCourseData))
             .then(r => r.json())
             .then(data => {
                 console.log(data)

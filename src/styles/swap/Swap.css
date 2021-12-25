@@ -1,3 +1,5 @@
+@import "../Animations.css";
+
 .swap {
     position: relative;
     display: flex;
@@ -6,7 +8,7 @@
 
 .transition-helper-0 .swap,
 .transition-helper-1 .swap {
-    animation: fadeIn 0.3s, fromRight 0.1s;
+    animation: fadeIn 0.1s, fromRight 0.1s;
 }
 
 .transition-helper-3 .swap,
@@ -17,11 +19,13 @@
 .swap-left-sidebar {
     position: fixed;
     border-right: 1px solid #707070;
-    min-width: 200px;
+    width: 250px;
     height: calc(100% - 70px);
     display: flex;
     flex-direction: column;
     background: #EFEFEF;
+    padding: 0 10px;
+    overflow: auto;
     /*animation: fadeIn 1s;*/
 }
 
@@ -35,7 +39,7 @@
 
 .swap-nav-link button,
 .swap-nav-link-active button {
-    width: calc(100% - 20px);
+    width: calc(100%);
     min-height: 40px;
     border: none;
     border-radius: 10px;
@@ -46,11 +50,11 @@
 
 .swap-nav-link button:first-child,
 .swap-nav-link-active button:first-child {
-    margin: 20px 10px 0;
+    margin: 20px 0 0;
 }
 
 .swap-nav-link-button:not(:first-child) button {
-    margin: 5px 10px 0;
+    margin: 5px 0 0;
 }
 
 .swap-left-sidebar nav button:last-of-type {
@@ -66,15 +70,13 @@
 }
 
 .swap-controls {
-    margin: auto 10px 20px;
+    margin: auto 0 20px;
 }
 
 .swap-controls select {
-    /*padding-left: 10px;*/
     width: calc(100%);
     text-indent: 10px;
     min-height: 40px;
-    /*border: none;*/
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
@@ -109,6 +111,8 @@
 
 .sec-swap,
 .stud-swap {
+    position: relative;
+    animation: fadeIn 0.8s;
     display: flex;
     width: 100%;
 }
@@ -125,7 +129,7 @@
     position: fixed;
     right: 20px;
     border-left: 1px solid #707070;
-    min-width: 200px;
+    width: 250px;
     height: calc(100% - 110px);
     padding: 20px 10px;
     display: flex;
@@ -158,7 +162,7 @@
     overflow: hidden;
 }
 
-.sec-swap .table-op-container {
+.swap .table-op-container {
     height: 250px;
     min-height: 200px;
 }
@@ -202,8 +206,6 @@
 .table-slot {
     border-collapse: collapse;
     border-radius: 10px;
-    height: 150px;
-    max-height: 150px;
     width: 100%;
 }
 
@@ -239,6 +241,7 @@
 .table-slot tbody tr td {
     padding: 5px 0;
     height: 30px;
+    font-family: "Ubuntu Mono", monospace;
 }
 
 .table-op tbody tr:hover {
@@ -250,7 +253,6 @@
 }
 
 .table-op tbody tr td:last-child {
-    text-align: center;
     min-width: 15px;
     /*height: 20px;*/
 }
@@ -273,13 +275,10 @@
 .offer-container select:active,
 .offer-container select:focus,
 .prefer-container select:active,
-.prefer-container select:focus {
-    border-radius: 10px 10px 0 0;
-}
-
+.prefer-container select:focus,
 .slot-container select:active,
 .slot-container select:focus {
-    border-radius: 10px 10px 0 0;
+    border-radius: 0;
 }
 
 .offer-container button,
@@ -293,6 +292,16 @@
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.offer-container button:hover,
+.prefer-container button:hover {
+    background: #2874AB;
+}
+
+.offer-container button:active,
+.prefer-container button:active {
+    background: #2891b6;
 }
 
 .slot-container select {
@@ -338,38 +347,47 @@
     justify-items: center;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.swap-right-sidebar .table-row-delete-cell {
+    width: 20px;
+    cursor: pointer;
 }
 
-@keyframes moveDown {
-    from {
-        top: -100px;
-    }
-    to {
-        top: 0;
-    }
+.swap-right-sidebar .table-row-delete-cell:hover svg {
+    fill: #e36e6e;
 }
 
-@keyframes fromLeft {
-    from {
-        left: -100px;
-    }
-    to {
-        left: 0;
-    }
+
+.swap-right-sidebar .table-row-delete-cell:active svg {
+    fill: #dd4444;
 }
 
-@keyframes fromRight {
-    from {
-        left: 100px;
-    }
-    to {
-        left: 0;
-    }
+.swap-history {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.swap-row {
+    cursor: pointer;
+}
+
+.swap-row.active,
+.swap-row.active:hover,
+.swap-row.active:active {
+    background: rgba(40, 145, 182, 0.5);
+}
+
+.swap .swap-left-sidebar .nav {
+    height: 105px;
+}
+
+.swap .approval-cell.declined {
+    color: #ff0000;
+}
+
+.swap .approval-cell.pending {
+    color: #777777;
+}
+
+.swap .approval-cell.approved {
+    color: #006512;
 }

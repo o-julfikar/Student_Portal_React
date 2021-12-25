@@ -29,8 +29,12 @@ body > #root {
 
 .App > .container {
     width: 100%;
-    height: calc(100%);
+    height: calc(100% - 70px);
     /*height: calc(100% - 70px);*/
     /*overflow: auto;*/
     /*overflow-y: scroll;*/
+}
+
+img {
+    border-radius: 50%;
 }

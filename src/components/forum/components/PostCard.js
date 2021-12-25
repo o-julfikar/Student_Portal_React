@@ -37,7 +37,7 @@ const PostCard = (props) => {
             <div className={"pc-header"}>
                 <div className={"pc-head-left"}>
                     <Link to={`/profile/${props.bracu_id}`}>
-                        <img src={user_picture} alt={"Default"} />
+                        <img src={props.author_photo? props.author_photo : user_picture} alt={"Default"} />
                     </Link>
                     <div className={"pc-header-info"}>
                         <Link to={`/profile/${props.bracu_id}`}>
@@ -47,7 +47,9 @@ const PostCard = (props) => {
                             props.post_course && props.post_semester?
                                 props.post_course + " - " + props.post_semester : props.post_course?
                                 props.post_course : props.post_semester? props.post_semester : "General Post"}</p>
-                        <p className={"pc-head-post-date"}>{props.post_date}</p>
+                        <Link to={`/forum/post/${props.post_id}`}>
+                            <p className={"pc-head-post-date"}>{props.post_date}</p>
+                        </Link>
                     </div>
                 </div>
                 <img className={"pc-header-more-button"} src={more_button} alt={"More Button"}/>

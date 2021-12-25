@@ -19,6 +19,10 @@ function getMethod() {
     }
 }
 
+function getSectionByCourse(course) {
+    return base_url + `swap/course/${course}/section/get`;
+}
+
 
 let base_url = "http://127.0.0.1:8000/"
 // base_url = "http://192.168.9.48:8000/"
@@ -27,7 +31,7 @@ let base_url = "http://127.0.0.1:8000/"
 let urls = {
     auth: base_url + "user/auth/",
     basic_info: base_url + "user/basic-info/",
-    delete_course: base_url + "user/delete-course/",
+    unenroll_course: base_url + "user/delete-course/",
     enroll_course: base_url + "user/enroll-course/",
     enrolled_courses: base_url + "user/enrolled-courses/",
     identify: base_url + "user/identify/",
@@ -44,6 +48,45 @@ let urls = {
     get_comment: base_url + "forum/post/comment/get/",
     create_reply: base_url + "forum/post/reply/create/",
     get_reply: base_url + "forum/post/reply/get/",
+
+    get_course: base_url + "swap/course/get",
+    create_course: base_url + "swap/course/create",
+    delete_course: base_url + "swap/course/delete",
+    get_section: base_url + "swap/course/section/get",
+    get_section_by_course: getSectionByCourse,
+    create_section: base_url + "swap/course/section/create",
+    delete_section: base_url + "swap/course/section/delete",
+
+    get_offer: base_url + "swap/section/offer/get",
+    post_offer: base_url + "swap/section/offer/post",
+    delete_offer: base_url + "swap/section/offer/delete",
+    get_prefer: base_url + "swap/section/prefer/get",
+    post_prefer: base_url + "swap/section/prefer/post",
+    delete_prefer: base_url + "swap/section/prefer/delete",
+
+    get_slot: base_url + "swap/study/slot/get",
+    post_slot: base_url + "swap/study/slot/post",
+    delete_slot: base_url + "swap/study/slot/delete",
+    get_teach: base_url + "swap/study/teach/get",
+    post_teach: base_url + "swap/study/teach/post",
+    delete_teach: base_url + "swap/study/teach/delete",
+    get_learn: base_url + "swap/study/learn/get",
+    post_learn: base_url + "swap/study/learn/post",
+    delete_learn: base_url + "swap/study/learn/delete",
+
+    get_section_swap: base_url + "swap/section/get",
+    post_section_swap: base_url + "swap/section/post",
+    delete_section_swap: base_url + "swap/section/delete",
+
+    post_section_swap_action: base_url + "swap/section/action/post",
+
+    get_study_swap: base_url + "swap/study/get",
+    post_study_swap: base_url + "swap/study/post",
+    delete_study_swap: base_url + "swap/study/delete",
+
+    post_study_swap_action: base_url + "swap/study/action/post",
+
+    get_notification: base_url + "notification/get",
 }
 
 let methods = {

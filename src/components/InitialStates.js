@@ -17,8 +17,14 @@ const posts = {
     }
 }
 
+const sectionState = {
+    course_code: "",
+    course_sections: [],
+}
+
 const initialStates = {
-    posts: posts
+    posts: posts,
+    sectionState: sectionState,
 }
 
 export {

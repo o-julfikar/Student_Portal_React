@@ -9,10 +9,12 @@
     animation: fadeIn 0.3s, fromLeft 0.1s;
 }
 
-.post-cards {
-    /*overflow: auto;*/
-    display: block;
-    height: 100%;
+.forum .post-cards {
+
+}
+
+.forum .post-cards > :not(:first-child) {
+    margin-top: 20px;
 }
 
 @keyframes fadeIn {

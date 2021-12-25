@@ -1,5 +1,6 @@
 .noti-card {
     background: rgba(239, 239, 239, 0.5);
+    width: calc(650px - 20px);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -26,10 +27,16 @@
 .noti-card > svg {
     height: 10px;
     width: 10px;
+    min-height: 10px;
+    min-width: 10px;
 }
 .noti-card > img {
     height: 40px;
     width: 40px;
+}
+
+.noti-card p {
+    color: #222222;
 }
 
 .noti-card > :not(:last-child) {

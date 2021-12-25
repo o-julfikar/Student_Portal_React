@@ -1,0 +1,177 @@
+.add-course-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-course-section > :not(:first-child) {
+    margin-left: 10px;
+}
+
+.add-course-section .input-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.add-course-section .input-container > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.add-course-section .input-container input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+}
+
+.add-course-section .input-container button {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #0F5D88;
+    color: white;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, width 0.1s, margin-left 0.1s;
+}
+
+.add-course-section .input-container button:hover {
+    background-color: #2874AB;
+}
+
+.add-course-section .input-container button:active {
+    background-color: #2891b6;
+    width: 180px;
+    margin-left: 10px;
+}
+
+.add-course-section .table-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-course-section .table-container > :not(:first-child) {
+    margin-left: 10px;
+}
+
+.add-course-section .table-container .table-course-container,
+.add-course-section .table-container .table-course-section-container {
+    width: 200px;
+    height: 500px;
+    border-radius: 10px 5px 5px 10px;
+    background: #dddddd;
+    overflow: hidden;
+}
+
+.add-course-section .table-container .table-course-scroll,
+.add-course-section .table-container .table-course-section-scroll {
+    overflow: auto;
+    height: 100%;
+}
+
+.add-course-section .table-container .table-course-scroll::-webkit-scrollbar,
+.add-course-section .table-container .table-course-section-scroll::-webkit-scrollbar {
+    width: 0.5em;
+    scroll-behavior: smooth !important;
+}
+
+.add-course-section .table-container .table-course-scroll::-webkit-scrollbar-track,
+.add-course-section .table-container .table-course-section-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #0F5D88 !important;
+}
+
+.add-course-section .table-container .table-course-scroll::-webkit-scrollbar-thumb,
+.add-course-section .table-container .table-course-section-scroll::-webkit-scrollbar-thumb {
+    background: #2891b6 !important;
+    border-radius: 20px !important;
+}
+
+.add-course-section .table-container .table-course,
+.add-course-section .table-container .table-course-section {
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.add-course-section .table-container .table-course thead,
+.add-course-section .table-container .table-course-section thead {
+    position: sticky;
+    top: 0;
+}
+
+.add-course-section .table-container .table-course thead tr td,
+.add-course-section .table-container .table-course-section thead tr td {
+    padding: 10px;
+    border-radius: 10px 0 0 0;
+    text-align: center;
+}
+
+.add-course-section .table-container .table-course thead tr td,
+.add-course-section .table-container .table-course-section thead tr td {
+    background: #0F5D88;
+    color: #FFFFFF;
+}
+
+.add-course-section .table-container .table-course tbody tr td:first-child,
+.add-course-section .table-container .table-course-section tbody tr td:first-child {
+    padding: 0 0;
+    text-indent: 10px;
+}
+
+.add-course-section .table-container .table-course tbody tr td,
+.add-course-section .table-container .table-course-section tbody tr td {
+    padding: 5px 0;
+    height: 30px;
+}
+
+.add-course-section .table-container .table-course tbody tr:hover,
+.add-course-section .table-container .table-course-section tbody tr:hover {
+    background: #0F5D8834;
+}
+
+.add-course-section .table-container .table-course tbody tr,
+.add-course-section .table-container .table-course-section tbody tr {
+    transition: 0.1s;
+}
+
+.add-course-section .table-container .table-course tbody tr:hover {
+    cursor: pointer;
+}
+
+.add-course-section .table-container .table-row-delete-cell {
+    width: 20px;
+    cursor: pointer;
+}
+
+.add-course-section .table-container .table-row-delete-cell:hover .cross-ico {
+    fill: #e36e6e;
+}
+
+.add-course-section .table-container .table-row-delete-cell:active .cross-ico {
+    fill: #dd4444;
+}
+
+.add-course-section .table-container .acs-crow.active {
+    background: rgba(15, 93, 136, 0.37);
+}
+
+.add-course-section .table-container .acs-crow.active:hover {
+    background: #0F5D8834
+}
+
+.add-course-section .table-container tbody tr td:empty {
+    border: none;
+}
+
+.add-course-section .input-container .delete-button {
+    background: #e1e1e1;
+    color: #e14646;
+}
+
+.add-course-section .input-container .delete-button:hover {
+    background: #d2d2d2;
+}
+
+.add-course-section .input-container .delete-button:active {
+    background: #c0c0c0;
+}

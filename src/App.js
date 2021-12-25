@@ -6,19 +6,29 @@ import Forum from "./components/forum/Forum";
 import Notifications from "./components/notifications/Notifications";
 import Review from "./components/review/Review";
 import Swap from "./components/swap/Swap";
-import StudySwap from "./components/swap/components/StudySwap";
-import SectionSwap from "./components/swap/components/SectionSwap";
 import Login from "./components/accounts/Login";
 import RequireAuth from "./components/accounts/RequireAuth";
 import Profile from "./components/profile/Profile";
 import {methods, urls} from "./components/SPApi";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {SPCookies as cookies} from "./components/SPCookies";
 import {initialStates} from "./components/InitialStates"
-import {PageSectionContext, PageSectionProvider} from "./components/contexts/PageSectionContext";
+import {AdminPanel} from "./components/admin/AdminPanel";
+import CourseState from "./contexts/swap/CourseState"
+import CourseSectionState from "./contexts/swap/CourseSectionState";
+import OffersState from "./contexts/swap/OffersState";
+import PrefersState from "./contexts/swap/PrefersState";
+import SlotState from "./contexts/swap/SlotState";
+import TeachState from "./contexts/swap/TeachState";
+import LearnState from "./contexts/swap/LearnState";
+import SectionSwapCardsState from "./contexts/swap/SectionSwapCardsState";
+import StudySwapCardsState from "./contexts/swap/StudySwapCardsState";
+import SectionSwapHistoryState from "./contexts/swap/SectionSwapHistoryState";
+import StudySwapHistoryState from "./contexts/swap/StudySwapHistoryState";
+import NotificationState from "./contexts/notifications/NotificationState";
 
 
-// export const MainPageContext = React.createContext({});
+const section = [0, 0]
 
 function App() {
     const [enrolledCourses, setEnrolledCourses] = useState([]);
@@ -30,7 +40,6 @@ function App() {
     const [posts, setPosts] = useState([initialStates.posts])
     const [userPosts, setUserPosts] = useState([])
     const [refreshPost, setRefreshPost] = useState(true)
-    // const [mainPage, setMainPage] = useState(0)
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -161,89 +170,124 @@ function App() {
         document.getElementById("SP-App").scrollTo(0, 0)
     }, [location])
 
+
+    function customNav(currentPage) {
+        if (currentPage !== section[1]) {
+            section[0] = section[1]
+            section[1] = currentPage;
+        }
+    }
+
     return (
         <div className={"App"} id={"SP-App"}>
             <Nav states={{
                 userInfo: userInfo,
             }} logout={logout}/>
             <div className="container">
-                <Routes>
-                    <Route exact path={""} element={<Navigate to={"forum"}/>}/>
-                    <Route exact path="/forum" element={
-                        <RequireAuth>
-                            <PageSectionProvider>
-                                <Forum
-                                   states={{
-                                       enrolledCourses: enrolledCourses,
-                                       posts: posts,
-                                       refreshEnrolledCourses: refreshEnrolledCourses,
-                                       setEnrolledCourses: setEnrolledCourses,
-                                       setRefreshEnrolledCourses: setRefreshEnrolledCourses,
-                                       setRefreshPost: setRefreshPost,
-                                   }}
-                                   functions={{
-                                       create_post: create_post,
-                                       create_comment: create_comment
-                                   }}/>
-                                </PageSectionProvider>
-                        </RequireAuth>
-                    }/>
-                    <Route exact path="/review" element={
-                        <RequireAuth>
-                            <Review customNav={customNav} section={section}/>
-                        </RequireAuth>
-                    }/>
-                    <Route exact path="/swap" element={
-                        <RequireAuth>
-                            <Swap customNav={customNav} section={section}/>
-                        </RequireAuth>
-                    }>
-                        <Route exact path={""} element={<Navigate replace to={"section"}/>}/>
-                        <Route exact path={"section"} element={
-                            <RequireAuth>
-                                <SectionSwap/>
-                            </RequireAuth>
-                        }/>
-                        <Route exact path={"study"} element={
-                            <RequireAuth>
-                                <StudySwap/>
-                            </RequireAuth>
-                        }/>
-                    </Route>
-                    <Route exact path="/notifications" element={
-                        <RequireAuth>
-                            <Notifications setSection={customNav} section={section}/>
-                        </RequireAuth>
-                    }/>
-                    <Route path="/profile/*" element={
-                        <RequireAuth>
-                            <Profile
-                                states={{
-                                    setSection: customNav,
-                                    section: section,
-                                    userPosts: userPosts,
-                                    posts: posts,
-                                    enrolledCourses: enrolledCourses,
-                                    setEnrolledCourses: setEnrolledCourses,
-                                    refreshEnrolledCourses: refreshEnrolledCourses,
-                                    setRefreshEnrolledCourses: setRefreshEnrolledCourses,
-                                    userInfo: userInfo,
-                                    profileInfo: profileInfo,
-                                    setUserInfo: setUserInfo,
-                                    setProfileId: setProfileId,
-                                    refreshUserInfo: refreshUserInfo,
-                                    setRefreshUserInfo: setRefreshUserInfo,
-                                }}
-                               functions={{
-                                   create_comment: create_comment
-                               }}
-                            />
-                        </RequireAuth>
-                    }/>
-                    <Route path="/login/*" element={<Login login={login} states={{}}/>}>
-                    </Route>
-                    <Route path={"*"} element={<h1>404: Page not found</h1>}/>
-                </Routes>
+                <CourseState>
+                    <CourseSectionState>
+                        <OffersState>
+                            <PrefersState>
+                                <SlotState>
+                                    <TeachState>
+                                        <LearnState>
+                                            <SectionSwapCardsState>
+                                                <SectionSwapHistoryState>
+                                                    <StudySwapCardsState>
+                                                        <StudySwapHistoryState>
+                                                            <NotificationState>
+                                                                <Routes>
+
+                                                                    <Route exact path={""}
+                                                                           element={<Navigate to={"forum"}/>}/>
+                                                                    <Route exact path="/forum/*" element={
+                                                                        <RequireAuth>
+                                                                            <Forum customNav={customNav}
+                                                                                   section={section}
+                                                                                   states={{
+                                                                                       enrolledCourses: enrolledCourses,
+                                                                                       posts: posts,
+                                                                                       refreshEnrolledCourses: refreshEnrolledCourses,
+                                                                                       setEnrolledCourses: setEnrolledCourses,
+                                                                                       setRefreshEnrolledCourses: setRefreshEnrolledCourses,
+                                                                                       setRefreshPost: setRefreshPost,
+                                                                                   }}
+                                                                                   functions={{
+                                                                                       create_post: create_post,
+                                                                                       create_comment: create_comment
+                                                                                   }}/>
+                                                                        </RequireAuth>
+                                                                    }/>
+                                                                    <Route path="/review" element={
+                                                                        <RequireAuth>
+                                                                            <Review customNav={customNav}
+                                                                                    section={section}/>
+                                                                        </RequireAuth>
+                                                                    }/>
+                                                                    <Route path="/swap/*" element={
+                                                                        <RequireAuth>
+                                                                            <Swap customNav={customNav}
+                                                                                  section={section}/>
+                                                                        </RequireAuth>
+                                                                    }/>
+                                                                    <Route exact path="/notifications" element={
+                                                                        <RequireAuth>
+                                                                            <Notifications setSection={customNav}
+                                                                                           section={section}/>
+                                                                        </RequireAuth>
+                                                                    }/>
+                                                                    <Route path="/profile/*" element={
+                                                                        <RequireAuth>
+                                                                            <Profile
+                                                                                states={{
+                                                                                    setSection: customNav,
+                                                                                    section: section,
+                                                                                    userPosts: userPosts,
+                                                                                    posts: posts,
+                                                                                    enrolledCourses: enrolledCourses,
+                                                                                    setEnrolledCourses: setEnrolledCourses,
+                                                                                    refreshEnrolledCourses: refreshEnrolledCourses,
+                                                                                    setRefreshEnrolledCourses: setRefreshEnrolledCourses,
+                                                                                    userInfo: userInfo,
+                                                                                    profileInfo: profileInfo,
+                                                                                    setUserInfo: setUserInfo,
+                                                                                    setProfileId: setProfileId,
+                                                                                    refreshUserInfo: refreshUserInfo,
+                                                                                    setRefreshUserInfo: setRefreshUserInfo,
+                                                                                }}
+                                                                                functions={{
+                                                                                    create_comment: create_comment
+                                                                                }}
+                                                                            />
+                                                                        </RequireAuth>
+                                                                    }/>
+                                                                    <Route path={"/admin/*"} element={
+                                                                        <RequireAuth>
+                                                                            <AdminPanel
+
+                                                                            />
+                                                                        </RequireAuth>
+                                                                    }/>
+                                                                    <Route path="/login/*"
+                                                                           element={<Login login={login}
+                                                                                           states={{}}/>}/>
+                                                                    <Route path={"*"}
+                                                                           element={<h1>404: Page not found</h1>}/>
+                                                                </Routes>
+                                                            </NotificationState>
+                                                        </StudySwapHistoryState>
+                                                    </StudySwapCardsState>
+                                                </SectionSwapHistoryState>
+                                            </SectionSwapCardsState>
+                                        </LearnState>
+                                    </TeachState>
+                                </SlotState>
+                            </PrefersState>
+                        </OffersState>
+                    </CourseSectionState>
+
+                </CourseState>
+
             </div>
         </div>
     );
