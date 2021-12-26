@@ -6,7 +6,7 @@ const NewPostCard = (props) => {
     const [postValue, setPostValue] = useState("")
     const [courseSemester, setCourseSemester] = useState("")
 
-    function create_post() {
+    function create_post(e) {
         let post_course_semester = courseSemester;
         let post_data = {
             post_content: postValue,
@@ -18,9 +18,7 @@ const NewPostCard = (props) => {
                 post_data = {...post_data, post_course: course, post_semester: semester}
             }
         }
-        props.functions.create_post(post_data);
-        setPostValue("")
-        setCourseSemester("")
+        props.functions.create_post(post_data, setPostValue, setCourseSemester, e.target);
     }
 
     return (

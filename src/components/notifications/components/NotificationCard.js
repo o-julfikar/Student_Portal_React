@@ -51,6 +51,8 @@ const NotificationCard = ({data}) => {
                     return "/swap/section";
                 } else if (model === notiModel.STUDY_SWAP) {
                     return "/swap/study";
+                } else if (model === notiModel.POST) {
+                    return "/forum/post/" + data.post;
                 } else {
                     return "";
                 }

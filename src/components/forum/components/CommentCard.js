@@ -4,6 +4,7 @@ import reaction from "../../../icons/reaction.svg"
 import "../../../styles/forum/CommentCard.css"
 import user_picture from "../../../icons/userphoto_default.png"
 import {Link} from "react-router-dom";
+import {formatDateTime} from "../../Utility";
 
 
 const CommentCard = (props) => {
@@ -17,7 +18,7 @@ const CommentCard = (props) => {
                         <Link to={"/profile/" + props.comment_data.author_bracu_id}>
                             <p className={"cd-user-name"}>{props.comment_data.author_name}</p>
                         </Link>
-                        <p className={"cd-date"}>{props.comment_data.date_created}</p>
+                        <p className={"cd-date"}>{formatDateTime(props.comment_data.date_created)}</p>
                     </div>
                     <p className={"cd-content"}>{props.comment_data.comment_content}</p>
                 </div>

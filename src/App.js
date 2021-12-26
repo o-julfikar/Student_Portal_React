@@ -146,12 +146,15 @@ function App() {
         });
     }
 
-    function create_post(post_data) {
+    function create_post(post_data, setPostValue, setCourseSemester, button) {
         fetch(urls.create_post, methods.post(post_data))
             .then(r => r.json())
             .then(data => {
                 if (data) {
                     setRefreshPost(!refreshPost);
+                    setPostValue("");
+                    setCourseSemester("");
+                    button.blur();
                 }
             }).catch(error => console.log(error))
     }

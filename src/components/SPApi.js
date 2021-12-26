@@ -42,6 +42,7 @@ let urls = {
 
     create_post: base_url + "forum/post/create/",
     get_post: base_url + "forum/post/get/",
+    get_post_by_id: base_url + "forum/post/",
     create_reaction: base_url + "forum/post/reaction/create/",
     get_reaction: base_url + "forum/post/reaction/get/",
     create_comment: base_url + "forum/post/comment/create/",

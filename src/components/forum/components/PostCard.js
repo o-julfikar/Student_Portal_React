@@ -5,6 +5,7 @@ import more_button from "../../../icons/morebutton.svg";
 import InteractionBox from "./InteractionBox";
 import {Link} from "react-router-dom";
 import {methods, urls} from "../../SPApi";
+import {formatDateTime} from "../../Utility";
 
 
 const PostCard = (props) => {
@@ -48,7 +49,7 @@ const PostCard = (props) => {
                                 props.post_course + " - " + props.post_semester : props.post_course?
                                 props.post_course : props.post_semester? props.post_semester : "General Post"}</p>
                         <Link to={`/forum/post/${props.post_id}`}>
-                            <p className={"pc-head-post-date"}>{props.post_date}</p>
+                            <p className={"pc-head-post-date"}>{formatDateTime(props.post_date)}</p>
                         </Link>
                     </div>
                 </div>
@@ -58,7 +59,7 @@ const PostCard = (props) => {
                 <p>{props.post_content}</p>
             </div>
             <InteractionBox post_id={props.post_id} post_reaction_count = {props.post_reaction_count}
-                            post_comment_count = {props.post_comment_count} cd_data ={props.cd_data}
+                            post_comment_count = {props.post_comment_count}
                             functions={{
                                 create_comment: create_comment,
                             }}

@@ -4,20 +4,21 @@ import "../../styles/forum/Forum.css"
 import PostCard from "./components/PostCard";
 import {Route, Routes} from "react-router-dom";
 import {useParams} from "react-router";
+import PostCardDynamicState from "../../contexts/forum/PostCardDynamicState";
+import PostCardDynamic from "./components/PostCardDynamic";
 
 
 const Forum = (props) => {
+    const { post_id } = useParams();
     props.customNav(0)
     return (
         <div className={"transition-helper-" + (props.section[0])}>
             <div className={"forum"}>
                 <Routes>
                     <Route path={"post/:post_id"} element={
-                        (() => {
-                            // TODO: Next work
-                            // const test = useParams()
-                            return <p>hello world</p>
-                        })()
+                        <PostCardDynamicState>
+                            <PostCardDynamic/>
+                        </PostCardDynamicState>
                     }>
 
                     </Route>

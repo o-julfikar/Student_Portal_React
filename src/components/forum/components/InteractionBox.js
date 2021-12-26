@@ -6,8 +6,6 @@ import "../../../styles/forum/InteractionBox.css"
 
 const InteractionBox = (props) => {
 
-    // console.log(props.states.comments)
-
     function newCommentOnClick(event) {
         let txtNewComment = document.getElementById("txt-new-comment-" + props.post_id);
         let comment_data = {
