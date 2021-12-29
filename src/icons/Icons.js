@@ -31,6 +31,7 @@ import star_gray_svg from "./star-gray.svg"
 import sneak_card_bullet_svg from "./sneak-card-bullet.svg"
 import cross_svg from "./cross.svg"
 import noti_read_switch_svg from "./noti-read-switch.svg"
+import boi_poka_svg from "./boipoka_logo.svg"
 
 
 const icons = () => {
@@ -67,7 +68,8 @@ const icons = () => {
                 star_gray: star_gray_svg,
                 sneak_card_bullet: sneak_card_bullet_svg,
                 cross: cross_svg,
-                noti_read_switch: noti_read_switch_svg
+                noti_read_switch: noti_read_switch_svg,
+                boi_poka: boi_poka_svg,
         });
 }
 

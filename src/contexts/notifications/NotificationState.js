@@ -38,7 +38,9 @@ const NotificationState = (props) => {
                 } else {
                     console.log(data)
                 }
-            })
+            }).catch(errors => {
+            console.log(errors)
+        })
     }, [refreshNotification, location])
 
     return (

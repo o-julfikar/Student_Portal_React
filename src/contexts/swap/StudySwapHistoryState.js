@@ -25,7 +25,9 @@ const StudySwapHistoryState = (props) => {
                 } else {
                     setStudySwapHistory([])
                 }
-            })
+            }).catch(errors => {
+            console.log(errors)
+        })
     }, [refreshStudySwapHistory, selectedStudySwapRequest, location])
 
     return (

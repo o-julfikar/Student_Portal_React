@@ -1,13 +1,31 @@
 import "../../styles/accounts/Register.css"
-import React from "react";
+import React, {useEffect, useState} from "react";
 import icons from "../../icons/Icons";
 import {useLocation, useNavigate} from "react-router";
 import {methods, urls} from "../SPApi";
 
 
 const Register = (props) => {
-    const { state } = useLocation();
+    const {state} = useLocation();
+    const [bracuId, setBracuId] = useState(state.bracu_id)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        let txtProgram = document.getElementById("txt-department");
+        let txtSemester = document.getElementById("txt-semester");
+
+        fetch(urls.get_bracu_id_info + bracuId, methods.get())
+            .then(r => r.json())
+            .then(data => {
+                if (data) {
+                    console.log(data)
+                    txtProgram.value = data.program;
+                    txtSemester.value = data.enrolled_semester;
+                }
+            }).catch(errors => {
+            console.log(errors)
+        })
+    }, [bracuId])
 
     function reset() {
         document.getElementById("num-bracu-id").value = ""
@@ -45,8 +63,6 @@ const Register = (props) => {
             return;
         }
 
-        // console.log(JSON.stringify(register_data));
-
         fetch(urls.register, methods.post(register_data))
             .then(r => r.json())
             .then(data => {
@@ -60,20 +76,25 @@ const Register = (props) => {
                     })
                 }
             }).catch(function (error) {
-                console.log(error);
+            console.log(error);
         })
     }
 
     return (
         <div className="register">
             <div className="top">
-                <input id={"num-bracu-id"} type={"number"} placeholder={"BRACU ID"} defaultValue={state == null || state.bracu_id == null? "" : state.bracu_id} required/>
+                <input id={"num-bracu-id"} type={"number"}
+                       placeholder={"BRACU ID"} defaultValue={
+                    state.bracu_id == null ? "" : state.bracu_id
+                } required
+                       onChange={(e) => setBracuId(e.target.value)}
+                />
                 <input id={"txt-full-name"} type={"text"} placeholder={"Full Name"} required/>
             </div>
             <div className="mid">
                 <div className="mid-left">
                     <div className="reg-photo">
-                        <img id={"img-user-photo"} src={icons.user_photo} alt=""/>
+                        <img id={"img-user-photo"} src={icons.user_photo} alt="Student Photo"/>
                         <p id={"txt-remove"}>Remove</p>
                     </div>
                     <button className={"submit"} type={"button"}>Upload</button>
@@ -92,7 +113,8 @@ const Register = (props) => {
                         <input id={"txt-semester"} type="text" placeholder={"Enrolled Semester"}/>
                     </div>
                     <div className="mid-right-bottom">
-                        <input id={"txt-password"} type={"password"} placeholder={"Password"} autoComplete={"password"}/>
+                        <input id={"txt-password"} type={"password"} placeholder={"Password"}
+                               autoComplete={"password"}/>
                         <input id={"txt-confirm-password"} type="password" placeholder={"Confirm Password"}/>
                     </div>
                 </div>

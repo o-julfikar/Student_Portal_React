@@ -1,0 +1,245 @@
+.add-instructor {
+    margin: auto;
+    padding: 20px;
+    width: 800px;
+}
+
+.add-instructor input,
+.add-instructor textarea {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #707070;
+}
+
+.add-instructor textarea {
+
+}
+
+.add-instructor button {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-instructor .ai-bg {
+
+}
+
+.add-instructor .ai-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-instructor .ai-overlay-left,
+.add-instructor .ai-overlay-right {
+    width: 300px;
+    background: #FFFFFF;
+    height: 20px;
+    align-self: end;
+}
+
+.add-instructor .overlay-float {
+    background: #EFEFEF;
+    width: 100%;
+    height: 100%;
+}
+
+.add-instructor .ai-overlay-left .overlay-float {
+    border-radius: 0 0 10px 0;
+}
+
+.add-instructor .ai-overlay-right .overlay-float {
+    border-radius: 0 0 0 10px;
+}
+
+.add-instructor .stars-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 10px 10px 0 0;
+}
+
+.add-instructor .stars-container img {
+    cursor: pointer;
+    transition: 0.3s;
+    /*filter: grayscale(100%);*/
+}
+
+.add-instructor .stars-container img:hover {
+    /*filter: grayscale(0);*/
+}
+
+.add-instructor .ai-main {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.add-instructor .ai-main > :not(:first-child) {
+    margin-top: 5px;
+}
+
+.add-instructor .name-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-instructor .name-container :not(:first-child) {
+    margin-left: 5px;
+    width: 100%;
+}
+
+.add-instructor .detail-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-instructor .detail-container .photo-container {
+    margin: auto;
+}
+
+.add-instructor .detail-container .photo-container > :not(:first-child) {
+    margin-top: 15px;
+}
+
+.add-instructor .photo-box {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.add-instructor .photo-box img {
+    display: block;
+}
+
+.add-instructor .photo-box p {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background: #FFAAAA;
+    color: #BD1717;
+    padding: 0 0 5px;
+    margin: 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.add-instructor .photo-box p:hover {
+    box-shadow: 0 0 20px 5px rgba(190, 20, 20, .5);
+    background: #F5BBBB;
+}
+
+.add-instructor .photo-box p:active {
+    box-shadow: 0 0 100px 10px rgba(190, 20, 20, .6);
+    background: #F0CCCC;
+}
+
+.add-instructor .detail-container .text-container {
+    width: 100%;
+    margin-left: 5px;
+}
+
+.add-instructor .detail-container .text-container > :not(:first-child) {
+    margin-top: 5px;
+}
+
+.add-instructor .detail-container .info-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.add-instructor .detail-container .info-container > * {
+    flex-grow: 1;
+}
+
+.add-instructor .detail-container .info-container > :not(:first-child) {
+    margin-left: 5px;
+}
+
+.add-instructor .detail-container .text-container textarea {
+    width: calc(100% - 22px);
+}
+
+.add-instructor .photo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-instructor .photo-container img {
+    height: 100px;
+    width: 100px;
+}
+
+.add-instructor .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-instructor .buttons-container > :not(:first-child) {
+    margin-left: 5px;
+}
+
+.add-instructor .buttons-container :first-child {
+    margin-right: auto;
+}
+
+.add-instructor .btn-submit {
+    border-radius: 5px;
+    border: none;
+    background: #0F5D88;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.add-instructor .btn-submit:hover {
+    background: #2874AB;
+}
+
+.add-instructor .btn-submit:active {
+    background: #2891b6;
+}
+
+
+.add-instructor .btn-cancel {
+    border-radius: 5px;
+    border: none;
+    background: #e14646;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.add-instructor .btn-cancel:hover {
+    background: #e36e6e;
+}
+
+.add-instructor .btn-cancel:active {
+    background: #F5BBBB;
+}
+
+
+.add-instructor .btn-reset {
+    border-radius: 5px;
+    border: none;
+    background: #ffd8d8;
+    color: #BD1717;
+    transition: 0.3s;
+}
+
+.add-instructor .btn-reset:hover {
+    background: #fde6e6;
+}
+
+.add-instructor .btn-reset:active {
+    background: #fff3f3;
+}

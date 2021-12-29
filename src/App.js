@@ -221,7 +221,7 @@ function App() {
                                                                                    }}/>
                                                                         </RequireAuth>
                                                                     }/>
-                                                                    <Route path="/review" element={
+                                                                    <Route path="/review/*" element={
                                                                         <RequireAuth>
                                                                             <Review customNav={customNav}
                                                                                     section={section}/>

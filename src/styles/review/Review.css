@@ -17,8 +17,13 @@
 .review-sidebar {
     position: fixed;
     border-right: 1px solid #707070;
-    min-width: 200px;
+    width: 200px;
     height: 100%;
+    /*animation: fadeIn 1s;*/
+}
+
+.review .review-sidebar * {
+    max-width: 200px;
     /*animation: fadeIn 1s;*/
 }
 

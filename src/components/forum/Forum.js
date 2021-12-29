@@ -6,14 +6,29 @@ import {Route, Routes} from "react-router-dom";
 import {useParams} from "react-router";
 import PostCardDynamicState from "../../contexts/forum/PostCardDynamicState";
 import PostCardDynamic from "./components/PostCardDynamic";
+import icons from "../../icons/Icons"
 
 
 const Forum = (props) => {
-    const { post_id } = useParams();
+    const {post_id} = useParams();
     props.customNav(0)
     return (
         <div className={"transition-helper-" + (props.section[0])}>
             <div className={"forum"}>
+                <div className="left-sidebar">
+                    <div className="boi-poka">
+                        <p>Enjoy reading books?</p>
+                        <a href={"https://github.com/ShahriyarHussain/Boipoka-web"} target={"_blank"}>
+                            <img className={"boi-poka-logo"} src={icons.boi_poka} alt={"Boi Poka"}/>
+                        </a>
+                    </div>
+                    <div className="idea-connect">
+                        <p>Have an Idea?</p>
+                        <a href={"https://github.com/Btocode/IdeaConnect-web"} target={"_blank"}>
+                            <h3>IdeaConnect</h3>
+                        </a>
+                    </div>
+                </div>
                 <Routes>
                     <Route path={"post/:post_id"} element={
                         <PostCardDynamicState>

@@ -42,3 +42,31 @@
         height: 200px;
     }
 }
+
+@keyframes simpleHueChange {
+    0% {
+
+    }
+
+    50% {
+        filter: hue-rotate(180deg);
+    }
+
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}
+
+@keyframes simpleFly {
+    0% {
+
+    }
+
+    50% {
+        width: 80%;
+    }
+
+    100% {
+
+    }
+}

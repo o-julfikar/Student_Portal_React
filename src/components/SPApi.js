@@ -26,9 +26,11 @@ function getSectionByCourse(course) {
 let base_url = "http://127.0.0.1:8000/"
 // base_url = "http://192.168.9.48:8000/"
 // base_url = "https://1d16-223-29-215-10.ngrok.io/";
+base_url = "https://studentportaldjango2.o-julfikar.repl.co/";
 
 let urls = {
     auth: base_url + "user/auth/",
+    get_bracu_id_info: base_url + "user/info-by-id/",
     basic_info: base_url + "user/basic-info/",
     unenroll_course: base_url + "user/delete-course/",
     enroll_course: base_url + "user/enroll-course/",

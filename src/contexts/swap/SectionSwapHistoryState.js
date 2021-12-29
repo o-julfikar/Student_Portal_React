@@ -25,7 +25,9 @@ const SectionSwapHistoryState = (props) => {
                 } else {
                     setSectionSwapHistory([])
                 }
-            })
+            }).catch(errors => {
+            console.log(errors)
+        })
     }, [refreshSectionSwapHistory, selectedSecSwapRequest, location])
 
     return (

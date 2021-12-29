@@ -1,3 +1,5 @@
+@import "../Animations.css";
+
 .forum {
     position: relative;
     padding: 20px;
@@ -7,6 +9,73 @@
     flex-direction: column;
     /*overflow: auto;*/
     animation: fadeIn 0.3s, fromLeft 0.1s;
+}
+
+.forum .left-sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 200px;
+    height: calc(100% - 110px);
+    border-right: 1px solid #707070;
+    padding: 20px;
+}
+
+.boi-poka-logo {
+    border-radius: 15px;
+    background: #14213d;
+    height: 80px;
+    width: 80px;
+    animation: simpleHueChange 5s infinite;
+    transition: 0.5s;
+}
+
+.boi-poka-logo:hover {
+    width: 90px;
+    animation: simpleHueChange 5s infinite, simpleFly 1s infinite;
+}
+
+.boi-poka-logo:active {
+    width: 100%;
+    filter: hue-rotate(90deg);
+}
+
+.idea-connect p {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.idea-connect a {
+    text-decoration: none;
+    color: #222222;
+    transition: 0.3s all;
+}
+
+.idea-connect a:hover {
+    color: #d3d3d3;
+}
+
+.idea-connect a:active {
+    color: #ffffff;
+}
+
+.idea-connect h3 {
+    margin-top: 5px;
+    padding: 5px 5px 5px 0;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.idea-connect h3:hover {
+    border-radius: 10px;
+    background: #777777;
+    padding-left: 5px;
+}
+
+.idea-connect h3:active {
+    border-radius: 15px;
+    background: #222222;
+    padding-left: 10px;
 }
 
 .forum .post-cards {
