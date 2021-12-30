@@ -183,9 +183,12 @@ function App() {
 
     return (
         <div className={"App"} id={"SP-App"}>
-            <Nav states={{
-                userInfo: userInfo,
-            }} logout={logout}/>
+            <RequireAuth>
+
+                <Nav states={{
+                    userInfo: userInfo,
+                }} logout={logout}/>
+            </RequireAuth>
             <div className="container">
                 <CourseState>
                     <CourseSectionState>
@@ -200,7 +203,6 @@ function App() {
                                                         <StudySwapHistoryState>
                                                             <NotificationState>
                                                                 <Routes>
-
                                                                     <Route exact path={""}
                                                                            element={<Navigate to={"forum"}/>}/>
                                                                     <Route exact path="/forum/*" element={

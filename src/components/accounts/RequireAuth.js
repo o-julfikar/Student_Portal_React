@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import {methods, urls} from "../SPApi";
-import {Navigate} from "react-router";
+import {Navigate, useLocation} from "react-router";
 
 function RequireAuth({children}) {
+    const location = useLocation();
     const [auth, setAuth] = useState(null);
 
     fetch(urls.auth, methods.get())
@@ -14,6 +15,10 @@ function RequireAuth({children}) {
             console.log(error);
             setAuth(false);
         });
+
+    if (location.pathname.startsWith("/login")) {
+        return null;
+    }
 
     return auth == null?
         null : (auth?

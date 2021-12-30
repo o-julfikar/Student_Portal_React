@@ -33,17 +33,19 @@ const StudySwapCardsState = (props) => {
 
     useEffect(() => {
         if (selectedStudySwapRequest) {
-            fetch(urls.get_study_swap + "/" + selectedStudySwapRequest, methods.get())
-                .then(r => r.json())
-                .then(data => {
-                    if (data) {
-                        setStudySwapCards(data);
-                    } else {
-                        setStudySwapCards([])
-                    }
-                }).catch(errors => {
-                console.log(errors);
-            })
+            if (selectedStudySwapRequest >= 0) {
+                fetch(urls.get_study_swap + "/" + selectedStudySwapRequest, methods.get())
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data) {
+                            setStudySwapCards(data);
+                        } else {
+                            setStudySwapCards([])
+                        }
+                    }).catch(errors => {
+                    console.log(errors);
+                })
+            }
         }
     }, [refreshStudySwapCards, selectedStudySwapRequest, location])
 

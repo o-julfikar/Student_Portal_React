@@ -28,16 +28,32 @@ const Register = (props) => {
     }, [bracuId])
 
     function reset() {
-        document.getElementById("num-bracu-id").value = ""
-        document.getElementById("txt-email").value = ""
-        document.getElementById("txt-password").value = ""
-        document.getElementById("txt-confirm-password").value = ""
-        document.getElementById("txt-full-name").value = ""
-        document.getElementById("date-birthdate").value = ""
-        document.getElementById("tel-phone").value = ""
-        document.getElementById("img-user-photo").value = ""
-        document.getElementById("txt-department").value = ""
-        document.getElementById("txt-semester").value = ""
+        if (window.confirm("Are you sure you want to reset?")) {
+            document.getElementById("num-bracu-id").value = ""
+            document.getElementById("txt-email").value = ""
+            document.getElementById("txt-password").value = ""
+            document.getElementById("txt-confirm-password").value = ""
+            document.getElementById("txt-full-name").value = ""
+            document.getElementById("date-birthdate").value = ""
+            document.getElementById("tel-phone").value = ""
+            document.getElementById("img-user-photo").value = ""
+            document.getElementById("txt-department").value = ""
+            document.getElementById("txt-semester").value = ""
+        }
+    }
+
+    function checkId(bracuId) {
+        bracuId = bracuId.toString();
+        let flag = true;
+        if (bracuId.length !== 8) {
+            alert("BRACU ID must be of 8 digits");
+            flag = false;
+        } else if (bracuId.at(2) < 1 || bracuId.at(2) > 3) {
+            alert("3rd digit of BRACU ID must be an integer between 1 to 3 (inclusive)");
+            flag = false;
+        }
+
+        return flag;
     }
 
     function register() {
@@ -58,6 +74,17 @@ const Register = (props) => {
             }
         }
 
+        if (!checkId(register_data.user.bracu_id)) return;
+
+        if (register_data.user_detail.fullname.length === 0) {
+            alert("Name is required")
+            return;
+        }
+
+        if (!register_data.user.email.includes("@")) {
+            register_data.user.email += "@g.bracu.ac.bd"
+        }
+
         if (register_data.user.password !== register_data.user.password_confirm) {
             alert("Passwords did not match");
             return;
@@ -74,9 +101,14 @@ const Register = (props) => {
                             password: register_data.user.password
                         }
                     })
+                } else {
+                    alert("Failed to register your account. Please check if you made any mistake. Do not change your " +
+                        "department program if the system suggest something.");
                 }
             }).catch(function (error) {
             console.log(error);
+            alert("Failed to register your account. Please check if you made any mistake. Do not change your " +
+                "department program if the system suggest something.");
         })
     }
 

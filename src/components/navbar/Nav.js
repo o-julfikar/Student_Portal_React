@@ -4,6 +4,7 @@ import LeftNav from "./components/LeftNav";
 import MidNav from "./components/MidNav";
 import RightNav from "./components/RightNav";
 import {useLocation} from "react-router";
+import RequireAuth from "../accounts/RequireAuth";
 
 const Nav = (props) => {
     const loc = useLocation().pathname;

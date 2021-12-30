@@ -33,17 +33,19 @@ const SectionSwapCardsState = (props) => {
 
     useEffect(() => {
         if (selectedSecSwapRequest) {
-            fetch(urls.get_section_swap + "/" + selectedSecSwapRequest, methods.get())
-                .then(r => r.json())
-                .then(data => {
-                    if (data) {
-                        setSecSwapCards(data);
-                    } else {
-                        setSecSwapCards(null)
-                    }
-                }).catch(errors => {
-                console.log(errors);
-            })
+            if (selectedSecSwapRequest >= 0) {
+                fetch(urls.get_section_swap + "/" + selectedSecSwapRequest, methods.get())
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data) {
+                            setSecSwapCards(data);
+                        } else {
+                            setSecSwapCards(null)
+                        }
+                    }).catch(errors => {
+                    console.log(errors);
+                })
+            }
         }
     }, [selectedSecSwapRequest, location, refreshSecSwapCards])
 
