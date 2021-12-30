@@ -1,7 +1,7 @@
 .add-instructor {
     margin: auto;
     padding: 20px;
-    width: 800px;
+    /*width: 800px;*/
 }
 
 .add-instructor input,
@@ -9,6 +9,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid #707070;
+    font-size: calc((1.5vh + 1vw) / 2);
 }
 
 .add-instructor textarea {

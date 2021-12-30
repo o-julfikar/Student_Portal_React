@@ -15,6 +15,25 @@
     z-index: 2;
 }
 
+@media screen and (max-width: 1200px) {
+    .navbar .mid-nav {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .left-sidebar, .right-sidebar {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .navbar .search-field * {
+        transition: all 0.5s ease-in-out;
+        display: none;
+    }
+}
+
 .no-nav {
     display: none;
 }
