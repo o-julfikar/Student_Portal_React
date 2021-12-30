@@ -280,7 +280,7 @@ const Swap = (props) => {
                                     >
                                         Find & Request
                                     </button>
-                                    <button className="btn-find"
+                                    <button className="btn-find" hidden
                                     >
                                         Find
                                     </button>
@@ -310,7 +310,7 @@ const Swap = (props) => {
                                     >
                                         Find & Request
                                     </button>
-                                    <button className="btn-find">Find</button>
+                                    <button className="btn-find" hidden>Find</button>
                                 </RequireAuth>
                             }/>
                         </Routes>
