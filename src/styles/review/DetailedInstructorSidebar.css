@@ -1,0 +1,100 @@
+.review .review-sidebar .detailed-instructor-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review .review-sidebar .detailed-instructor-sidebar > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.review .review-sidebar .detailed-instructor-sidebar p {
+    margin: 0;
+}
+
+.review .detailed-instructor-sidebar .table-container {
+    display: flex;
+    width: 200px;
+    height: 300px;
+    border-radius: 5px 5px 5px 5px;
+    background: #dddddd;
+    overflow: hidden;
+}
+
+.review .detailed-instructor-sidebar .table-scroll {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.review .detailed-instructor-sidebar .table-scroll::-webkit-scrollbar {
+    width: 0.5em;
+    scroll-behavior: smooth !important;
+}
+
+.review .detailed-instructor-sidebar .table-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #0F5D88 !important;
+}
+
+.review .detailed-instructor-sidebar .table-scroll::-webkit-scrollbar-thumb {
+    background: #2891b6 !important;
+    border-radius: 20px !important;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses {
+    border-collapse: collapse;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses thead {
+    position: sticky;
+    top: 0;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses thead tr td {
+    padding: 10px;
+    border-radius: 5px 0 0 0;
+    text-align: center;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses thead tr td {
+    background: #707070;
+    color: #FFFFFF;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses tbody tr td:first-child {
+    padding: 0 0;
+    text-indent: 10px;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses tbody tr td {
+    padding: 5px 0;
+    height: 30px;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses tbody tr:hover {
+    background: #0F5D8834;
+    cursor: pointer;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-review-courses tbody tr {
+    transition: 0.1s;
+}
+
+.review .detailed-instructor-sidebar .table-container .table-row-delete-cell {
+    width: 20px;
+    cursor: pointer;
+}
+
+.review .detailed-instructor-sidebar .table-container .acs-crow.active {
+    background: rgba(15, 93, 136, 0.37);
+}
+
+.review .detailed-instructor-sidebar .table-container .acs-crow.active:hover {
+    background: #0F5D8834
+}
+
+.review .detailed-instructor-sidebar .table-container tbody tr td:empty {
+    border: none;
+}

@@ -1,0 +1,7 @@
+.review .detailed-review {
+    padding: 20px;
+}
+
+.review .detailed-review > :not(:first-child) {
+    margin-top: 10px;
+}

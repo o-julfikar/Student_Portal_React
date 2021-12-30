@@ -2,7 +2,7 @@ import React from "react";
 import icons from "../../../icons/Icons"
 
 
-const RCSneakCard = (props) => {
+const ReviewSneakRow = (props) => {
     return (
         <div className={"rc-sneak-card"}>
             <img src={icons.sneak_card_bullet} alt="Sneak card bullet"/>
@@ -14,4 +14,4 @@ const RCSneakCard = (props) => {
     )
 }
 
-export default RCSneakCard;
+export default ReviewSneakRow;

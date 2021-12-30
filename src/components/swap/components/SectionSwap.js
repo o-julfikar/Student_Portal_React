@@ -218,7 +218,11 @@ const SectionSwap = () => {
                                         <div className="sssc-status">
                                             {
                                                 (() => {
-                                                    if (secSwapCards.user_accepted === 1) {
+                                                    if (secSwapCards.request_status === 1) {
+                                                        return (
+                                                            <p>Approved</p>
+                                                        )
+                                                    } else if (secSwapCards.user_accepted === 1) {
                                                         return (
                                                             <p>Accepted</p>
                                                         )

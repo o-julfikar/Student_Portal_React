@@ -1,7 +1,7 @@
 import "../../styles/review/Review.css"
 import React from "react";
 import icons from "../../icons/Icons";
-import ReviewCard from "./components/ReviewCard";
+import ReviewSneakCard from "./components/ReviewSneakCard";
 import {Routes, Route} from "react-router";
 import {Link} from "react-router-dom";
 import AddInstructor from "./components/AddInstructor";
@@ -20,7 +20,7 @@ const Review = (props) => {
                                 <button>Add Instructor</button>
                             </Link>
                         }/>
-                        <Route path={"instructor/:instructor_initial"} element={
+                        <Route path={"instructor/:instructor_initial/*"} element={
                             <DetailedInstructorSidebar/>
                         }/>
                     </Routes>
@@ -28,9 +28,9 @@ const Review = (props) => {
                 <Routes>
                     <Route path={""} element={
                         <div className="review-cards">
-                            <ReviewCard faculty_photo={icons.user_photo} faculty_name="Abu Hasnayen Zillanee Ornil"
-                                        faculty_initial="AHN" review_point="3.41"
-                                        sneakCards={[
+                            <ReviewSneakCard faculty_photo={icons.user_photo} faculty_name="Abu Hasnayen Zillanee Ornil"
+                                             faculty_initial="AHN" review_point="3.41"
+                                             sneakCards={[
                                             {
                                                 sneak_course: "CSE110",
                                                 sneak_content: "It was wonderful experience to learn the basics of Python from him..."
@@ -45,9 +45,9 @@ const Review = (props) => {
                                             }
                                         ]}
                             />
-                            <ReviewCard faculty_photo={icons.user_photo} faculty_name="Md. Shahriyar Hossain Shihab"
-                                        faculty_initial="HAB" review_point="3.16"
-                                        sneakCards={[
+                            <ReviewSneakCard faculty_photo={icons.user_photo} faculty_name="Md. Shahriyar Hossain Shihab"
+                                             faculty_initial="HAB" review_point="3.16"
+                                             sneakCards={[
                                             {
                                                 sneak_course: "ENG102",
                                                 sneak_content: "I couldn’t even write my name properly before attending his classes..."
@@ -58,9 +58,9 @@ const Review = (props) => {
                                             }
                                         ]}
                             />
-                            <ReviewCard faculty_photo={icons.user_photo} faculty_name="Sayed Md. Rahmat Ullah Afsan"
-                                        faculty_initial="SRA" review_point="2.38"
-                                        sneakCards={[
+                            <ReviewSneakCard faculty_photo={icons.user_photo} faculty_name="Sayed Md. Rahmat Ullah Afsan"
+                                             faculty_initial="SRA" review_point="2.38"
+                                             sneakCards={[
                                             {
                                                 sneak_course: "ARC609",
                                                 sneak_content: "Was so afraid to take this 600 level course. But now I am..."
@@ -75,9 +75,9 @@ const Review = (props) => {
                                             }
                                         ]}
                             />
-                            <ReviewCard faculty_photo={icons.user_photo} faculty_name="Md. Imtiyaz Bhiyan"
-                                        faculty_initial="MIB" review_point="2.38"
-                                        sneakCards={[
+                            <ReviewSneakCard faculty_photo={icons.user_photo} faculty_name="Md. Imtiyaz Bhiyan"
+                                             faculty_initial="MIB" review_point="2.38"
+                                             sneakCards={[
                                             {
                                                 sneak_course: "BIO101",
                                                 sneak_content: "I can literally feel all cells of my body after doing the cour..."
@@ -97,7 +97,7 @@ const Review = (props) => {
                     <Route path={"add-instructor"} element={
                         <AddInstructor/>
                     }/>
-                    <Route path={"instructor/:instructor_initial"} element={
+                    <Route path={"instructor/:instructor_initial/*"} element={
                         <DetailedReview/>
                     }/>
                 </Routes>

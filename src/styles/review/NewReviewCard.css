@@ -1,0 +1,94 @@
+.new-review-card {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.new-review-card input,
+.new-review-card textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #707070;
+    outline: none;
+    font-size: 16px;
+}
+
+.new-review-card button.btn-submit {
+    padding: 10px 20px;
+    border-radius: 10px 30px 30px 10px;
+    border: none;
+    background: #0F5D88;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.new-review-card button.btn-submit:hover {
+    background: #2874AB;
+}
+
+.new-review-card button.btn-submit:active {
+    background: #2891b6;
+}
+
+.new-review-card button.btn-cancel {
+    padding: 10px 20px;
+    border-radius: 30px 10px 10px 30px;
+    border: none;
+    background: #ff4949;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.new-review-card button.btn-cancel:hover {
+    background: #e14646;
+}
+
+.new-review-card button.btn-cancel:active {
+    background: #e36e6e;
+}
+
+.new-review-card > :not(:first-child) {
+    margin-top: 10px;
+}
+
+.new-review-card .top-div {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.new-review-card .top-div a {
+    display: flex;
+    text-decoration: none;
+}
+
+.new-review-card .top-div input {
+    width: 100%;
+}
+
+.new-review-card .top-div > :not(:first-child) {
+    margin-left: 5px;
+}
+
+.new-review-card .stars-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.new-review-card .stars-container img {
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+    /*height: calc((2vw + 3vh) / 2);*/
+    /*width: calc((3vw + 3vh) / 2);*/
+    height: 2rem;
+    width: 2rem;
+}

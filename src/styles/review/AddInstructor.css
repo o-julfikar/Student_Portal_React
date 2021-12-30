@@ -68,6 +68,7 @@
 .add-instructor .stars-container img {
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 0;
     /*filter: grayscale(100%);*/
 }
 

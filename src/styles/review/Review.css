@@ -18,25 +18,62 @@
     position: fixed;
     border-right: 1px solid #707070;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 110px);
+    overflow: auto;
+    padding: 20px 19px 20px 20px;
     /*animation: fadeIn 1s;*/
 }
 
 .review .review-sidebar * {
-    max-width: 200px;
-    /*animation: fadeIn 1s;*/
+    max-width: 100%;
 }
 
-.review-cards {
+.review .review-sidebar a  {
+    width: 100%;
+}
+
+.review .review-sidebar .btn-back {
+    border-radius: 30px 10px 10px 30px;
+    background: #ff4949;
+    color: white;
+}
+
+.review .review-sidebar .btn-back:hover {
+    background: #e14646;
+}
+
+.review .review-sidebar .btn-back:active {
+    background: #e36e6e;
+}
+
+.review .review-sidebar .btn-submit {
+    background: #0F5D88;
+    color: white;
+}
+
+.review .review-sidebar .btn-submit:hover {
+    background: #2874AB;
+}
+
+.review .review-sidebar .btn-submit:active {
+    background: #2891b6;
+}
+
+.review .review-sidebar .img-instructor {
+    height: 128px;
+    width: 128px;
+}
+
+.review-cards,
+.review .detailed-review {
     margin-left: auto;
     margin-right: auto;
 }
 
 .review-sidebar button {
     background: #C4C4C4;
-    width: calc(100% - 20px);
+    width: calc(100%);
     min-height: 50px;
-    margin: 20px 10px;
     border: none;
     border-radius: 10px;
     font-size: 18px;
