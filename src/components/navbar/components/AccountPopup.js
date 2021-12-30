@@ -8,7 +8,7 @@ const AccountPopup = (props) => {
     return (
         // <div className="account-popup">
         <div className="account-popup" onBlur={() => props.close()}>
-            <img src={icons.user_photo} alt="User"/>
+            <img src={props.states.userInfo.photo? props.states.userInfo.photo : icons.user_photo} alt="User"/>
             <Link to = {`profile/${props.states.userInfo.bracu_id}`}>
                 <p className="ap-user-name" autoFocus={true}>
                     {props.states.userInfo.name}
