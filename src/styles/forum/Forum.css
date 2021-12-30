@@ -21,23 +21,43 @@
     padding: 20px;
 }
 
+.boi-poka {
+    display: flex;
+    flex-direction: column;
+}
+
+.boi-poka:hover .boi-poka-logo {
+
+}
+
+.boi-poka a {
+    display: flex;
+    background: #14213d;
+    border-radius: 15px;
+    animation: simpleHueChange 5s infinite;
+    transition: all .3s ease-in-out;
+}
+
+.boi-poka a:hover {
+    box-shadow: 0 0 20px 5px rgb(255, 147, 0);
+}
+
+.boi-poka a:active {
+    box-shadow: 0 0 10px 2px rgb(75, 172, 213);
+}
+
+.boi-poka a:not(:hover) {
+    transition: all 1s ease-in-out;
+}
+
 .boi-poka-logo {
     border-radius: 15px;
     background: #14213d;
     height: 80px;
     width: 80px;
-    animation: simpleHueChange 5s infinite;
-    transition: 0.5s;
-}
-
-.boi-poka-logo:hover {
-    width: 90px;
-    animation: simpleHueChange 5s infinite, simpleFly 1s infinite;
-}
-
-.boi-poka-logo:active {
-    width: 100%;
-    filter: hue-rotate(90deg);
+    /*animation: simpleHueChange 5s infinite;*/
+    animation: simpleHueChange 5s infinite, simpleFly 3s infinite;
+    transition: all 1s ease-in-out;
 }
 
 .idea-connect p {
@@ -57,6 +77,11 @@
 
 .idea-connect a:active {
     color: #ffffff;
+}
+
+.idea-connect a:not(:hover),
+.idea-connect h3:not(:hover) {
+    transition: .8s all;
 }
 
 .idea-connect h3 {

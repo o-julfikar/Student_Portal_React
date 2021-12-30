@@ -62,11 +62,41 @@
 
     }
 
-    50% {
+    25% {
         width: 80%;
+    }
+
+    37.5% {
+        /*width: 80%;*/
+    }
+
+    50% {
+        margin-right: 0;
+        /*margin-right: auto;!*calc(50% - 160px);*!*/
+    }
+
+    67.5% {
+        margin-left: calc(100% - 80px);
+        width: 80%;
+    }
+
+    75% {
     }
 
     100% {
 
     }
+}
+
+@keyframes full {
+    from {
+        width: 80px;
+    }
+
+    to {
+        width: 100%;
+    }
+    /*50% {*/
+    /*    width: 100%;*/
+    /*}*/
 }

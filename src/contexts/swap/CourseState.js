@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
 import CourseContext from "./CourseContext";
 import {methods, urls} from "../../components/SPApi";
+import {useLocation} from "react-router";
 
 
 const CourseState = (props) => {
+    const location = useLocation();
     const [course, setCourse] = useState([]);
     const [refreshCourse, setRefreshCourse] = useState(true);
 
@@ -17,7 +19,7 @@ const CourseState = (props) => {
                     setCourse([])
                 }
             }).catch(errors => console.log(errors))
-    }, [refreshCourse])
+    }, [refreshCourse, location])
 
     return (
         <CourseContext.Provider value={{
