@@ -16,10 +16,6 @@ function RequireAuth({children}) {
             setAuth(false);
         });
 
-    if (location.pathname.startsWith("/login")) {
-        return null;
-    }
-
     return auth == null?
         null : (auth?
             children : <Navigate to={"../login"}/>)

@@ -7,15 +7,22 @@ import {useLocation} from "react-router";
 import RequireAuth from "../accounts/RequireAuth";
 
 const Nav = (props) => {
-    const loc = useLocation().pathname;
+    const pathname = useLocation().pathname;
+
+    if (pathname.startsWith("/login")) {
+        return null;
+    }
+
     return (
-        <div className= { "navbar" + (loc.startsWith("/login")? " no-nav": "")}>
-            <LeftNav/>
-            <MidNav/>
-            <RightNav {...props} states = {{
-                ...props.states,
-            }}/>
-        </div>
+        <RequireAuth>
+            <div className={"navbar" + (pathname.startsWith("/login") ? " no-nav" : "")}>
+                <LeftNav/>
+                <MidNav/>
+                <RightNav {...props} states={{
+                    ...props.states,
+                }}/>
+            </div>
+        </RequireAuth>
     )
 }
 

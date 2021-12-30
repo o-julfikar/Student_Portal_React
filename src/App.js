@@ -183,12 +183,9 @@ function App() {
 
     return (
         <div className={"App"} id={"SP-App"}>
-            <RequireAuth>
-
-                <Nav states={{
-                    userInfo: userInfo,
-                }} logout={logout}/>
-            </RequireAuth>
+            <Nav states={{
+                userInfo: userInfo,
+            }} logout={logout}/>
             <div className="container">
                 <CourseState>
                     <CourseSectionState>
