@@ -44,7 +44,7 @@ const ProfileMain = (props) => {
                         </div>
                         <div className="ph-top-middle">
                             <img src={
-                                props.states.profileInfo['role'] ? props.states.profileInfo['role'] : icons.user_photo
+                                props.states.profileInfo['photo'] ? props.states.profileInfo['photo'] : icons.user_photo
                             } alt=""/>
                             <p>{props.states.profileInfo['role']}</p>
                         </div>
