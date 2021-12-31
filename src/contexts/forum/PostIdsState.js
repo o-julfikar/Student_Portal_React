@@ -19,7 +19,6 @@ const PostIdsState = (props) => {
                 }
             }).catch(errors => {
             // console.log(errors)
-            alert("An error occurred")
         })
     }, [refreshPostIds, location])
 

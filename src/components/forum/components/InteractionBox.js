@@ -23,6 +23,7 @@ const InteractionBox = (props) => {
         let reaction_data = {
             post_id: props.post_id,
             reaction_tag: "haha",
+            code: 3,
         }
         fetch(urls.create_reaction, methods.post(reaction_data))
             .then(r => r.json())
