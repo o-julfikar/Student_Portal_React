@@ -26,7 +26,8 @@ function getSectionByCourse(course) {
 let base_url = "http://127.0.0.1:8000/"
 // base_url = "http://192.168.9.48:8000/"
 // base_url = "https://1d16-223-29-215-10.ngrok.io/";
-base_url = "https://studentportaldjango2.o-julfikar.repl.co/";
+// base_url = "https://studentportaldjango2.o-julfikar.repl.co/";
+base_url = "https://studentportaldjango.o-julfikar.repl.co/";
 
 let urls = {
     auth: base_url + "user/auth/",
@@ -43,6 +44,7 @@ let urls = {
 
     create_post: base_url + "forum/post/create/",
     get_post: base_url + "forum/post/get/",
+    get_post_ids: base_url + "forum/post/get/ids",
     get_post_by_id: base_url + "forum/post/",
     create_reaction: base_url + "forum/post/reaction/create/",
     get_reaction: base_url + "forum/post/reaction/get/",
@@ -87,6 +89,16 @@ let urls = {
     delete_study_swap: base_url + "swap/study/delete",
 
     post_study_swap_action: base_url + "swap/study/action/post",
+
+    // Reviews
+    post_instructor: base_url + "review/post-instructor",
+    get_instructor_info: base_url + "review/get-instructor-info",
+    get_instructor_sneak_card: base_url + "review/get-instructor-sneak-card",
+    get_instructor_initials: base_url + "review/get-instructor-initials",
+    get_instructor_courses: base_url + "review/get-instructor-courses",
+
+    post_review: base_url + "review/post-review",
+    get_review: base_url + "review/get-review",
 
     get_notification: base_url + "notification/get",
 }

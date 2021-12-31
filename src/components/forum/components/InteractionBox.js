@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import comment_outline from "../../../icons/comment-outline.svg"
 import reaction from "../../../icons/reaction.svg"
 import CommentCard from "./CommentCard";
 import "../../../styles/forum/InteractionBox.css"
+import {methods, urls} from "../../SPApi";
 
 const InteractionBox = (props) => {
 
-    function newCommentOnClick(event) {
+    const [refreshPost, setRefreshPost] = props.refreshPost
+
+    function newCommentOnClick() {
         let txtNewComment = document.getElementById("txt-new-comment-" + props.post_id);
         let comment_data = {
             post_id: props.post_id,
@@ -14,6 +17,22 @@ const InteractionBox = (props) => {
         }
         props.functions.create_comment(comment_data);
         txtNewComment.value = "";
+    }
+
+    function reactionOnClick() {
+        let reaction_data = {
+            post_id: props.post_id,
+            reaction_tag: "haha",
+        }
+        fetch(urls.create_reaction, methods.post(reaction_data))
+            .then(r => r.json())
+            .then(data => {
+                if (!(data <= 0)) {
+                    setRefreshPost(!refreshPost);
+                }
+            }).catch(errors => {
+            console.log(errors)
+        })
     }
 
     return (
@@ -25,10 +44,14 @@ const InteractionBox = (props) => {
                             props.post_reaction_count
                         }
                     </p>
-                    <img src={reaction} alt={"Reaction"}/>
+                    <img src={reaction} alt={"Reaction"} onClick={reactionOnClick}/>
                 </div>
                 <div className={"i-comment"}>
-                    <img src={comment_outline} alt={"Comment"}/>
+                    <img src={comment_outline} alt={"Comment"}
+                         onClick={() => {
+                             document.getElementById("txt-new-comment-" + props.post_id).focus();
+                         }}
+                    />
                     <p>
                         {
                             (() => {

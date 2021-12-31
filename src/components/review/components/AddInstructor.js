@@ -1,13 +1,30 @@
 import "../../../styles/review/AddInstructor.css"
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import icons from "../../../icons/Icons"
 import {Link} from "react-router-dom";
+import {methods, urls} from "../../SPApi";
 
 
 const AddInstructor = () => {
     const [starPoint, setStarPoint] = useState(0);
     const [activeStarPoint, setActiveStarPoint] = useState(0)
     const [hoverStarPoint, setHoverStarPoint] = useState(0)
+    const instructorData = useMemo(() => {
+        return ({
+            instructor_initial: null,
+            instructor_fullname: null,
+            instructor_photo: null,
+            instructor_email: null,
+            instructor_phone: null,
+            course_code: null,
+            review_text: null,
+            review_points: null,
+        })
+    }, []);
+
+    useEffect(() => {
+        instructorData.review_points = starPoint;
+    }, [instructorData, starPoint])
 
     useEffect(() => {
         if (hoverStarPoint === 0) {
@@ -16,6 +33,32 @@ const AddInstructor = () => {
             setStarPoint(hoverStarPoint)
         }
     }, [hoverStarPoint, activeStarPoint])
+
+    function postInstructorOnClick() {
+        console.log(instructorData)
+        fetch(urls.post_instructor, methods.post(instructorData))
+            .then(r => r.json())
+            .then(data => {
+                if (data > 0) {
+                    console.log(data)
+                    // resetOnClick()
+                } else {
+                    console.log(data)
+                }
+            }).catch(errors => {
+            console.log(errors)
+        })
+    }
+
+    function resetOnClick() {
+        document.getElementById("txt-initial").value = "";
+        document.getElementById("txt-fullname").value = "";
+        document.getElementById("img-instructor").src = icons.user_photo;
+        document.getElementById("txt-email").value = "";
+        document.getElementById("txt-phone").value = "";
+        document.getElementById("txt-course-code").value = "";
+        document.getElementById("txt-review").value = "";
+    }
 
     return (
         <div className="add-instructor">
@@ -62,26 +105,63 @@ const AddInstructor = () => {
                 </div>
                 <div className="ai-main">
                     <div className="name-container">
-                        <input type="text" id="txt-initial" placeholder={"Instructor Initial"}/>
-                        <input type="text" id="txt-fullname" placeholder={"Instructor Fullname"}/>
+                        <input type="text" id="txt-initial"
+                               placeholder={"Instructor Initial"}
+                               onChange={
+                                   (e) => instructorData.instructor_initial = e.target.value
+                               }
+                        />
+                        <input type="text" id="txt-fullname"
+                               placeholder={"Instructor Fullname"}
+                               onChange={
+                                   (e) => instructorData.instructor_fullname = e.target.value
+                               }
+                        />
                     </div>
                     <div className="detail-container">
                         <div className="photo-container">
                             <div className="photo-box">
-                                <img id={"img-instructor"} src={icons.user_photo} alt="Instructor Photo"/>
+                                <img id={"img-instructor"}
+                                     src={icons.user_photo}
+                                     alt="Instructor"
+                                />
                                 <p id={"txt-remove"}>Remove</p>
                             </div>
                             <button className={"btn-submit"} type={"button"}>Upload</button>
                         </div>
                         <div className="text-container">
                             <div className="info-container">
-                                <input type="email" id="txt-email" placeholder={"Instructor Email"}/>
-                                <input type="tel" id="txt-phone" placeholder={"Instructor Phone Number"}/>
-                                <input type="text" id="txt-course-code" placeholder={"Review Course Code"}/>
+                                <input type="email" id="txt-email"
+                                       placeholder={"Instructor Email"}
+                                       onChange={
+                                           (e) => {
+                                               instructorData.instructor_email = e.target.value
+                                           }
+                                       }
+                                />
+                                <input type="tel" id="txt-phone"
+                                       placeholder={"Instructor Phone Number"}
+                                       onChange={
+                                           (e) => {
+                                               instructorData.instructor_phone = e.target.value
+                                           }
+                                       }
+                                />
+                                <input type="text" id="txt-course-code"
+                                       placeholder={"Review Course Code"}
+                                       onChange={
+                                           (e) => {
+                                               instructorData.course_code = e.target.value
+                                           }
+                                       }
+                                />
                             </div>
                             <div className="review-container">
                                 <textarea name="txt-review" id="txt-review" cols="30" rows="10"
                                           placeholder={"Write your review..."}
+                                          onChange={(e) => {
+                                              instructorData.review_text = e.target.value;
+                                          }}
                                 />
                             </div>
                         </div>
@@ -90,8 +170,17 @@ const AddInstructor = () => {
                         <Link to={"../"}>
                             <button id="btn-cancel" className={"btn-cancel"}>Cancel</button>
                         </Link>
-                        <button id="btn-reset" className={"btn-reset"}>Reset</button>
-                        <button id="btn-submit" className={"btn-submit"}>Submit</button>
+                        <button id="btn-reset" className={"btn-reset"}
+                                onClick={resetOnClick}
+                        >
+                            Reset
+                        </button>
+                        <button id="btn-submit"
+                                className={"btn-submit"}
+                                onClick={postInstructorOnClick}
+                        >
+                            Submit
+                        </button>
                     </div>
                 </div>
             </div>

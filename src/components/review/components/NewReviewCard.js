@@ -1,13 +1,28 @@
 import "../../../styles/review/NewReviewCard.css"
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import icons from "../../../icons/Icons";
 import {Link} from "react-router-dom";
+import {methods, urls} from "../../SPApi";
+import {useNavigate} from "react-router";
 
 
-const NewReviewCard = () => {
+const NewReviewCard = (props) => {
+    const navigate = useNavigate();
     const [starPoint, setStarPoint] = useState(0);
     const [activeStarPoint, setActiveStarPoint] = useState(0)
     const [hoverStarPoint, setHoverStarPoint] = useState(0)
+    const reviewData = useMemo(() => {
+        return ({
+            course_code: null,
+            review_text: null,
+            review_points: null,
+            instructor_initial: props.instructor_initial && props.instructor_initial,
+        })
+    }, [props.instructor_initial])
+
+    useEffect(() => {
+        reviewData.review_points = starPoint;
+    }, [reviewData, starPoint])
 
     useEffect(() => {
         if (hoverStarPoint === 0) {
@@ -17,14 +32,38 @@ const NewReviewCard = () => {
         }
     }, [hoverStarPoint, activeStarPoint])
 
+    function postReviewOnClick() {
+        fetch(urls.post_review, methods.post(reviewData))
+            .then(r => r.json())
+            .then(data => {
+                if (data > 0) {
+                    navigate("..");
+                } else if (data === -3) {
+                    alert("You can submit a review about an instructor only once per course.")
+                } else {
+                    alert("Failed to submit the review. Please try again later.")
+                }
+            })
+    }
+
     return (
         <div className="new-review-card">
             <div className="top-div">
                 <Link to={".."}>
                     <button id="btn-submit" className={"btn-cancel"}>Back</button>
                 </Link>
-                <input type="text" id="txt-course-code" placeholder={"Course Code"}/>
-                <button id="btn-submit" className={"btn-submit"}>Submit</button>
+                <input type="text" id="txt-course-code"
+                       placeholder={"Course Code"}
+                       onChange={(e) =>
+                           reviewData.course_code = e.target.value
+                       }
+                />
+                <button id="btn-submit"
+                        className={"btn-submit"}
+                        onClick={postReviewOnClick}
+                >
+                    Submit
+                </button>
             </div>
             <div className="stars-container">
                 <img src={starPoint >= 1 ? icons.star_yellow : icons.star_gray}
@@ -60,6 +99,9 @@ const NewReviewCard = () => {
             </div>
             <textarea name="txt-review-text" id="txt-review-text" cols="30" rows="10"
                       placeholder={"Write your valuable feedback..."}
+                      onChange={(e) => {
+                          reviewData.review_text = e.target.value;
+                      }}
             />
         </div>
     )

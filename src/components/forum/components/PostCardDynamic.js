@@ -15,6 +15,7 @@ const PostCardDynamic = (props) => {
 
     const [postCardDynamic] = useContext(PostCardDynamicContext).postCardDynamicOnly;
     const [postCardId, setPostCardId] = useContext(PostCardDynamicContext).postCardId;
+    const [refreshPost, setRefreshPost] = useContext(PostCardDynamicContext).refreshPost;
 
     setPostCardId(parseInt(post_id));
 
@@ -69,6 +70,7 @@ const PostCardDynamic = (props) => {
             </div>
             <InteractionBox post_id={postCardDynamic.post_id} post_reaction_count = {postCardDynamic.post_reactions.count}
                             post_comment_count = {postCardDynamic.post_comments.count}
+                            refreshPost={[refreshPost, setRefreshPost]}
                             functions={{
                                 create_comment: create_comment,
                             }}

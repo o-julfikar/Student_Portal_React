@@ -1,10 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "../../../styles/forum/NewPostCard.css"
+import {methods, urls} from "../../SPApi";
+import PostIdsContext from "../../../contexts/forum/PostIdsContext";
 
 
 const NewPostCard = (props) => {
     const [postValue, setPostValue] = useState("")
     const [courseSemester, setCourseSemester] = useState("")
+    const [refreshPostIds, setRefreshPostIds] = useContext(PostIdsContext).refreshPostIds;
 
     function create_post(e) {
         let post_course_semester = courseSemester;
@@ -18,7 +21,34 @@ const NewPostCard = (props) => {
                 post_data = {...post_data, post_course: course, post_semester: semester}
             }
         }
-        props.functions.create_post(post_data, setPostValue, setCourseSemester, e.target);
+
+        fetch(urls.create_post, methods.post(post_data))
+            .then(r => r.json())
+            .then(data => {
+                if (data) {
+                    // setRefreshPost(!refreshPost);
+                    setRefreshPostIds(!refreshPostIds);
+                    setPostValue("");
+                    setCourseSemester("");
+                    e.target.blur();
+                }
+            }).catch(error => console.log(error))
+
+        // props.functions.create_post(post_data, setPostValue, setCourseSemester, e.target);
+    }
+
+    function create_post_final(post_data, setPostValue, setCourseSemester, button) {
+        // fetch(urls.create_post, methods.post(post_data))
+        //     .then(r => r.json())
+        //     .then(data => {
+        //         if (data) {
+        //             // setRefreshPost(!refreshPost);
+        //             setRefreshPostIds(!refreshPostIds);
+        //             setPostValue("");
+        //             setCourseSemester("");
+        //             button.blur();
+        //         }
+        //     }).catch(error => console.log(error))
     }
 
     return (
