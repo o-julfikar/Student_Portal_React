@@ -14,6 +14,7 @@ const ProfileMain = (props) => {
         if (nextSlashIndex < 0) nextSlashIndex = location.pathname.length
         let current_user_bracu_id = location.pathname.slice(profileIndex + 9, nextSlashIndex)
         props.states.setProfileId(current_user_bracu_id)
+        document.title = `${props.states.profileInfo['name']} | Student Portal`;
     }
     return (
         <div className="profile-main">
@@ -45,7 +46,7 @@ const ProfileMain = (props) => {
                         <div className="ph-top-middle">
                             <img src={
                                 props.states.profileInfo['photo'] ? props.states.profileInfo['photo'] : icons.user_photo
-                            } alt=""/>
+                            } alt={props.states.profileInfo['name']}/>
                             <p>{props.states.profileInfo['role']}</p>
                         </div>
                         <div className="ph-top-right">
