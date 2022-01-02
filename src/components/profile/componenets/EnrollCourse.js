@@ -76,7 +76,9 @@ const EnrollCourse = (props) => {
                                 <tr id={`ec-row-${i}`} key={i}>
                                     <td id={`ec-course-${i}`}>{item.course}</td>
                                     <td id={`ec-semester-${i}`}>{item.semester}</td>
-                                    <td id={`ec-delete-${i}`} onClick={deleteCourseOnClick}>
+                                    <td id={`ec-delete-${i}`} 
+                                        className={"table-row-delete-cell"}
+                                        onClick={deleteCourseOnClick}>
                                         <div id={`ec-delete-div-${i}`}>
                                             <CrossIco id={`ec-delete-icon-${i}`} />
                                         </div>

@@ -347,17 +347,17 @@
     justify-items: center;
 }
 
-.swap-right-sidebar .table-row-delete-cell {
+.table-row-delete-cell {
     width: 20px;
     cursor: pointer;
 }
 
-.swap-right-sidebar .table-row-delete-cell:hover svg {
+.table-row-delete-cell:hover svg {
     fill: #e36e6e;
 }
 
 
-.swap-right-sidebar .table-row-delete-cell:active svg {
+.table-row-delete-cell:active svg {
     fill: #dd4444;
 }
 
