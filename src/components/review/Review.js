@@ -2,7 +2,7 @@ import "../../styles/review/Review.css"
 import React, {useEffect, useState} from "react";
 import icons from "../../icons/Icons";
 import ReviewSneakCard from "./components/ReviewSneakCard";
-import {Routes, Route} from "react-router";
+import {Routes, Route, useLocation} from "react-router";
 import {Link} from "react-router-dom";
 import AddInstructor from "./components/AddInstructor";
 import DetailedReview from "./components/DetailedReview";
@@ -10,6 +10,7 @@ import DetailedInstructorSidebar from "./components/DetailedInstructorSidebar";
 import {methods, urls} from "../SPApi";
 
 const Review = (props) => {
+    const location = useLocation();
     const [instructorInitials, setInstructorInitials] = useState([]);
 
     useEffect(() => {
@@ -23,7 +24,7 @@ const Review = (props) => {
             }).then(errors => {
             console.log(errors);
         })
-    }, [])
+    }, [location])
 
     props.customNav(1);
     return (

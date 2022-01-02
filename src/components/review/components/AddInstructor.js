@@ -3,9 +3,11 @@ import React, {useEffect, useMemo, useState} from "react";
 import icons from "../../../icons/Icons"
 import {Link} from "react-router-dom";
 import {methods, urls} from "../../SPApi";
+import {useNavigate} from "react-router";
 
 
 const AddInstructor = () => {
+    const navigate = useNavigate();
     const [starPoint, setStarPoint] = useState(0);
     const [activeStarPoint, setActiveStarPoint] = useState(0)
     const [hoverStarPoint, setHoverStarPoint] = useState(0)
@@ -40,8 +42,9 @@ const AddInstructor = () => {
             .then(r => r.json())
             .then(data => {
                 if (data > 0) {
-                    console.log(data)
+                    navigate(`/review/instructor/${instructorData.instructor_initial}`);
                     // resetOnClick()
+
                 } else {
                     console.log(data)
                 }
