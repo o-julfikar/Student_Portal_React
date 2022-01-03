@@ -30,18 +30,6 @@ const Review = (props) => {
     return (
         <div className={"transition-helper-" + (props.section[0])}>
             <div className={"review"}>
-                <div className={"review-sidebar"}>
-                    <Routes>
-                        <Route path={""} element={
-                            <Link to={"add-instructor"}>
-                                <button>Add Instructor</button>
-                            </Link>
-                        }/>
-                        <Route path={"instructor/:instructor_initial/*"} element={
-                            <DetailedInstructorSidebar/>
-                        }/>
-                    </Routes>
-                </div>
                 <Routes>
                     <Route path={""} element={
                         <div className="review-cards">
@@ -124,6 +112,18 @@ const Review = (props) => {
                         <DetailedReview/>
                     }/>
                 </Routes>
+                <div className={"review-sidebar"}>
+                    <Routes>
+                        <Route path={""} element={
+                            <Link to={"add-instructor"}>
+                                <button>Add Instructor</button>
+                            </Link>
+                        }/>
+                        <Route path={"instructor/:instructor_initial/*"} element={
+                            <DetailedInstructorSidebar/>
+                        }/>
+                    </Routes>
+                </div>
 
             </div>
         </div>

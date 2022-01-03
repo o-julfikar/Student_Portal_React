@@ -8,7 +8,9 @@ const LeftNav = () => {
     return (
         <div className="left-nav">
             <Link to={"/profile/21341031"}>
-                <img src={logo} alt={"Student Portal Logo"}/>
+                <img src={logo} alt={"Student Portal Logo"}
+                     className={"img-logo"}
+                />
             </Link>
             <SearchField/>
         </div>

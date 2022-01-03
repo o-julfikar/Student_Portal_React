@@ -20,20 +20,6 @@ const Forum = (props) => {
     return (
         <div className={"transition-helper-" + (props.section[0])}>
             <div className={"forum"}>
-                <div className="left-sidebar">
-                    <div className="boi-poka">
-                        <p>Enjoy reading books?</p>
-                        <a href={"https://github.com/ShahriyarHussain/Boipoka-web"} target={"_blank"}>
-                            <img className={"boi-poka-logo"} src={icons.boi_poka} alt={"Boi Poka"}/>
-                        </a>
-                    </div>
-                    <div className="idea-connect">
-                        <p>Have an Idea?</p>
-                        <a href={"https://github.com/Btocode/IdeaConnect-web"} target={"_blank"}>
-                            <h3>IdeaConnect</h3>
-                        </a>
-                    </div>
-                </div>
                 <Routes>
                     <Route path={"post/:post_id"} element={
                         <PostCardDynamicState>
@@ -67,6 +53,20 @@ const Forum = (props) => {
                     }>
                     </Route>
                 </Routes>
+                <div className="left-sidebar">
+                    <div className="boi-poka">
+                        <p>Enjoy reading books?</p>
+                        <a href={"https://github.com/ShahriyarHussain/Boipoka-web"} target={"_blank"}>
+                            <img className={"boi-poka-logo"} src={icons.boi_poka} alt={"Boi Poka"}/>
+                        </a>
+                    </div>
+                    <div className="idea-connect">
+                        <p>Have an Idea?</p>
+                        <a href={"https://github.com/Btocode/IdeaConnect-web"} target={"_blank"}>
+                            <h3>IdeaConnect</h3>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     )
