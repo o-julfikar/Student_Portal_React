@@ -1,10 +1,14 @@
 import "../../../styles/profile/EnrollCourse.css";
-import React from "react";
+import React, {useContext} from "react";
 import {CrossIco} from "../../../icons/IconsSelect";
 import {methods, urls} from "../../SPApi";
+import UserInfoContext from "../../../contexts/account/UserInfoContext";
 
 
-const EnrollCourse = (props) => {
+const EnrollCourse = () => {
+    const [refreshEnrolledCourses, setRefreshEnrolledCourses] = useContext(UserInfoContext).refreshEnrolledCourses
+    const [refreshUserInfo, setRefreshUserInfo] = useContext(UserInfoContext).refreshUserInfo
+    const [enrolledCourses] = useContext(UserInfoContext).enrolledCoursesOnly;
     let years = [];
     let currentYear = new Date().getFullYear();
     for (let i = currentYear - 10; i < currentYear + 10; i++) {
@@ -26,8 +30,8 @@ const EnrollCourse = (props) => {
             .then(data => {
                 console.log(data)
                 if (data) {
-                    props.states.setRefreshEnrolledCourses(!props.states.refreshEnrolledCourses)
-                    props.states.setRefreshUserInfo(!props.states.refreshUserInfo)
+                    setRefreshEnrolledCourses(!refreshEnrolledCourses)
+                    setRefreshUserInfo(!refreshUserInfo)
                 }
             }).catch(error => console.log(error))
     }
@@ -49,7 +53,8 @@ const EnrollCourse = (props) => {
             .then(data => {
                 console.log(data)
                 if (data) {
-                    props.states.setRefreshEnrolledCourses(true)
+                    setRefreshUserInfo(!refreshUserInfo)
+                    setRefreshEnrolledCourses(!refreshEnrolledCourses)
                 }
             }).catch(error => console.log(error))
     }
@@ -72,7 +77,7 @@ const EnrollCourse = (props) => {
                         </tr>
                         </thead>
                         <tbody>
-                        {props.states.enrolledCourses.map((item, i) => (
+                        {enrolledCourses.map((item, i) => (
                                 <tr id={`ec-row-${i}`} key={i}>
                                     <td id={`ec-course-${i}`}>{item.course}</td>
                                     <td id={`ec-semester-${i}`}>{item.semester}</td>

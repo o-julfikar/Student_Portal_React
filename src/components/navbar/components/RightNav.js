@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import user_photo from "../../../icons/userphoto_default.png"
 import more_button from "../../../icons/morebutton.svg"
 import {NavLink} from "react-router-dom";
 import AccountPopup from "./AccountPopup";
+import UserInfoContext from "../../../contexts/account/UserInfoContext";
 
 
-const RightNav = (props) => {
+const RightNav = () => {
+    const [userInfo] = useContext(UserInfoContext).userInfoOnly;
     const [open, setOpen] = useState(false);
     function close() {
         setTimeout(() => setOpen(false), 200);
@@ -16,15 +18,15 @@ const RightNav = (props) => {
             <ul>
                 <li className={"header-more-button" + (open? " open" : "")}>
                     <img src={more_button} alt={"More Button"} onClick={() => setOpen(!open)}/>
-                    { open && <AccountPopup close = {close} {...props} states = {{
-                        ...props.states,
-                    }}/> }
+                    {
+                        open && <AccountPopup close = {close} />
+                    }
                 </li>
                 <li>
-                    <NavLink to={`profile/${props.states.userInfo.bracu_id}`}>
+                    <NavLink to={`profile/${userInfo.bracu_id}`}>
                         <nav className={"user-header" + (open? " open" : "")}>
-                            <img src={props.states.userInfo.photo? props.states.userInfo.photo : user_photo} alt={"User profile"}/>
-                            <p>{props.states.userInfo.name}</p>
+                            <img src={userInfo.photo? userInfo.photo : user_photo} alt={"User profile"}/>
+                            <p>{userInfo.name}</p>
                         </nav>
                     </NavLink>
                 </li>

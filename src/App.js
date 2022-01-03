@@ -28,125 +28,13 @@ import StudySwapHistoryState from "./contexts/swap/StudySwapHistoryState";
 import NotificationState from "./contexts/notifications/NotificationState";
 import PostIdsContext from "./contexts/forum/PostIdsContext";
 import PostIdsState from "./contexts/forum/PostIdsState";
+import UserInfoState from "./contexts/account/UserInfoState";
 
 
 const section = [0, 0]
 
 function App() {
-    const [enrolledCourses, setEnrolledCourses] = useState([]);
-    const [refreshEnrolledCourses, setRefreshEnrolledCourses] = useState(true);
-    const [userInfo, setUserInfo] = useState([]);
-    const [profileId, setProfileId] = useState(0);
-    const [profileInfo, setProfileInfo] = useState([]);
-    const [refreshUserInfo, setRefreshUserInfo] = useState(true);
-    // const [posts, setPosts] = useState([initialStates.posts])
-    const [userPosts, setUserPosts] = useState([])
-    // const [refreshPost, setRefreshPost] = useState(true)
-    const navigate = useNavigate();
     const location = useLocation();
-
-    useEffect(() => {
-        fetch(urls.enrolled_courses, methods.get())
-            .then(r => r.json())
-            .then(data => {
-                if (data) {
-                    setEnrolledCourses(data)
-                } else {
-                    setEnrolledCourses([])
-                    // setRefreshEnrolledCourses(!refreshEnrolledCourses)
-                }
-            }).catch(error => console.log(error))
-        return () => {
-
-        }
-    }, [refreshEnrolledCourses])
-
-    useEffect(() => {
-        fetch(urls.profile_info, methods.get())
-            .then(r => r.json())
-            .then(data => {
-                if (data) {
-                    setUserInfo(data)
-                } else {
-                    setUserInfo([])
-                    // setRefreshProfileInfo(!refreshUserInfo)
-                }
-            }).catch(error => console.log(error))
-        return () => {
-
-        }
-    }, [refreshUserInfo])
-
-    useEffect(() => {
-        fetch(urls.profile_info + `${profileId}`, methods.get())
-            .then(r => r.json())
-            .then(data => {
-                console.log(data)
-                if (data) {
-                    setProfileInfo(data)
-                } else {
-                    setProfileInfo([])
-                }
-            }).catch(error => console.log(error))
-        return () => {
-
-        }
-    }, [refreshUserInfo, profileId])
-
-    // useEffect(() => {
-    //     fetch(urls.get_post, methods.get())
-    //         .then(r => r.json())
-    //         .then(data => {
-    //             if (data) {
-    //                 setPosts(data)
-    //             }
-    //         }).catch(error => console.log(error))
-    // }, [refreshPost, location])
-
-    useEffect(() => {
-        fetch(urls.get_post + `${profileId}`, methods.get())
-            .then(r => r.json())
-            .then(data => {
-                if (data) {
-                    setUserPosts(data)
-                }
-            }).catch(error => console.log(error))
-    }, [profileId])
-
-    function login() {
-        let login_data = {
-            bracu_id: document.getElementById('bracu-id').value,
-            password: document.getElementById('user-password').value,
-        }
-
-        fetch(urls.login, methods.post(login_data))
-            .then(r => r.json())
-            .then(data => {
-                if (data) {
-                    navigate("/")
-                } else {
-                    alert("Invalid login")
-                }
-            }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setRefreshUserInfo(!refreshUserInfo);
-            setRefreshEnrolledCourses(!refreshEnrolledCourses);
-        });
-    }
-
-    function logout() {
-        fetch(urls.logout, methods.get())
-            .then(r => r.json())
-            .catch(error => {
-                console.log(error)
-            }).finally(() => {
-            setRefreshUserInfo(!refreshUserInfo);
-            setRefreshEnrolledCourses(!refreshEnrolledCourses);
-            cookies.setCookie('spsid', null, 0);
-            navigate("/")
-        });
-    }
 
     useEffect(() => {
         document.getElementById("SP-App").scrollTo(0, 0)
@@ -161,116 +49,101 @@ function App() {
     }
 
     return (
-        <div className={"App"} id={"SP-App"}>
-            <Nav states={{
-                userInfo: userInfo,
-            }} logout={logout}/>
-            <div className="container">
-                <CourseState>
-                    <CourseSectionState>
-                        <PostIdsState>
-                            <OffersState>
-                                <PrefersState>
-                                    <SlotState>
-                                        <TeachState>
-                                            <LearnState>
-                                                <SectionSwapCardsState>
-                                                    <SectionSwapHistoryState>
-                                                        <StudySwapCardsState>
-                                                            <StudySwapHistoryState>
-                                                                <NotificationState>
-                                                                    <Routes>
-                                                                        <Route exact path={""}
-                                                                               element={<Navigate to={"forum"}/>}/>
-                                                                        <Route exact path="/forum/*" element={
-                                                                            <RequireAuth>
-                                                                                <Forum customNav={customNav}
-                                                                                       section={section}
-                                                                                       states={{
-                                                                                           enrolledCourses: enrolledCourses,
-                                                                                           // posts: posts,
-                                                                                           refreshEnrolledCourses: refreshEnrolledCourses,
-                                                                                           setEnrolledCourses: setEnrolledCourses,
-                                                                                           setRefreshEnrolledCourses: setRefreshEnrolledCourses,
-                                                                                           // setRefreshPost: setRefreshPost,
-                                                                                       }}
-                                                                                       functions={{
-                                                                                           // create_comment: create_comment
-                                                                                       }}/>
-                                                                            </RequireAuth>
-                                                                        }/>
-                                                                        <Route path="/review/*" element={
-                                                                            <RequireAuth>
-                                                                                <Review customNav={customNav}
+        <UserInfoState>
+            <div className={"App"} id={"SP-App"}>
+                <Nav/>
+                <div className="container">
+                    <CourseState>
+                        <CourseSectionState>
+                            <PostIdsState>
+                                <OffersState>
+                                    <PrefersState>
+                                        <SlotState>
+                                            <TeachState>
+                                                <LearnState>
+                                                    <SectionSwapCardsState>
+                                                        <SectionSwapHistoryState>
+                                                            <StudySwapCardsState>
+                                                                <StudySwapHistoryState>
+                                                                    <NotificationState>
+                                                                        <Routes>
+                                                                            <Route exact path={""}
+                                                                                   element={<Navigate to={"forum"}/>}/>
+                                                                            <Route exact path="/forum/*" element={
+                                                                                <RequireAuth>
+                                                                                    <Forum customNav={customNav}
+                                                                                           section={section}
+                                                                                           />
+                                                                                </RequireAuth>
+                                                                            }/>
+                                                                            <Route path="/review/*" element={
+                                                                                <RequireAuth>
+                                                                                    <Review customNav={customNav}
+                                                                                            section={section}/>
+                                                                                </RequireAuth>
+                                                                            }/>
+                                                                            <Route path="/swap/*" element={
+                                                                                <RequireAuth>
+                                                                                    <Swap customNav={customNav}
+                                                                                          section={section}/>
+                                                                                </RequireAuth>
+                                                                            }/>
+                                                                            <Route exact path="/notifications" element={
+                                                                                <RequireAuth>
+                                                                                    <Notifications
+                                                                                        setSection={customNav}
                                                                                         section={section}/>
-                                                                            </RequireAuth>
-                                                                        }/>
-                                                                        <Route path="/swap/*" element={
-                                                                            <RequireAuth>
-                                                                                <Swap customNav={customNav}
-                                                                                      section={section}/>
-                                                                            </RequireAuth>
-                                                                        }/>
-                                                                        <Route exact path="/notifications" element={
-                                                                            <RequireAuth>
-                                                                                <Notifications setSection={customNav}
-                                                                                               section={section}/>
-                                                                            </RequireAuth>
-                                                                        }/>
-                                                                        <Route path="/profile/*" element={
-                                                                            <RequireAuth>
-                                                                                <Profile
-                                                                                    states={{
-                                                                                        setSection: customNav,
-                                                                                        section: section,
-                                                                                        userPosts: userPosts,
-                                                                                        enrolledCourses: enrolledCourses,
-                                                                                        setEnrolledCourses: setEnrolledCourses,
-                                                                                        refreshEnrolledCourses: refreshEnrolledCourses,
-                                                                                        setRefreshEnrolledCourses: setRefreshEnrolledCourses,
-                                                                                        userInfo: userInfo,
-                                                                                        profileInfo: profileInfo,
-                                                                                        setUserInfo: setUserInfo,
-                                                                                        setProfileId: setProfileId,
-                                                                                        refreshUserInfo: refreshUserInfo,
-                                                                                        setRefreshUserInfo: setRefreshUserInfo,
-                                                                                    }}
-                                                                                    functions={{
-                                                                                        // create_comment: create_comment
-                                                                                    }}
-                                                                                />
-                                                                            </RequireAuth>
-                                                                        }/>
-                                                                        <Route path={"/admin/*"} element={
-                                                                            <RequireAuth>
-                                                                                <AdminPanel
+                                                                                </RequireAuth>
+                                                                            }/>
+                                                                            <Route path="/profile/*" element={
+                                                                                <RequireAuth>
+                                                                                    <Profile
+                                                                                        states={{
+                                                                                            setSection: customNav,
+                                                                                            section: section,
+                                                                                        }}
+                                                                                        functions={{
+                                                                                            // create_comment: create_comment
+                                                                                        }}
+                                                                                    />
+                                                                                </RequireAuth>
+                                                                            }/>
+                                                                            <Route path={"/admin/*"} element={
+                                                                                <RequireAuth>
+                                                                                    <AdminPanel
 
-                                                                                />
-                                                                            </RequireAuth>
-                                                                        }/>
-                                                                        <Route path="/login/*"
-                                                                               element={<Login login={login}
-                                                                                               states={{}}/>}/>
-                                                                        <Route path={"*"}
-                                                                               element={<h1>404: Page not found</h1>}/>
-                                                                    </Routes>
-                                                                </NotificationState>
-                                                            </StudySwapHistoryState>
-                                                        </StudySwapCardsState>
-                                                    </SectionSwapHistoryState>
-                                                </SectionSwapCardsState>
-                                            </LearnState>
-                                        </TeachState>
-                                    </SlotState>
-                                </PrefersState>
-                            </OffersState>
-                        </PostIdsState>
-                    </CourseSectionState>
+                                                                                    />
+                                                                                </RequireAuth>
+                                                                            }/>
+                                                                            <Route path="/login/*"
+                                                                                   element={
+                                                                                       <Login />
+                                                                                   }
+                                                                            />
+                                                                            <Route path={"*"}
+                                                                                   element={<h1>404: Page not
+                                                                                       found</h1>
+                                                                                   }
+                                                                            />
+                                                                        </Routes>
+                                                                    </NotificationState>
+                                                                </StudySwapHistoryState>
+                                                            </StudySwapCardsState>
+                                                        </SectionSwapHistoryState>
+                                                    </SectionSwapCardsState>
+                                                </LearnState>
+                                            </TeachState>
+                                        </SlotState>
+                                    </PrefersState>
+                                </OffersState>
+                            </PostIdsState>
+                        </CourseSectionState>
 
-                </CourseState>
+                    </CourseState>
 
+                </div>
             </div>
-        </div>
+        </UserInfoState>
     );
 }
 

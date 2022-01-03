@@ -2,9 +2,11 @@ import React, {useContext, useState} from "react";
 import "../../../styles/forum/NewPostCard.css"
 import {methods, urls} from "../../SPApi";
 import PostIdsContext from "../../../contexts/forum/PostIdsContext";
+import UserInfoContext from "../../../contexts/account/UserInfoContext";
 
 
-const NewPostCard = (props) => {
+const NewPostCard = () => {
+    const [enrolledCourses] = useContext(UserInfoContext).enrolledCoursesOnly;
     const [postValue, setPostValue] = useState("")
     const [courseSemester, setCourseSemester] = useState("")
     const [refreshPostIds, setRefreshPostIds] = useContext(PostIdsContext).refreshPostIds;
@@ -33,22 +35,6 @@ const NewPostCard = (props) => {
                     e.target.blur();
                 }
             }).catch(error => console.log(error))
-
-        // props.functions.create_post(post_data, setPostValue, setCourseSemester, e.target);
-    }
-
-    function create_post_final(post_data, setPostValue, setCourseSemester, button) {
-        // fetch(urls.create_post, methods.post(post_data))
-        //     .then(r => r.json())
-        //     .then(data => {
-        //         if (data) {
-        //             // setRefreshPost(!refreshPost);
-        //             setRefreshPostIds(!refreshPostIds);
-        //             setPostValue("");
-        //             setCourseSemester("");
-        //             button.blur();
-        //         }
-        //     }).catch(error => console.log(error))
     }
 
     return (
@@ -61,7 +47,7 @@ const NewPostCard = (props) => {
                         onChange={(e) => setCourseSemester(e.target.value)}>
                     <option>Select a course</option>
                     {
-                        props.states.enrolledCourses.slice().reverse().map((enroll, i) => (
+                        enrolledCourses.slice().reverse().map((enroll, i) => (
                             <option key={i}>
                                 {enroll.course} | {enroll.semester}
                             </option>

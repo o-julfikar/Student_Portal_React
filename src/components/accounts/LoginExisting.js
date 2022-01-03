@@ -1,9 +1,36 @@
 import "../../styles/accounts/LoginExisting.css"
-import React from "react";
-import {useLocation} from "react-router";
+import React, {useContext} from "react";
+import {useLocation, useNavigate} from "react-router";
+import UserInfoContext from "../../contexts/account/UserInfoContext";
+import {methods, urls} from "../SPApi";
 
-const LoginExisting = (props) => {
+const LoginExisting = () => {
     const { state } = useLocation();
+    const navigate = useNavigate();
+    const [refreshEnrolledCourses, setRefreshEnrolledCourses] = useContext(UserInfoContext).refreshEnrolledCourses
+    const [refreshUserInfo, setRefreshUserInfo] = useContext(UserInfoContext).refreshUserInfo
+
+    function login() {
+        let login_data = {
+            bracu_id: document.getElementById('bracu-id').value,
+            password: document.getElementById('user-password').value,
+        }
+
+        fetch(urls.login, methods.post(login_data))
+            .then(r => r.json())
+            .then(data => {
+                if (data) {
+                    navigate("/")
+                } else {
+                    alert("Invalid login")
+                }
+            }).catch(error => {
+            console.log(error)
+        }).finally(() => {
+            setRefreshUserInfo(!refreshUserInfo);
+            setRefreshEnrolledCourses(!refreshEnrolledCourses);
+        });
+    }
 
     return (
         <div className="login-existing">
@@ -15,7 +42,7 @@ const LoginExisting = (props) => {
                    type={"password"}
                    placeholder={"Password"}
                    defaultValue={state == null || state.password == null? "" : state.password}/>
-            <button className={"submit"} type={"submit"} onClick={props.login}>Sign In</button>
+            <button className={"submit"} type={"submit"} onClick={login}>Sign In</button>
         </div>
     )
 }

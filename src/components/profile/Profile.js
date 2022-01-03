@@ -1,34 +1,33 @@
 import "../../styles/profile/Profile.css"
-import React from "react";
+import React, {useContext} from "react";
 import ProfileMain from "./componenets/ProfileMain";
 import {Navigate, Route, Routes} from "react-router";
 import EnrollCourse from "./componenets/EnrollCourse";
+import UserInfoContext from "../../contexts/account/UserInfoContext";
 
 
 const Profile = (props) => {
+    const [setProfileId] = useContext(UserInfoContext).setProfileIdOnly;
+    const [userInfo] = useContext(UserInfoContext).userInfoOnly;
+    props.states.setSection(4);
     return (
         <div className={"transition-helper-" + (props.states.section[0])}>
             <div className="profile">
                 <div className="content-container">
                     <Routes>
                         {(() => {
-                            if (props.states.userInfo.bracu_id) {
-                                props.states.setProfileId(props.states.userInfo.bracu_id)
+                            if (userInfo.bracu_id) {
+                                setProfileId(userInfo.bracu_id)
                                 return (
                                     <Route path={"/"} element={
-                                        <Navigate to={props.states.userInfo.bracu_id.toString()}/>
+                                        <Navigate to={userInfo.bracu_id.toString()}/>
                                     }/>
                                 )
                             }
                         })()}
                         <Route path={"*"} element={
                             <ProfileMain
-                                states={{
-                                    ...props.states,
-                                }}
-                                functions={{
-                                    ...props.functions,
-                                }}
+
                             />}
                         />
                     </Routes>
@@ -36,12 +35,10 @@ const Profile = (props) => {
                 <div className="left-sidebar">
                     <Routes>
                         {(() => {
-                            if (props.states.userInfo.bracu_id) {
+                            if (userInfo.bracu_id) {
                                 return (
-                                    <Route path={`/${props.states.userInfo.bracu_id}/enroll-course`} element={
-                                        <EnrollCourse states={{
-                                            ...props.states,
-                                        }}/>}
+                                    <Route path={`/${userInfo.bracu_id}/enroll-course`} element={
+                                        <EnrollCourse />}
                                     />
                                 )
                             }

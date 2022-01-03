@@ -1,11 +1,20 @@
 import "../../styles/admin/AdminPanel.css"
-import React from "react";
+import React, {useContext} from "react";
 import {Route, Routes} from "react-router";
 import AddCourseSection from "./AddCourseSection";
 import {NavLink} from "react-router-dom";
+import UserInfoContext from "../../contexts/account/UserInfoContext";
 
 
 export const AdminPanel = () => {
+    const [userInfo] = useContext(UserInfoContext).userInfoOnly;
+
+    if (userInfo.role !== "Admin") {
+        return (
+            <h2>You are not authorized bro!</h2>
+        )
+    }
+
     return (
         <div className="admin-panel">
             <div className="left-sidebar">

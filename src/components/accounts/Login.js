@@ -7,7 +7,7 @@ import LoginExisting from "./LoginExisting";
 import Register from "./Register";
 
 
-const Login = (props) => {
+const Login = () => {
     return (
         <div className="login">
             <div className="login-logo">
@@ -18,7 +18,7 @@ const Login = (props) => {
                 <Routes>
                     <Route exact path="" element={<Navigate replace to={"identifier"}/>}/>
                     <Route exact path="identifier" element={<LoginIdentifier/>}/>
-                    <Route exact path="existing" element={<LoginExisting {...props}/>}/>
+                    <Route exact path="existing" element={<LoginExisting/>}/>
                     <Route exact path="register" element={<Register/>}/>
                 </Routes>
             </div>
