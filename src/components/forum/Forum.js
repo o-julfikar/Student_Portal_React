@@ -39,13 +39,13 @@ const Forum = (props) => {
                 <div className="left-sidebar">
                     <div className="boi-poka">
                         <p>Enjoy reading books?</p>
-                        <a href={"https://boipoka-web-reactjs.herokuapp.com/"} target={"_blank"}>
+                        <a href={"https://boipoka-web-reactjs.herokuapp.com/"} target={"_blank"} rel="noreferrer">
                             <img className={"boi-poka-logo"} src={icons.boi_poka} alt={"Boi Poka"}/>
                         </a>
                     </div>
                     <div className="idea-connect">
                         <p>Have an Idea?</p>
-                        <a href={"https://github.com/Btocode/IdeaConnect-web"} target={"_blank"}>
+                        <a href={"https://github.com/Btocode/IdeaConnect-web"} target={"_blank"} rel="noreferrer">
                             <h3>IdeaConnect</h3>
                         </a>
                     </div>

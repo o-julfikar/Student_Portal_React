@@ -1,6 +1,6 @@
 import './App.css';
 import "./index.css"
-import {Navigate, Route, Routes, useLocation, useNavigate} from "react-router";
+import {Navigate, Route, Routes, useLocation} from "react-router";
 import Nav from "./components/navbar/Nav";
 import Forum from "./components/forum/Forum";
 import Notifications from "./components/notifications/Notifications";
@@ -9,10 +9,7 @@ import Swap from "./components/swap/Swap";
 import Login from "./components/accounts/Login";
 import RequireAuth from "./components/accounts/RequireAuth";
 import Profile from "./components/profile/Profile";
-import {methods, urls} from "./components/SPApi";
-import {useContext, useEffect, useState} from "react";
-import {SPCookies as cookies} from "./components/SPCookies";
-import {initialStates} from "./components/InitialStates"
+import {useEffect} from "react";
 import {AdminPanel} from "./components/admin/AdminPanel";
 import CourseState from "./contexts/swap/CourseState"
 import CourseSectionState from "./contexts/swap/CourseSectionState";
@@ -26,7 +23,6 @@ import StudySwapCardsState from "./contexts/swap/StudySwapCardsState";
 import SectionSwapHistoryState from "./contexts/swap/SectionSwapHistoryState";
 import StudySwapHistoryState from "./contexts/swap/StudySwapHistoryState";
 import NotificationState from "./contexts/notifications/NotificationState";
-import PostIdsContext from "./contexts/forum/PostIdsContext";
 import PostIdsState from "./contexts/forum/PostIdsState";
 import UserInfoState from "./contexts/account/UserInfoState";
 
@@ -138,9 +134,7 @@ function App() {
                                 </OffersState>
                             </PostIdsState>
                         </CourseSectionState>
-
                     </CourseState>
-
                 </div>
             </div>
         </UserInfoState>

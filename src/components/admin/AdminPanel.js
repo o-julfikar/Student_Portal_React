@@ -11,7 +11,7 @@ export const AdminPanel = () => {
 
     if (userInfo.role !== "Admin") {
         return (
-            <h2>You are not authorized bro!</h2>
+            <h2 style={{textAlign: "center"}}>You are not authorized!</h2>
         )
     }
 
