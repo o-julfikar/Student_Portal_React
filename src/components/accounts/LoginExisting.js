@@ -3,12 +3,17 @@ import React, {useContext} from "react";
 import {useLocation, useNavigate} from "react-router";
 import UserInfoContext from "../../contexts/account/UserInfoContext";
 import {methods, urls} from "../SPApi";
+import SectionSwapCardsContext from "../../contexts/swap/SectionSwapCardsContext";
+import StudySwapCardsState from "../../contexts/swap/StudySwapCardsState";
+import StudySwapCardsContext from "../../contexts/swap/StudySwapCardsContext";
 
 const LoginExisting = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
     const [refreshEnrolledCourses, setRefreshEnrolledCourses] = useContext(UserInfoContext).refreshEnrolledCourses
     const [refreshUserInfo, setRefreshUserInfo] = useContext(UserInfoContext).refreshUserInfo
+    const [setSelectedSecSwapRequest] = useContext(SectionSwapCardsContext).setSelectedSecSwapRequestOnly
+    const [setSelectedStudySwapRequest] = useContext(StudySwapCardsContext).setSelectedStudySwapRequestOnly
 
     function login() {
         let login_data = {
@@ -29,6 +34,8 @@ const LoginExisting = () => {
         }).finally(() => {
             setRefreshUserInfo(!refreshUserInfo);
             setRefreshEnrolledCourses(!refreshEnrolledCourses);
+            setSelectedSecSwapRequest(-1);
+            setSelectedStudySwapRequest(-1);
         });
     }
 

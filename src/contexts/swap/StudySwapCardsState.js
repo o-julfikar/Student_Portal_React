@@ -45,6 +45,8 @@ const StudySwapCardsState = (props) => {
                     }).catch(errors => {
                     console.log(errors);
                 })
+            } else {
+                setStudySwapCards([])
             }
         }
     }, [refreshStudySwapCards, selectedStudySwapRequest, location])

@@ -40,11 +40,13 @@ const SectionSwapCardsState = (props) => {
                         if (data) {
                             setSecSwapCards(data);
                         } else {
-                            setSecSwapCards(null)
+                            setSecSwapCards([])
                         }
                     }).catch(errors => {
                     console.log(errors);
                 })
+            } else {
+                setSecSwapCards([])
             }
         }
     }, [selectedSecSwapRequest, location, refreshSecSwapCards])
