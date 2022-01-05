@@ -5,7 +5,7 @@ import {useLocation, useNavigate} from "react-router";
 import {methods, urls} from "../SPApi";
 
 
-const Register = (props) => {
+const Register = () => {
     const {state} = useLocation();
     const [bracuId, setBracuId] = useState(state.bracu_id)
     const navigate = useNavigate();
@@ -34,8 +34,9 @@ const Register = (props) => {
             document.getElementById("txt-password").value = ""
             document.getElementById("txt-confirm-password").value = ""
             document.getElementById("txt-full-name").value = ""
-            document.getElementById("date-birthdate").value = ""
-            document.getElementById("tel-phone").value = ""
+            // document.getElementById("date-birthdate").value = ""
+            // document.getElementById("tel-phone").value = ""
+            document.getElementById("photo-link").value = ""
             document.getElementById("img-user-photo").value = ""
             document.getElementById("txt-department").value = ""
             document.getElementById("txt-semester").value = ""
@@ -66,9 +67,10 @@ const Register = (props) => {
             },
             user_detail: {
                 fullname: document.getElementById("txt-full-name").value,
-                birthdate: document.getElementById("date-birthdate").value,
-                phone: document.getElementById("tel-phone").value,
-                photo: document.getElementById("img-user-photo").value,
+                // birthdate: document.getElementById("date-birthdate").value,
+                // phone: document.getElementById("tel-phone").value,
+                // photo: document.getElementById("img-user-photo").value,
+                photo: document.getElementById("photo-link").value,
                 program: document.getElementById("txt-department").value,
                 semester: document.getElementById("txt-semester").value,
             }
@@ -137,8 +139,9 @@ const Register = (props) => {
                             <input id={"txt-email"} type="email" placeholder={"Email"}/>
                             <p>@g.bracu.ac.bd</p>
                         </label>
-                        <input id={"date-birthdate"} type={"date"} placeholder={"Birthdate"}/>
-                        <input id={'tel-phone'} type="tel" placeholder={"Phone Number"}/>
+                        {/*<input id={"date-birthdate"} type={"date"} placeholder={"Birthdate"}/>*/}
+                        {/*<input id={'tel-phone'} type="tel" placeholder={"Phone Number"}/>*/}
+                        <input id={'photo-link'} type="urls" placeholder={"Profile Picture Link"}/>
                     </div>
                     <div className="mid-right-mid">
                         <input id={"txt-department"} type="text" placeholder={"Department Program"}/>

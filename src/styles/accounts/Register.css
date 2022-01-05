@@ -96,6 +96,10 @@
     min-width: 150px;
 }
 
+.register .mid .mid-right .mid-right-top input#photo-link {
+    min-width: 300px;
+}
+
 .register .mid .mid-right .mid-right-top input[type="tel"] {
     width: 150px;
 }

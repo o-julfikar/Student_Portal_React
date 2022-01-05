@@ -10,10 +10,6 @@ import Register from "./Register";
 const Login = () => {
     return (
         <div className="login">
-            <div className="login-logo">
-                <img src={icons.logo} alt="Logo"/>
-                <h1>Student Portal</h1>
-            </div>
             <div className="login-box">
                 <Routes>
                     <Route exact path="" element={<Navigate replace to={"identifier"}/>}/>
@@ -21,6 +17,10 @@ const Login = () => {
                     <Route exact path="existing" element={<LoginExisting/>}/>
                     <Route exact path="register" element={<Register/>}/>
                 </Routes>
+            </div>
+            <div className="login-logo">
+                <img src={icons.logo} alt="Logo"/>
+                <h1>Student Portal</h1>
             </div>
         </div>
     )
