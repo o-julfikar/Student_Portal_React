@@ -88,11 +88,11 @@
     cursor: pointer;
 }
 
-.review .detailed-instructor-sidebar .table-container .acs-crow.active {
+.review .detailed-instructor-sidebar .table-container .row-isb.active {
     background: rgba(15, 93, 136, 0.37);
 }
 
-.review .detailed-instructor-sidebar .table-container .acs-crow.active:hover {
+.review .detailed-instructor-sidebar .table-container .row-isb.active:hover {
     background: #0F5D8834
 }
 

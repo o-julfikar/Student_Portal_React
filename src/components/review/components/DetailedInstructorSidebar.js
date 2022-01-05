@@ -1,5 +1,5 @@
 import "../../../styles/review/DetailedInstructorSidebar.css";
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import icons from "../../../icons/Icons";
 import {Link} from "react-router-dom";
 import {methods, urls} from "../../SPApi";
@@ -25,7 +25,6 @@ const DetailedInstructorSidebar = () => {
         instructor_total_reviews: null
     })
     const [reviewedCourses, setReviewedCourses] = useState([]);
-
     const [activeReviewedCourses, setActiveReviewedCourses] = useState([])
 
     useEffect(() => {
@@ -57,6 +56,19 @@ const DetailedInstructorSidebar = () => {
             console.log(errors)
         })
     }, [instructor_initial, location])
+
+    function addRemoveCourse(courseCode) {
+        if (activeReviewedCourses.includes(courseCode)) {
+            for (let i = 0; i < activeReviewedCourses.length; i++) {
+                if (activeReviewedCourses[i] === courseCode) {
+                    activeReviewedCourses.splice(i, 1);
+                }
+            }
+            setActiveReviewedCourses([...activeReviewedCourses])
+        } else {
+            setActiveReviewedCourses(prev => [...prev, courseCode])
+        }
+    }
 
     return (
         <div className="detailed-instructor-sidebar">
@@ -104,6 +116,7 @@ const DetailedInstructorSidebar = () => {
                                                 id={'tr-isb-' + i}
                                                 className={'row-isb' + (activeReviewedCourses.includes(item) ?
                                                     " active" : "")}
+                                                onClick={() => addRemoveCourse(item)}
                                             >
                                                 <td id={"td-isb-course-" + i}>{item}</td>
                                             </tr>

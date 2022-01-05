@@ -45,7 +45,7 @@ const Forum = (props) => {
                     </div>
                     <div className="idea-connect">
                         <p>Have an Idea?</p>
-                        <a href={"https://github.com/Btocode/IdeaConnect-web"} target={"_blank"} rel="noreferrer">
+                        <a href={"https://ideaconnect-web-391.btocode.repl.co/"} target={"_blank"} rel="noreferrer">
                             <h3>IdeaConnect</h3>
                         </a>
                     </div>

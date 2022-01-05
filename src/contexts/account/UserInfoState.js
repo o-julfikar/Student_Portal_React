@@ -32,7 +32,7 @@ const UserInfoState = (props) => {
         fetch(urls.profile_info + `${profileId}`, methods.get())
             .then(r => r.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data) {
                     setProfileInfo(data)
                 } else {

@@ -128,7 +128,7 @@ const Register = () => {
             <div className="mid">
                 <div className="mid-left">
                     <div className="reg-photo">
-                        <img id={"img-user-photo"} src={icons.user_photo} alt="Student Photo"/>
+                        <img id={"img-user-photo"} src={icons.user_photo} alt="Student"/>
                         <p id={"txt-remove"}>Remove</p>
                     </div>
                     <button className={"submit"} type={"button"}>Upload</button>

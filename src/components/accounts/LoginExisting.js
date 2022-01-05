@@ -4,7 +4,6 @@ import {useLocation, useNavigate} from "react-router";
 import UserInfoContext from "../../contexts/account/UserInfoContext";
 import {methods, urls} from "../SPApi";
 import SectionSwapCardsContext from "../../contexts/swap/SectionSwapCardsContext";
-import StudySwapCardsState from "../../contexts/swap/StudySwapCardsState";
 import StudySwapCardsContext from "../../contexts/swap/StudySwapCardsContext";
 
 const LoginExisting = () => {

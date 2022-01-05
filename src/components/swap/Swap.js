@@ -1,7 +1,7 @@
 import "../../styles/swap/Swap.css"
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import {NavLink} from "react-router-dom";
-import {Navigate, Route, Routes, useLocation} from "react-router";
+import {Navigate, Route, Routes} from "react-router";
 import RequireAuth from "../accounts/RequireAuth";
 import SectionSwap from "./components/SectionSwap";
 import StudySwap from "./components/StudySwap";
@@ -18,8 +18,6 @@ import SlotContext from "../../contexts/swap/SlotContext";
 
 
 const Swap = (props) => {
-    const location = useLocation();
-
     const [prefers] = useContext(PrefersContext).prefers;
     const [learns] = useContext(LearnContext).learns;
     const [selectedSecSwapRequest, setSelectedSecSwapRequest] = useContext(SectionSwapCardsContext).selectedSecSwapRequest

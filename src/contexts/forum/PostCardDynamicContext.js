@@ -1,9 +1,5 @@
 import {createContext} from "react";
 
-const PostCardDynamicContext = createContext({
-    postCardDynamicOnly: [],
-    postCardId: [],
-    refreshPost: [],
-});
+const PostCardDynamicContext = createContext({});
 
 export default PostCardDynamicContext;

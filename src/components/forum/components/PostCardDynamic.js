@@ -14,7 +14,7 @@ const PostCardDynamic = (props) => {
     const { post_id } = useParams();
 
     const [postCardDynamic] = useContext(PostCardDynamicContext).postCardDynamicOnly;
-    const [postCardId, setPostCardId] = useContext(PostCardDynamicContext).postCardId;
+    const [setPostCardId] = useContext(PostCardDynamicContext).setPostCardIdOnly;
     const [refreshPost, setRefreshPost] = useContext(PostCardDynamicContext).refreshPost;
 
     setPostCardId(parseInt(post_id));
@@ -41,7 +41,7 @@ const PostCardDynamic = (props) => {
                     setComments(data)
                 }
             })
-    }, [props.post_id, refreshComments])
+    }, [post_id, refreshComments])
 
     return (
         <div className={"post-card"} id={"post_card-" + postCardDynamic.post_id}>

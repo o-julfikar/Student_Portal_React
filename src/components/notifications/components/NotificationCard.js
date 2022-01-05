@@ -19,19 +19,19 @@ const NotificationCard = ({data}) => {
         STUDY_SWAP: "study_swap",
     }
 
-    const notiAction = {
-        WRITE: "write",
-        REACT: "react",
-        MENTION: "mention",
-        EDIT: "edit",
-        DELETE: "delete",
-        REQUEST: "request",
-        PENDING: "pending",
-        ACCEPT: "accept",
-        REJECT: "reject",
-        COMPLETE: "complete",
-        CANCEL: "cancel",
-    }
+    // const notiAction = {
+    //     WRITE: "write",
+    //     REACT: "react",
+    //     MENTION: "mention",
+    //     EDIT: "edit",
+    //     DELETE: "delete",
+    //     REQUEST: "request",
+    //     PENDING: "pending",
+    //     ACCEPT: "accept",
+    //     REJECT: "reject",
+    //     COMPLETE: "complete",
+    //     CANCEL: "cancel",
+    // }
 
     function notiCardOnClick(e) {
         let [model] = data.noti_type.split(" ", 1);

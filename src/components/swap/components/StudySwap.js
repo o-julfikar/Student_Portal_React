@@ -8,13 +8,11 @@ import {CrossIco} from "../../../icons/IconsSelect";
 import {methods, urls} from "../../SPApi";
 import CourseContext from "../../../contexts/swap/CourseContext";
 import StudySwapCardsContext from "../../../contexts/swap/StudySwapCardsContext";
-import {Link, Route, Routes} from "react-router-dom";
+import {Link} from "react-router-dom";
 import StudySwapHistoryContext from "../../../contexts/swap/StudySwapHistoryContext";
-import {useLocation} from "react-router";
 
 
 const StudySwap = () => {
-    const location = useLocation();
     const [teaches] = useContext(TeachContext).teaches;
     const [refreshTeaches, setRefreshTeaches] = useContext(TeachContext).refreshTeaches;
     const [learns] = useContext(LearnContext).learns;
@@ -24,7 +22,7 @@ const StudySwap = () => {
     const [course] = useContext(CourseContext).course;
     const [studySwapCards] = useContext(StudySwapCardsContext).studySwapCards;
 
-    const [selectedStudySwapRequest, setSelectedStudySwapRequest] = useContext(StudySwapCardsContext).selectedStudySwapRequest
+    const [selectedStudySwapRequest] = useContext(StudySwapCardsContext).selectedStudySwapRequestOnly
     const [refreshStudySwapCards, setRefreshStudySwapCards] = useContext(StudySwapCardsContext).refreshStudySwapCards
     const [refreshStudySwapHistory, setRefreshStudySwapHistory] = useContext(StudySwapHistoryContext).refreshStudySwapHistory
 

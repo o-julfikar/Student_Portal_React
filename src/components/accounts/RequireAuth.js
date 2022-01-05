@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import {methods, urls} from "../SPApi";
-import {Navigate, useLocation} from "react-router";
+import {Navigate} from "react-router";
 
 function RequireAuth({children}) {
-    const location = useLocation();
     const [auth, setAuth] = useState(null);
 
     fetch(urls.auth, methods.get())

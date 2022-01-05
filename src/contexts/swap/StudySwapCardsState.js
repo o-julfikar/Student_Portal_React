@@ -55,8 +55,8 @@ const StudySwapCardsState = (props) => {
         <StudySwapCardsContext.Provider value={{
             studySwapCards: [studySwapCards],
             refreshStudySwapCards: [refreshStudySwapCards, setRefreshStudySwapCards],
-            selectedStudySwapRequestOnly: [selectedStudySwapRequest],
             selectedStudySwapRequest: [selectedStudySwapRequest, setSelectedStudySwapRequest],
+            selectedStudySwapRequestOnly: [selectedStudySwapRequest],
             setSelectedStudySwapRequestOnly: [setSelectedStudySwapRequest],
         }}>
             {props.children}
