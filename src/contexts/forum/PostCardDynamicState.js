@@ -38,8 +38,12 @@ const PostCardDynamicState = (props) => {
                 .then(data => {
                     if (data) {
                         setPostCardDynamic(data)
+                    } else {
+                        setPostCardDynamic(initialDynamicPostCard)
                     }
-                })
+                }).catch(errors => {
+                console.log(errors)
+            })
         } else {
             setPostCardDynamic(initialDynamicPostCard)
         }

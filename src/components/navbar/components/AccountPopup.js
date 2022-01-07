@@ -29,10 +29,11 @@ const AccountPopup = (props) => {
 
     return (
         // <div className="account-popup">
-        <div className="account-popup" onBlur={() => props.close()}>
+        <div className="account-popup"
+             onBlur={props.close}>
             <img src={userInfo.photo? userInfo.photo : icons.user_photo} alt="User"/>
             <Link to = {`profile/${userInfo.bracu_id}`}>
-                <p className="ap-user-name" autoFocus={true}>
+                <p className="ap-user-name">
                     {userInfo.name}
                 </p>
             </Link>

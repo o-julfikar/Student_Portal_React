@@ -34,6 +34,7 @@ const Notifications = (props) => {
                                                                         return (
                                                                             item.noti_group_data.map((noti_card, j) => (
                                                                                 <NotificationCard
+                                                                                    key={i}
                                                                                     data={{
                                                                                         notification_id: noti_card.notification_id,
                                                                                         sender_bracu_id: noti_card.sender_bracu_id,

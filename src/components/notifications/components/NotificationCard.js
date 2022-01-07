@@ -33,7 +33,7 @@ const NotificationCard = ({data}) => {
     //     CANCEL: "cancel",
     // }
 
-    function notiCardOnClick(e) {
+    function notiCardOnClick() {
         let [model] = data.noti_type.split(" ", 1);
         if (model === notiModel.SECTION_SWAP) {
             setSelectedSecSwapRequest(data.sec_swap_request);
